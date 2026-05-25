@@ -1,0 +1,98 @@
+extends: spectral:oas
+documentationUrl: https://github.com/api-evangelist/enable-banking
+rules:
+  enable-banking-info-title-required:
+    description: Info object must have a title.
+    given: $.info
+    severity: error
+    then:
+      field: title
+      function: truthy
+
+  enable-banking-info-version-required:
+    description: Info object must have a version.
+    given: $.info
+    severity: error
+    then:
+      field: version
+      function: truthy
+
+  enable-banking-servers-must-include-production:
+    description: Enable Banking specs should advertise https://api.enablebanking.com as the primary server.
+    given: $.servers
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              url:
+                const: https://api.enablebanking.com
+
+  enable-banking-bearer-security-required:
+    description: Enable Banking uses bearer JWT security; all operations should inherit bearerAuth.
+    given: $
+    severity: error
+    then:
+      field: security
+      function: truthy
+
+  enable-banking-operation-id-snake-case:
+    description: Operation IDs in Enable Banking specs follow snake_case_with_path suffix.
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[a-z][a-z0-9_]*$
+
+  enable-banking-operation-summary-required:
+    description: Every operation must have a summary.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then:
+      field: summary
+      function: truthy
+
+  enable-banking-operation-summary-title-case:
+    description: Operation summaries should be in Title Case.
+    given: $.paths[*][get,post,put,patch,delete].summary
+    severity: hint
+    then:
+      function: pattern
+      functionOptions:
+        match: ^([A-Z][a-z0-9]*)(\s+([A-Z][a-z0-9]*|of|for|in|to|by|the|a|an|with|and|or))*$
+
+  enable-banking-tag-allowed:
+    description: Operations should be tagged with one of the four canonical Enable Banking tags.
+    given: $.paths[*][get,post,put,patch,delete].tags[*]
+    severity: warn
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - User sessions
+          - Accounts data
+          - Payments
+          - Misc
+
+  enable-banking-no-trailing-slash:
+    description: Enable Banking paths do not use trailing slashes.
+    given: $.paths
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: /$
+
+  enable-banking-no-internal-fields:
+    description: Component schemas must not expose internal fields prefixed with underscore.
+    given: $.components.schemas[*].properties.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ^_

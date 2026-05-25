@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.enablebanking.com/accounts/3a8a2b6f-1d8c-4b27-9c46-cab9a8b1c2d3/transactions?date_from=2026-04-01&date_to=2026-04-30",
+    "headers": {
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIs..."
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "transactions": [
+        {
+          "entry_reference": "240412-000017",
+          "transaction_amount": { "currency": "EUR", "amount": "-49.90" },
+          "credit_debit_indicator": "DBIT",
+          "status": "BOOK",
+          "booking_date": "2026-04-12",
+          "value_date": "2026-04-12",
+          "transaction_date": "2026-04-11",
+          "creditor": { "name": "K-Market Tapiola" },
+          "creditor_account": { "iban": "FI2112345600000785" },
+          "remittance_information": ["Card payment 11.04.2026 K-Market Tapiola"],
+          "bank_transaction_code": { "description": "Card purchase", "code": "PMNT", "sub_code": "CCRD" },
+          "merchant_category_code": "5411",
+          "reference_number": null,
+          "transaction_id": "txn_01HV9P3K..."
+        },
+        {
+          "entry_reference": "240415-000002",
+          "transaction_amount": { "currency": "EUR", "amount": "2450.00" },
+          "credit_debit_indicator": "CRDT",
+          "status": "BOOK",
+          "booking_date": "2026-04-15",
+          "value_date": "2026-04-15",
+          "debtor": { "name": "Acme Oy" },
+          "debtor_account": { "iban": "FI4350000220000456" },
+          "remittance_information": ["Salary April 2026"],
+          "bank_transaction_code": { "description": "Credit transfer", "code": "PMNT", "sub_code": "RCDT" },
+          "reference_number": null,
+          "transaction_id": "txn_01HVDQ5L..."
+        }
+      ],
+      "continuation_key": null
+    }
+  }
+}

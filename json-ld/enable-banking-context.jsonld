@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://enablebanking.com/ns/",
+    "schema": "https://schema.org/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "iso20022": "https://www.iso20022.org/ns/",
+    "psd2": "https://eba.europa.eu/psd2/",
+
+    "EnableBanking": "schema:Organization",
+    "ASPSP": "fibo:FBC/FunctionalEntities/FinancialServicesEntities/FinancialInstitution",
+    "PSU": "schema:Person",
+    "TPP": "schema:Organization",
+    "Session": "schema:Action",
+    "Account": "fibo:FBC/ProductsAndServices/FinancialProductsAndServices/Account",
+    "Balance": "fibo:FBC/ProductsAndServices/FinancialProductsAndServices/Balance",
+    "Transaction": "fibo:FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+    "Payment": "schema:MoneyTransfer",
+    "Consent": "schema:DigitalDocument",
+
+    "uid": "schema:identifier",
+    "iban": "fibo:FBC/FinancialInstrumentsAndProducts/Securities/SecurityIdentifier",
+    "bic_fi": "iso20022:bic",
+    "name": "schema:name",
+    "country": "schema:addressCountry",
+    "currency": "schema:currency",
+    "amount": "schema:amount",
+    "credit_debit_indicator": "iso20022:creditDebitIndicator",
+    "booking_date": "iso20022:bookingDate",
+    "value_date": "iso20022:valueDate",
+    "balance_type": "iso20022:balanceType",
+    "cash_account_type": "iso20022:cashAccountType",
+    "payment_type": "iso20022:paymentType",
+    "payment_status": "iso20022:paymentStatus",
+    "authentication_method": "psd2:authMethod",
+    "psu_type": "psd2:psuType",
+    "access": "psd2:consentAccess",
+    "valid_until": "schema:expires",
+
+    "aspsps": { "@id": "psd2:aspsps", "@container": "@set" },
+    "balances": { "@id": "fibo:balances", "@container": "@set" },
+    "transactions": { "@id": "fibo:transactions", "@container": "@set" },
+
+    "operatedBy": { "@id": "schema:provider", "@type": "@id" },
+    "regulatedBy": { "@id": "fibo:isRegulatedBy", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "https://enablebanking.com/#org",
+      "@type": ["EnableBanking", "TPP"],
+      "name": "Enable Banking Oy",
+      "country": "FI",
+      "regulatedBy": "https://www.finanssivalvonta.fi/",
+      "schema:address": {
+        "@type": "schema:PostalAddress",
+        "schema:streetAddress": "Tekniikantie 2 F 309",
+        "schema:postalCode": "02150",
+        "schema:addressLocality": "Espoo",
+        "schema:addressCountry": "FI"
+      }
+    }
+  ]
+}

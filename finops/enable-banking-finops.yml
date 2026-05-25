@@ -1,0 +1,75 @@
+specification: API Commons FinOps
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/FinOps
+focusVersion: '1.0'
+provider: Enable Banking
+providerId: enable-banking
+created: '2026-05-25'
+modified: '2026-05-25'
+description: FinOps alignment for Enable Banking aggregation API. Maps Enable Banking's billing surface onto
+  the FinOps Framework / FOCUS data spec to enable allocation, anomaly detection, and capacity-vs-spend
+  reporting for TPPs and TPP-IaaS customers.
+sources:
+  - https://enablebanking.com/pricing/
+  - https://focus.finops.org/
+  - https://www.finops.org/framework/
+billing:
+  model: contract
+  invoice_frequency: monthly
+  currency: EUR
+  invoice_format: PDF
+  programmatic_billing_api: false
+  cost_attribution:
+    available_dimensions:
+      - application_id
+      - environment
+      - aspsp_country
+      - aspsp_name
+      - psu_type
+      - endpoint_tag
+    granularity: monthly-aggregate
+
+focus_mapping:
+  ServiceCategory: Financial Services
+  ServiceSubcategory: Open Banking Aggregation
+  ChargeCategory:
+    - Usage
+    - Subscription
+  ChargeClass: per-call
+  ConsumedUnit:
+    - api-call
+    - payment-initiated
+    - consent-active
+  PricingUnit:
+    - per-call
+    - per-month
+  CommitmentDiscountCategory: contract-volume
+  RegionId: EU
+  SkuId:
+    - enable-banking-ais
+    - enable-banking-pis
+    - enable-banking-tpp-iaas
+
+finops_capabilities:
+  inform:
+    allocation: partial
+    reporting_analytics: contract-reports
+    budgeting_forecasting: manual
+  optimize:
+    rate_optimization: contract-renegotiation
+    workload_optimization: cache-aware
+    architecting_for_cloud: not-applicable
+  operate:
+    policy_governance: psd2-and-dora
+    invoicing_chargeback: manual
+    finops_education: account-management
+
+allocation_recommendations:
+  - dimension: aspsp_country
+    rationale: Allocate aggregation spend to the country whose ASPSP served the request, since regulatory
+      cover and per-country onboarding cost differ across the EEA footprint.
+  - dimension: endpoint_tag
+    rationale: Separate AIS (Accounts data) spend from PIS (Payments) spend because they are priced and
+      capacity-planned differently.
+  - dimension: psu_type
+    rationale: Tag personal vs business PSU consumption to drive cohort-level unit economics.

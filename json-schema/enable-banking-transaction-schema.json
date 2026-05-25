@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/enable-banking/main/json-schema/enable-banking-transaction-schema.json",
+  "title": "Enable Banking Transaction",
+  "description": "Harmonized transaction representation returned by /accounts/{account_id}/transactions across all Enable Banking ASPSPs. Aligned with ISO 20022 cash management messages and Berlin Group NextGenPSD2 conventions.",
+  "type": "object",
+  "required": ["entry_reference", "transaction_amount", "credit_debit_indicator"],
+  "properties": {
+    "entry_reference": { "type": "string", "description": "Unique transaction reference at the ASPSP." },
+    "transaction_amount": {
+      "type": "object",
+      "required": ["currency", "amount"],
+      "properties": {
+        "currency": { "type": "string", "description": "ISO 4217 currency code." },
+        "amount": { "type": "string", "description": "Decimal amount as string per ISO 20022." }
+      }
+    },
+    "credit_debit_indicator": {
+      "type": "string",
+      "enum": ["CRDT", "DBIT"],
+      "description": "Direction — credit or debit relative to the PSU account."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["BOOK", "PDNG", "INFO", "OTHR"],
+      "description": "ISO 20022 transaction status."
+    },
+    "booking_date": { "type": "string", "format": "date" },
+    "value_date": { "type": "string", "format": "date" },
+    "transaction_date": { "type": "string", "format": "date" },
+    "balance_after_transaction": {
+      "type": "object",
+      "properties": {
+        "balance_amount": {
+          "type": "object",
+          "properties": {
+            "currency": { "type": "string" },
+            "amount": { "type": "string" }
+          }
+        }
+      }
+    },
+    "reference_number": { "type": "string", "description": "Structured creditor reference (RF, Finnish, Norwegian KID, etc)." },
+    "remittance_information": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Free-form remittance info lines."
+    },
+    "bank_transaction_code": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "code": { "type": "string" },
+        "sub_code": { "type": "string" }
+      }
+    },
+    "creditor": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "postal_address": { "type": "object" },
+        "organisation_id": { "type": "object" },
+        "private_id": { "type": "object" }
+      }
+    },
+    "creditor_account": { "type": "object" },
+    "creditor_agent": { "type": "object" },
+    "debtor": { "type": "object" },
+    "debtor_account": { "type": "object" },
+    "debtor_agent": { "type": "object" },
+    "exchange_rate": {
+      "type": "object",
+      "properties": {
+        "rate": { "type": "string" },
+        "source_currency": { "type": "string" },
+        "target_currency": { "type": "string" }
+      }
+    },
+    "merchant_category_code": { "type": "string", "description": "ISO 18245 MCC." },
+    "note": { "type": "string" },
+    "transaction_id": { "type": "string", "description": "Enable Banking transaction id used for detail lookup." }
+  }
+}

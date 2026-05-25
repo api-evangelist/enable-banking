@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Enable Banking API — User Sessions
+  description: 'Enable Banking — User Sessions capability covering PSU authorization, session creation, lookup,
+    and deletion against the Enable Banking aggregation API. Lead operation: Start User Authorization.'
+  tags:
+  - EnableBanking
+  - OpenBanking
+  - PSD2
+  - Sessions
+  - SCA
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ENABLE_BANKING_JWT: ENABLE_BANKING_JWT
+capability:
+  consumes:
+  - type: http
+    namespace: sessions-user-sessions
+    baseUri: https://api.enablebanking.com
+    description: Enable Banking User Sessions endpoints. PSU authorization flow and session lifecycle.
+    resources:
+    - name: auth
+      path: /auth
+      operations:
+      - name: startauthorization
+        method: POST
+        description: Start user authorization by getting a redirect link and redirecting the PSU to that link.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: StartAuthorizationRequest body (access, aspsp, psu_type, redirect_url, state).
+          required: true
+    - name: sessions
+      path: /sessions
+      operations:
+      - name: authorizesession
+        method: POST
+        description: Exchange the authorization code (returned via redirect) for an authorized session.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: AuthorizeSessionRequest body containing the authorization code.
+          required: true
+    - name: session
+      path: /sessions/{session_id}
+      operations:
+      - name: getsession
+        method: GET
+        description: Get session data including access scope and authorized accounts.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: session_id
+          in: path
+          type: string
+          required: true
+      - name: deletesession
+        method: DELETE
+        description: Delete a session and revoke its consent.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: session_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.ENABLE_BANKING_JWT}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sessions-user-sessions-rest
+    port: 8080
+    description: REST adapter for Enable Banking User Sessions. One Spectral-compliant resource per consumed operation.
+    resources:
+    - path: /v1/auth
+      name: auth
+      description: REST surface for /auth.
+      operations:
+      - method: POST
+        name: startauthorization
+        description: Start user authorization.
+        call: sessions-user-sessions.startauthorization
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sessions
+      name: sessions
+      description: REST surface for /sessions.
+      operations:
+      - method: POST
+        name: authorizesession
+        description: Authorize user session.
+        call: sessions-user-sessions.authorizesession
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sessions/{session_id}
+      name: session
+      description: REST surface for /sessions/{session_id}.
+      operations:
+      - method: GET
+        name: getsession
+        description: Get session data.
+        call: sessions-user-sessions.getsession
+        with:
+          session_id: rest.path.session_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesession
+        description: Delete session.
+        call: sessions-user-sessions.deletesession
+        with:
+          session_id: rest.path.session_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sessions-user-sessions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Enable Banking User Sessions. One tool per consumed operation.
+    tools:
+    - name: enable-banking-start-authorization
+      description: Start a PSU authorization at Enable Banking.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sessions-user-sessions.startauthorization
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enable-banking-authorize-session
+      description: Authorize a user session from an authorization code.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sessions-user-sessions.authorizesession
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enable-banking-get-session
+      description: Get a session by id.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sessions-user-sessions.getsession
+      with:
+        session_id: tools.session_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enable-banking-delete-session
+      description: Delete (revoke) a session.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: sessions-user-sessions.deletesession
+      with:
+        session_id: tools.session_id
+      outputParameters:
+      - type: object
+        mapping: $.

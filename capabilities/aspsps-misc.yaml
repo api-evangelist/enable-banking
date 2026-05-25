@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Enable Banking API — ASPSPs and Application
+  description: 'Enable Banking — Misc capability covering ASPSP (bank) directory discovery and application
+    metadata lookup. Lead operation: Get List of ASPSPs.'
+  tags:
+  - EnableBanking
+  - OpenBanking
+  - PSD2
+  - ASPSP
+  - Discovery
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ENABLE_BANKING_JWT: ENABLE_BANKING_JWT
+capability:
+  consumes:
+  - type: http
+    namespace: aspsps-misc
+    baseUri: https://api.enablebanking.com
+    description: Enable Banking misc endpoints. ASPSP directory and application info.
+    resources:
+    - name: aspsps
+      path: /aspsps
+      operations:
+      - name: getaspsps
+        method: GET
+        description: Get list of supported ASPSPs (banks) and their attributes.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country
+          in: query
+          type: string
+          required: false
+        - name: psu_type
+          in: query
+          type: string
+          required: false
+    - name: application
+      path: /application
+      operations:
+      - name: getapplication
+        method: GET
+        description: Get the calling application's metadata, environment, and active certificates.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.ENABLE_BANKING_JWT}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: aspsps-misc-rest
+    port: 8080
+    description: REST adapter for Enable Banking misc endpoints.
+    resources:
+    - path: /v1/aspsps
+      name: aspsps
+      description: REST surface for /aspsps.
+      operations:
+      - method: GET
+        name: getaspsps
+        description: Get list of ASPSPs.
+        call: aspsps-misc.getaspsps
+        with:
+          country: rest.query.country
+          psu_type: rest.query.psu_type
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application
+      name: application
+      description: REST surface for /application.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Get application metadata.
+        call: aspsps-misc.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aspsps-misc-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Enable Banking misc endpoints.
+    tools:
+    - name: enable-banking-get-aspsps
+      description: Get list of supported ASPSPs (banks).
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aspsps-misc.getaspsps
+      with:
+        country: tools.country
+        psu_type: tools.psu_type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enable-banking-get-application
+      description: Get application metadata.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: aspsps-misc.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.

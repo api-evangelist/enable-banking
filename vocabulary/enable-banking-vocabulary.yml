@@ -1,0 +1,137 @@
+specification: API Commons Vocabulary
+specificationVersion: '0.1'
+provider: Enable Banking
+providerId: enable-banking
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Vocabulary for the Enable Banking Open Banking aggregation API. Captures PSD2, ISO 20022, and
+  Berlin Group NextGenPSD2 terms harmonized across the Enable Banking developer surface.
+sources:
+- https://enablebanking.com/docs/
+- https://enablebanking.com/docs/api/reference/
+- https://www.eba.europa.eu/regulation-and-policy/payment-services
+- https://www.iso20022.org/
+
+dimensions:
+- name: Operational
+  description: Verbs and lifecycle states observable on the API surface.
+  terms:
+  - StartAuthorization
+  - AuthorizeSession
+  - GetSession
+  - DeleteSession
+  - GetAccountDetails
+  - GetAccountBalances
+  - GetAccountTransactions
+  - GetAccountTransaction
+  - CreatePayment
+  - GetPayment
+  - DeletePayment
+  - GetPaymentTransaction
+  - GetAspsps
+  - GetApplication
+
+- name: Resource
+  description: First-class API resources.
+  terms:
+  - Session
+  - Consent
+  - Access
+  - Account
+  - Balance
+  - Transaction
+  - Payment
+  - PaymentRequest
+  - ASPSP
+  - Application
+
+- name: Actor
+  description: Roles in the PSD2 trust triangle and beyond.
+  terms:
+  - PSU
+  - TPP
+  - ASPSP
+  - AISP
+  - PISP
+  - ConfirmationOfFunds
+  - Aggregator
+  - Application
+
+- name: Authentication
+  description: How the application authenticates to Enable Banking and how the PSU authenticates to the ASPSP.
+  terms:
+  - JWT
+  - RS256
+  - eIDAS
+  - BearerToken
+  - SCA
+  - StrongCustomerAuthentication
+  - RedirectAuth
+  - DecoupledAuth
+  - EmbeddedAuth
+  - OAuth2
+  - mTLS
+
+- name: PaymentScheme
+  description: Payment schemes exposed by Enable Banking's PIS.
+  terms:
+  - SEPA_CREDIT_TRANSFER
+  - INSTANT_SEPA_CREDIT_TRANSFER
+  - DOMESTIC_CREDIT_TRANSFER
+  - INSTANT_DOMESTIC_CREDIT_TRANSFER
+  - TARGET2_PAYMENT
+  - BULK_SEPA_CREDIT_TRANSFER
+  - FOREIGN_CREDIT_TRANSFER
+  - PERIODIC_SEPA_CREDIT_TRANSFER
+  - PERIODIC_DOMESTIC_CREDIT_TRANSFER
+
+- name: ISO20022Code
+  description: Normative code lists referenced in responses.
+  terms:
+  - CashAccountType
+  - BalanceType
+  - CreditDebitIndicator
+  - PaymentStatus
+  - PriorityCode
+  - ChargeBearerCode
+  - PurposeCode
+  - CategoryPurposeCode
+
+- name: Regulatory
+  description: Regulatory frameworks Enable Banking operates within.
+  terms:
+  - PSD2
+  - PSD3
+  - FIDA
+  - GDPR
+  - DORA
+  - eIDAS
+  - FIN-FSA
+  - EBA
+
+- name: Geography
+  description: Geographic scope of the Enable Banking footprint.
+  terms:
+  - EEA
+  - Nordic
+  - Finland
+  - Sweden
+  - Norway
+  - Denmark
+  - Estonia
+  - Latvia
+  - Lithuania
+  - Germany
+  - France
+  - Italy
+  - Spain
+  - Poland
+
+- name: Capability
+  description: Naftiko capability namespaces published in capabilities/.
+  terms:
+  - sessions-user-sessions
+  - accounts-accounts-data
+  - payments-payments
+  - aspsps-misc
+  - open-banking

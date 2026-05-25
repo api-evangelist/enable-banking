@@ -1,0 +1,112 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Enable Banking
+providerId: enable-banking
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Open Banking
+  - PSD2
+  - AISP
+  - PISP
+description: Plans surface for the Enable Banking aggregation API. Enable Banking does not publish a public
+  per-call price list; pricing is quoted per customer based on volume of AIS calls, PIS calls, ASPSP coverage,
+  TPP IaaS, and onboarding tier. Public-facing entry points are "Get a Quote" and "Book a Meeting" from
+  enablebanking.com.
+sources:
+  - https://enablebanking.com/pricing/
+  - https://enablebanking.com/apply-now/
+  - https://enablebanking.com/book-a-meeting/
+plans:
+  - id: enable-banking-sandbox
+    name: Sandbox
+    type: free
+    description: Free sandbox tier for evaluation, integration, and certification testing. Access to mock and
+      real ASPSP sandboxes via api.enablebanking.com with a SANDBOX environment.
+    entries:
+      - label: Sandbox API calls
+        name: api_calls
+        type: metered
+        metric: requests
+        limit: -1
+        timeFrame: monthly
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    audience: developers-evaluating
+    sla: best-effort
+    region: EEA
+
+  - id: enable-banking-production
+    name: Production
+    type: contract
+    description: Commercial production tier. Pricing is quoted based on AIS call volume, PIS call volume, number
+      of ASPSPs in scope, and whether the customer uses Enable Banking under its own AISP/PISP licence or as a
+      TPP-IaaS sub-tenant. Contact Enable Banking sales via "Get a Quote".
+    entries:
+      - label: Account Information Services (AIS) calls
+        name: ais_calls
+        type: metered
+        metric: requests
+        limit: -1
+        timeFrame: monthly
+        geo: EEA
+        unit: 1
+        price: contract
+        userMultiplied: false
+      - label: Payment Initiation Services (PIS) calls
+        name: pis_calls
+        type: metered
+        metric: payments
+        limit: -1
+        timeFrame: monthly
+        geo: EEA
+        unit: 1
+        price: contract
+        userMultiplied: false
+      - label: ASPSP coverage
+        name: aspsp_coverage
+        type: tiered
+        metric: aspsps
+        limit: 2700
+        timeFrame: usage
+        geo: EEA
+        price: contract
+        userMultiplied: false
+    audience: licensed-tpp-and-regulated-companies
+    sla: contract
+    region: EEA
+
+  - id: enable-banking-tpp-iaas
+    name: TPP Infrastructure as a Service
+    type: contract
+    description: Full PSD2-compliant infrastructure offered to companies that want Enable Banking to operate as
+      their regulated AISP/PISP. Bundles regulatory cover, eIDAS certificate management, and the aggregation
+      API behind a single contract.
+    entries:
+      - label: Platform subscription
+        name: platform
+        type: recurring
+        metric: subscription
+        limit: 1
+        timeFrame: monthly
+        geo: EEA
+        unit: 1
+        price: contract
+        userMultiplied: false
+      - label: Per-PSU consent
+        name: psu_consent
+        type: metered
+        metric: consents
+        limit: -1
+        timeFrame: monthly
+        geo: EEA
+        unit: 1
+        price: contract
+        userMultiplied: true
+    audience: non-licensed-companies
+    sla: contract
+    region: EEA

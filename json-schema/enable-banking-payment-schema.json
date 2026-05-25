@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/enable-banking/main/json-schema/enable-banking-payment-schema.json",
+  "title": "Enable Banking Payment",
+  "description": "Payment initiation resource accepted by POST /payments and returned by GET /payments/{payment_id}. Models PSD2 PIS create-payment payloads across SEPA, instant SEPA, domestic, and bulk schemes.",
+  "type": "object",
+  "required": ["access", "aspsp", "payment_request"],
+  "properties": {
+    "access": {
+      "type": "object",
+      "description": "Requested access scope (typically payments).",
+      "properties": {
+        "valid_until": { "type": "string", "format": "date-time" }
+      }
+    },
+    "aspsp": {
+      "type": "object",
+      "required": ["name", "country"],
+      "properties": {
+        "name": { "type": "string", "description": "ASPSP name (e.g. Nordea, OP, Handelsbanken)." },
+        "country": { "type": "string", "description": "ISO 3166-1 alpha-2 country code." }
+      }
+    },
+    "payment_request": {
+      "type": "object",
+      "required": ["payment_type", "credit_transfer_transaction"],
+      "properties": {
+        "payment_type": {
+          "type": "string",
+          "enum": ["SEPA_CREDIT_TRANSFER", "INSTANT_SEPA_CREDIT_TRANSFER", "DOMESTIC_CREDIT_TRANSFER", "TARGET2_PAYMENT", "BULK_SEPA_CREDIT_TRANSFER", "INSTANT_DOMESTIC_CREDIT_TRANSFER", "FOREIGN_CREDIT_TRANSFER", "PERIODIC_SEPA_CREDIT_TRANSFER", "PERIODIC_DOMESTIC_CREDIT_TRANSFER"],
+          "description": "Payment scheme as exposed by Enable Banking."
+        },
+        "instructed_amount": {
+          "type": "object",
+          "properties": {
+            "currency": { "type": "string" },
+            "amount": { "type": "string" }
+          }
+        },
+        "creditor": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" }
+          }
+        },
+        "creditor_account": {
+          "type": "object",
+          "properties": {
+            "iban": { "type": "string" },
+            "bban": { "type": "string" }
+          }
+        },
+        "creditor_agent": {
+          "type": "object",
+          "properties": {
+            "bic_fi": { "type": "string" }
+          }
+        },
+        "debtor_account": {
+          "type": "object",
+          "properties": {
+            "iban": { "type": "string" }
+          }
+        },
+        "remittance_information": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "reference_number": {
+          "type": "object",
+          "properties": {
+            "scheme": {
+              "type": "string",
+              "enum": ["RF", "OCR", "KID", "FI", "STRUCTURED"]
+            },
+            "reference": { "type": "string" }
+          }
+        },
+        "requested_execution_date": { "type": "string", "format": "date" },
+        "priority_code": {
+          "type": "string",
+          "enum": ["NORM", "HIGH", "URGT"]
+        },
+        "charge_bearer_code": {
+          "type": "string",
+          "enum": ["DEBT", "CRED", "SHAR", "SLEV"]
+        }
+      }
+    },
+    "psu_type": {
+      "type": "string",
+      "enum": ["personal", "business"]
+    },
+    "redirect_url": { "type": "string", "format": "uri" },
+    "state": { "type": "string", "description": "Opaque caller-supplied state echoed on redirect." },
+    "payment_id": { "type": "string", "description": "Assigned by Enable Banking after POST /payments." },
+    "payment_status": {
+      "type": "string",
+      "enum": ["RCVD", "PDNG", "PATC", "ACTC", "ACSP", "ACCP", "ACSC", "ACWC", "ACFC", "ACWP", "PART", "RJCT", "CANC"],
+      "description": "ISO 20022 payment status."
+    }
+  }
+}

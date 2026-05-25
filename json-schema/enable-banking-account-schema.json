@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/enable-banking/main/json-schema/enable-banking-account-schema.json",
+  "title": "Enable Banking Account",
+  "description": "Account resource returned by Enable Banking AIS — the harmonized representation of a PSU account at an ASPSP across the 30-country Enable Banking footprint.",
+  "type": "object",
+  "required": ["uid", "account_id", "account_servicer"],
+  "properties": {
+    "uid": {
+      "type": "string",
+      "description": "Unique account identifier issued by Enable Banking; used as account_id in subsequent calls."
+    },
+    "account_id": {
+      "type": "object",
+      "description": "Account identification block — iban, bban, masked_pan, or other.",
+      "properties": {
+        "iban": { "type": "string", "description": "International Bank Account Number." },
+        "bban": { "type": "string", "description": "Basic Bank Account Number." },
+        "masked_pan": { "type": "string", "description": "Masked card PAN for card accounts." },
+        "other": {
+          "type": "object",
+          "properties": {
+            "identification": { "type": "string" },
+            "scheme_name": { "type": "string" },
+            "issuer": { "type": "string" }
+          }
+        }
+      }
+    },
+    "account_servicer": {
+      "type": "object",
+      "description": "Financial institution servicing this account.",
+      "properties": {
+        "bic_fi": { "type": "string", "description": "BIC of the ASPSP." },
+        "clearing_system_member_id": {
+          "type": "object",
+          "properties": {
+            "clearing_system_id": { "type": "string" },
+            "member_id": { "type": "string" }
+          }
+        },
+        "name": { "type": "string" },
+        "lei": { "type": "string" }
+      }
+    },
+    "name": { "type": "string", "description": "Account name as labeled by the PSU or ASPSP." },
+    "details": { "type": "string", "description": "Free-form account description." },
+    "cash_account_type": {
+      "type": "string",
+      "enum": ["CACC", "CARD", "CASH", "CHAR", "CISH", "COMM", "CPAC", "LLSV", "LOAN", "MGLD", "MOMA", "NREX", "ODFT", "ONDP", "OTHR", "SACC", "SLRY", "SVGS", "TAXE", "TRAN", "TRAS"],
+      "description": "ISO 20022 cash account type."
+    },
+    "currency": { "type": "string", "description": "ISO 4217 currency code (e.g. EUR, SEK)." },
+    "product": { "type": "string", "description": "Product name of the account at the ASPSP." },
+    "usage": {
+      "type": "string",
+      "enum": ["PRIV", "ORGA"],
+      "description": "Usage type — PRIV (private) or ORGA (organisation)."
+    },
+    "psu_status": { "type": "string", "description": "PSU status relative to the account (owner, holder, viewer, ...)." },
+    "linked_accounts": { "type": "string", "description": "Identifier linking related cash/card accounts." },
+    "balances": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Balance" }
+    }
+  },
+  "$defs": {
+    "Balance": {
+      "type": "object",
+      "required": ["balance_amount", "balance_type"],
+      "properties": {
+        "name": { "type": "string" },
+        "balance_amount": {
+          "type": "object",
+          "properties": {
+            "currency": { "type": "string" },
+            "amount": { "type": "string", "description": "Decimal amount as string per ISO 20022." }
+          }
+        },
+        "balance_type": {
+          "type": "string",
+          "enum": ["CLBD", "CLAV", "FWAV", "ITAV", "OPAV", "OPBD", "PRCD", "VALU", "XPCD", "OTHR", "INFO"],
+          "description": "ISO 20022 balance type."
+        },
+        "last_change_date_time": { "type": "string", "format": "date-time" },
+        "reference_date": { "type": "string", "format": "date" },
+        "last_committed_transaction": { "type": "string" }
+      }
+    }
+  }
+}

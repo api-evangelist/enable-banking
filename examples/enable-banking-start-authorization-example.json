@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.enablebanking.com/auth",
+    "headers": {
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImNmNTg5YmUzLTM3NTUtNDY1Yi1hOGRmLWE5MGExNmEzMTQwMyJ9...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "access": {
+        "valid_until": "2026-06-25T00:00:00Z"
+      },
+      "aspsp": {
+        "name": "Nordea",
+        "country": "FI"
+      },
+      "psu_type": "personal",
+      "redirect_url": "https://example.org/callback",
+      "state": "client-supplied-correlation-id-1234"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "url": "https://aspsp.example/sca/authorize?client_id=...&state=...&redirect_uri=https%3A%2F%2Fexample.org%2Fcallback",
+      "authorization_id": "8a8b9c3d-4e5f-6789-abcd-ef0123456789",
+      "psu_id_hash": "f3a1bd7e..."
+    }
+  }
+}

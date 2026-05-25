@@ -1,0 +1,43 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.enablebanking.com/payments",
+    "headers": {
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIs...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "access": {
+        "valid_until": "2026-06-25T00:00:00Z"
+      },
+      "aspsp": {
+        "name": "OP",
+        "country": "FI"
+      },
+      "payment_request": {
+        "payment_type": "SEPA_CREDIT_TRANSFER",
+        "instructed_amount": { "currency": "EUR", "amount": "120.50" },
+        "creditor": { "name": "Acme Oy" },
+        "creditor_account": { "iban": "FI4350000220000456" },
+        "creditor_agent": { "bic_fi": "OKOYFIHH" },
+        "debtor_account": { "iban": "FI2112345600000785" },
+        "remittance_information": ["Invoice 2026-0412"],
+        "reference_number": { "scheme": "FI", "reference": "1232" },
+        "requested_execution_date": "2026-05-26",
+        "priority_code": "NORM",
+        "charge_bearer_code": "SLEV"
+      },
+      "psu_type": "personal",
+      "redirect_url": "https://example.org/payment-callback",
+      "state": "pay-correlation-9876"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "url": "https://aspsp.example/sca/authorize-payment?payment_id=pay_01HV...&state=pay-correlation-9876",
+      "payment_id": "pay_01HV9XCDE...",
+      "payment_status": "RCVD"
+    }
+  }
+}

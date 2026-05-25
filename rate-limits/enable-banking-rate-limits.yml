@@ -1,0 +1,83 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Enable Banking
+providerId: enable-banking
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+description: Rate limit surface for the Enable Banking aggregation API. Enable Banking enforces two distinct
+  limit layers - (1) limits applied by Enable Banking itself on the TPP application (per-application QPS / TTL
+  on JWTs / fair-use ceilings), and (2) ASPSP-enforced PSD2 limits which are passed through (most notably the
+  EBA RTS "four-times-per-day-without-PSU-present" rule for AIS).
+sources:
+  - https://enablebanking.com/docs/api/reference/
+  - https://enablebanking.com/docs/
+  - https://www.eba.europa.eu/regulation-and-policy/payment-services
+limits:
+  - id: application-jwt-ttl
+    name: JWT maximum time-to-live
+    description: Application JWTs created with an exp longer than 86400 seconds (24 hours) are rejected.
+    type: token-validity
+    scope: application
+    window: per-token
+    limit: 86400
+    unit: seconds
+    enforced_by: enable-banking
+    behavior: reject
+
+  - id: ais-without-psu-present
+    name: AIS calls without PSU presence (EBA RTS)
+    description: Berlin Group / EBA Regulatory Technical Standards limit non-PSU-present AIS access to four
+      pulls per 24-hour period per consent. Many ASPSPs enforce this strictly and Enable Banking surfaces the
+      resulting limits.
+    type: throughput
+    scope: per-consent
+    window: per-day
+    limit: 4
+    unit: requests
+    enforced_by: aspsp
+    behavior: reject
+
+  - id: psu-present-window
+    name: PSU-present session validity
+    description: A PSU-present AIS session is typically valid for ~5 minutes after SCA; within that window the
+      AISP can make unlimited calls. Enforced per-ASPSP.
+    type: session-validity
+    scope: per-session
+    window: per-session
+    limit: 300
+    unit: seconds
+    enforced_by: aspsp
+    behavior: requires-re-authentication
+
+  - id: consent-validity
+    name: AIS consent validity
+    description: Long-lived consent for non-PSU-present access is capped at 180 days under PSD2 SCA RTS. After
+      that, fresh SCA is required.
+    type: consent-validity
+    scope: per-consent
+    window: per-consent
+    limit: 180
+    unit: days
+    enforced_by: psd2
+    behavior: requires-re-authentication
+
+  - id: fair-use-throughput
+    name: Per-application fair use throughput
+    description: Production applications get fair-use throughput dimensioned to their contracted volume.
+      Exact ceilings are quoted in the customer contract; Sandbox is intentionally lower.
+    type: throughput
+    scope: application
+    window: per-second
+    limit: contract
+    unit: requests
+    enforced_by: enable-banking
+    behavior: throttle
+
+retry:
+  strategy: exponential-backoff
+  initial_delay_seconds: 1
+  max_delay_seconds: 60
+  jitter: true
+  respect_retry_after: true

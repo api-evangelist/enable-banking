@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-04/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/enable-banking/main/json-structure/enable-banking-account-structure.json",
+  "title": "Enable Banking Account Structure",
+  "description": "JSON Structure representation of the Enable Banking Account aggregate — used for typed code generation and document validation across Enable Banking AIS responses. Encodes ISO 20022 cash account semantics.",
+  "type": "object",
+  "namespace": "com.enablebanking.account.v1",
+  "properties": {
+    "uid": { "type": "string", "description": "Enable Banking account UID." },
+    "account_id": {
+      "type": "object",
+      "description": "Account identification block.",
+      "properties": {
+        "iban": { "type": "string" },
+        "bban": { "type": "string" },
+        "masked_pan": { "type": "string" },
+        "other": {
+          "type": "object",
+          "properties": {
+            "identification": { "type": "string" },
+            "scheme_name": { "type": "string" },
+            "issuer": { "type": "string" }
+          }
+        }
+      }
+    },
+    "account_servicer": {
+      "type": "object",
+      "properties": {
+        "bic_fi": { "type": "string" },
+        "name": { "type": "string" },
+        "lei": { "type": "string" }
+      }
+    },
+    "name": { "type": "string" },
+    "details": { "type": "string" },
+    "cash_account_type": {
+      "type": "string",
+      "enum": ["CACC", "CARD", "CASH", "LOAN", "SVGS", "OTHR"]
+    },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "product": { "type": "string" },
+    "usage": { "type": "string", "enum": ["PRIV", "ORGA"] },
+    "psu_status": { "type": "string" },
+    "balances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "balance_amount": {
+            "type": "object",
+            "properties": {
+              "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+              "amount": { "type": "string" }
+            }
+          },
+          "balance_type": {
+            "type": "string",
+            "enum": ["CLBD", "CLAV", "FWAV", "ITAV", "OPAV", "OPBD", "PRCD", "VALU", "XPCD", "OTHR", "INFO"]
+          },
+          "last_change_date_time": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "x-iso20022": {
+    "messageSet": "camt",
+    "primarySources": ["camt.052", "camt.053", "camt.054"]
+  }
+}
