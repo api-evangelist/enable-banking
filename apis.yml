@@ -1,216 +1,207 @@
 aid: enable-banking
 url: https://raw.githubusercontent.com/api-evangelist/enable-banking/refs/heads/main/apis.yml
 apis:
-- aid: enable-banking:enable-banking-api
-  name: Enable Banking API
-  tags:
+  - aid: enable-banking:enable-banking-api
+    name: Enable Banking API
+    tags:
+      - Open Banking
+      - PSD2
+      - AISP
+      - PISP
+      - Account Information
+      - Payment Initiation
+      - Banking
+      - Aggregation
+      - Europe
+      - Nordic
+    humanURL: https://enablebanking.com/docs/api/reference/
+    baseURL: https://api.enablebanking.com
+    properties:
+      - url: https://enablebanking.com/docs/
+        type: Documentation
+      - url: https://enablebanking.com/docs/api/reference/
+        type: Documentation
+      - url: https://enablebanking.com/docs/api/getting-started/
+        type: GettingStarted
+      - url: openapi/enable-banking-api-openapi.yml
+        type: OpenAPI
+      - url: https://enablebanking.com/docs/api/reference/enablebanking-api.yaml
+        type: OpenAPI
+      - url: json-schema/enable-banking-account-schema.json
+        type: JSONSchema
+      - url: json-schema/enable-banking-transaction-schema.json
+        type: JSONSchema
+      - url: json-schema/enable-banking-payment-schema.json
+        type: JSONSchema
+      - url: json-structure/enable-banking-account-structure.json
+        type: JSONStructure
+      - url: json-ld/enable-banking-context.jsonld
+        type: JSONLD
+      - url: rules/enable-banking-rules.yml
+        type: SpectralRules
+      - url: vocabulary/enable-banking-vocabulary.yml
+        type: Vocabulary
+      - type: SDK
+        name: Python Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/python_example
+      - type: SDK
+        name: JavaScript Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/js_example
+      - type: SDK
+        name: Go Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/go_example
+      - type: SDK
+        name: C# Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/cs_example
+      - type: SDK
+        name: PHP Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/php_example
+      - type: SDK
+        name: Ruby Samples
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/ruby_example
+      - type: Postman
+        url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/postman_example
+      - type: CLI
+        name: enablebanking-cli
+        url: https://github.com/enablebanking/enablebanking-cli
+      - type: Tools
+        name: eIDAS Broker
+        url: https://github.com/enablebanking/open_banking_eidas_broker
+      - type: GitHubOrganization
+        url: https://github.com/enablebanking
+      - type: ControlPanel
+        url: https://enablebanking.com/cp/
+      - type: Sandbox
+        url: https://tilisy.com
+      - type: Pricing
+        url: https://enablebanking.com/pricing/
+      - type: Blog
+        url: https://enablebanking.com/blog/
+      - type: Changelog
+        url: https://enablebanking.com/changelog/
+      - type: Portal
+        url: https://enablebanking.com
+      - type: Authentication
+        name: JWT (RS256) Bearer
+        url: https://enablebanking.com/docs/api/reference/#authentication
+      - type: Plans
+        url: plans/enable-banking-plans-pricing.yml
+      - type: RateLimits
+        url: rate-limits/enable-banking-rate-limits.yml
+      - type: FinOps
+        url: finops/enable-banking-finops.yml
+      - type: Features
+        data:
+          - Single harmonized REST API across 2,700+ European banks (ASPSPs) in 30 EEA countries
+          - Account Information Services (AIS) — accounts, balances, transactions, up to 12 months history
+          - Payment Initiation Services (PIS) — SEPA, instant, bulk, standing orders, country-specific schemes
+          - PSD2-licensed AISP regulated by the Finnish Financial Supervisory Authority (FIN-FSA)
+          - PSU (Payment Service User) authorization with Strong Customer Authentication (SCA) flows
+          - User sessions with consent scope (accounts, balances, transactions, payments) and validity windows
+          - ASPSP discovery endpoint returning country, name, BIC, supported auth methods and PSU types
+          - Personal and business account support; corporate, savings, credit-card and loan account types where exposed
+          - JWT-based application authentication (RS256, eIDAS certificate-backed, 24h max TTL)
+          - Webhooks for asynchronous session, account, and payment lifecycle events
+          - Control Panel for application management, certificates, logs, and live monitoring
+          - Sandbox environment via api.tilisy.com (legacy) and api.enablebanking.com (current)
+          - HAL+JSON link-following for paginated transactions and balances
+          - TPP Infrastructure-as-a-Service for licensed Third Party Providers
+          - eIDAS broker microservice for mTLS signing against ASPSP APIs
+          - DORA and GDPR compliant; PSD3 / FIDA roadmap
+          - 25M+ API requests processed monthly; 1,000+ ASPSP integrations updated annually
+          - SDK code samples in C#, Go, JavaScript, PHP, Postman, Python, and Ruby
+        sources:
+          - https://enablebanking.com
+          - https://enablebanking.com/docs/
+          - https://enablebanking.com/docs/api/reference/
+          - https://enablebanking.com/blog/
+          - https://github.com/enablebanking
+        updated: '2026-05-25'
+    description: >-
+      The Enable Banking API is a single harmonized PSD2 Open Banking API providing Account Information Services (AIS)
+      and Payment Initiation Services (PIS) across 2,700+ banks (ASPSPs) in 30 European countries. The API normalizes
+      user sessions, consent and SCA flows, account details, balances, transactions, and payment initiation behind one
+      REST surface. Authentication uses application-issued JWTs signed with RS256 against an eIDAS-backed certificate
+      registered via the Enable Banking Control Panel. Endpoint groups cover User sessions (/auth, /sessions), Accounts
+      data (/accounts/{account_id}/details, /balances, /transactions), Payments (/payments and /payments/{payment_id}),
+      and Misc (/aspsps, /application).
+common:
+  - url: https://enablebanking.com
+    type: Portal
+  - url: https://enablebanking.com/docs/
+    type: Documentation
+  - url: https://enablebanking.com/docs/api/getting-started/
+    type: GettingStarted
+  - url: https://enablebanking.com/docs/api/reference/
+    type: Documentation
+  - url: https://enablebanking.com/blog/
+    type: Blog
+  - url: https://enablebanking.com/changelog/
+    type: Changelog
+  - url: https://enablebanking.com/pricing/
+    type: Pricing
+  - url: https://enablebanking.com/about/
+    type: About
+  - url: https://enablebanking.com/contact/
+    type: ContactForm
+  - url: https://enablebanking.com/cp/
+    name: Control Panel
+    type: Console
+  - url: https://tilisy.com
+    name: Tilisy Demo
+    type: Demo
+  - url: https://github.com/enablebanking
+    type: GitHubOrganization
+  - url: https://github.com/enablebanking/enablebanking-api-samples
+    type: CodeSamples
+  - url: https://github.com/enablebanking/enablebanking-cli
+    type: CLI
+  - url: https://github.com/enablebanking/open_banking_eidas_broker
+    type: Tools
+  - url: https://github.com/enablebanking/psd2-oidc-mock
+    type: Tools
+  - url: https://www.linkedin.com/company/enable-banking/
+    type: LinkedIn
+  - url: plans/enable-banking-plans-pricing.yml
+    type: Plans
+  - url: rate-limits/enable-banking-rate-limits.yml
+    type: RateLimits
+  - url: finops/enable-banking-finops.yml
+    type: FinOps
+created: '2026-05-25'
+modified: '2026-05-25'
+position: Consuming
+description: >-
+  Enable Banking is a Finland-based Open Banking connectivity engine and licensed PSD2 Account Information Service
+  Provider (AISP) regulated by the Finnish Financial Supervisory Authority (FIN-FSA). Headquartered in Espoo, Enable
+  Banking provides a single harmonized API across 2,700+ banks (ASPSPs) in 30 European countries, exposing Account
+  Information Services (AIS) and Payment Initiation Services (PIS), TPP Infrastructure-as-a-Service for licensed Third
+  Party Providers, and an eIDAS-backed JWT authentication model. The platform processes 25M+ API requests monthly across
+  the EEA and maintains 1,000+ ASPSP integrations, serving accounting and ERP platforms, credit risk and KYC providers,
+  wealth managers, and payment service providers including Qred Bank, Fimento, CapitalBox, and iDenfy. Enable Banking is
+  GDPR and DORA compliant with an active PSD3 / FIDA roadmap.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
+specificationVersion: '0.16'
+name: Enable Banking
+tags:
   - Open Banking
   - PSD2
   - AISP
   - PISP
-  - Account Information
-  - Payment Initiation
   - Banking
-  - Aggregation
+  - Financial Services
+  - Account Aggregation
+  - Payment Initiation
   - Europe
   - Nordic
-  humanURL: https://enablebanking.com/docs/api/reference/
-  baseURL: https://api.enablebanking.com
-  properties:
-  - url: https://enablebanking.com/docs/
-    type: Documentation
-  - url: https://enablebanking.com/docs/api/reference/
-    type: Documentation
-  - url: https://enablebanking.com/docs/api/getting-started/
-    type: GettingStarted
-  - url: openapi/enable-banking-api-openapi.yml
-    type: OpenAPI
-  - url: https://enablebanking.com/docs/api/reference/enablebanking-api.yaml
-    type: OpenAPI
-  - url: json-schema/enable-banking-account-schema.json
-    type: JSONSchema
-  - url: json-schema/enable-banking-transaction-schema.json
-    type: JSONSchema
-  - url: json-schema/enable-banking-payment-schema.json
-    type: JSONSchema
-  - url: json-structure/enable-banking-account-structure.json
-    type: JSONStructure
-  - url: json-ld/enable-banking-context.jsonld
-    type: JSONLD
-  - url: rules/enable-banking-rules.yml
-    type: SpectralRules
-  - url: vocabulary/enable-banking-vocabulary.yml
-    type: Vocabulary
-  - type: NaftikoCapability
-    url: capabilities/sessions-user-sessions.yaml
-  - type: NaftikoCapability
-    url: capabilities/accounts-accounts-data.yaml
-  - type: NaftikoCapability
-    url: capabilities/payments-payments.yaml
-  - type: NaftikoCapability
-    url: capabilities/aspsps-misc.yaml
-  - type: NaftikoCapability
-    url: capabilities/open-banking.yaml
-  - type: SDK
-    name: Python Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/python_example
-  - type: SDK
-    name: JavaScript Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/js_example
-  - type: SDK
-    name: Go Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/go_example
-  - type: SDK
-    name: C# Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/cs_example
-  - type: SDK
-    name: PHP Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/php_example
-  - type: SDK
-    name: Ruby Samples
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/ruby_example
-  - type: Postman
-    url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/postman_example
-  - type: CLI
-    name: enablebanking-cli
-    url: https://github.com/enablebanking/enablebanking-cli
-  - type: Tools
-    name: eIDAS Broker
-    url: https://github.com/enablebanking/open_banking_eidas_broker
-  - type: GitHubOrganization
-    url: https://github.com/enablebanking
-  - type: ControlPanel
-    url: https://enablebanking.com/cp/
-  - type: Sandbox
-    url: https://tilisy.com
-  - type: Pricing
-    url: https://enablebanking.com/pricing/
-  - type: Blog
-    url: https://enablebanking.com/blog/
-  - type: Changelog
-    url: https://enablebanking.com/changelog/
-  - type: Portal
-    url: https://enablebanking.com
-  - type: Authentication
-    name: JWT (RS256) Bearer
-    url: https://enablebanking.com/docs/api/reference/#authentication
-  - type: Plans
-    url: plans/enable-banking-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/enable-banking-rate-limits.yml
-  - type: FinOps
-    url: finops/enable-banking-finops.yml
-  - type: Features
-    data:
-    - Single harmonized REST API across 2,700+ European banks (ASPSPs) in 30 EEA countries
-    - Account Information Services (AIS) — accounts, balances, transactions, up to 12 months history
-    - Payment Initiation Services (PIS) — SEPA, instant, bulk, standing orders, country-specific schemes
-    - PSD2-licensed AISP regulated by the Finnish Financial Supervisory Authority (FIN-FSA)
-    - PSU (Payment Service User) authorization with Strong Customer Authentication (SCA) flows
-    - User sessions with consent scope (accounts, balances, transactions, payments) and validity windows
-    - ASPSP discovery endpoint returning country, name, BIC, supported auth methods and PSU types
-    - Personal and business account support; corporate, savings, credit-card and loan account types where exposed
-    - JWT-based application authentication (RS256, eIDAS certificate-backed, 24h max TTL)
-    - Webhooks for asynchronous session, account, and payment lifecycle events
-    - Control Panel for application management, certificates, logs, and live monitoring
-    - Sandbox environment via api.tilisy.com (legacy) and api.enablebanking.com (current)
-    - HAL+JSON link-following for paginated transactions and balances
-    - TPP Infrastructure-as-a-Service for licensed Third Party Providers
-    - eIDAS broker microservice for mTLS signing against ASPSP APIs
-    - DORA and GDPR compliant; PSD3 / FIDA roadmap
-    - 25M+ API requests processed monthly; 1,000+ ASPSP integrations updated annually
-    - SDK code samples in C#, Go, JavaScript, PHP, Postman, Python, and Ruby
-    sources:
-    - https://enablebanking.com
-    - https://enablebanking.com/docs/
-    - https://enablebanking.com/docs/api/reference/
-    - https://enablebanking.com/blog/
-    - https://github.com/enablebanking
-    updated: '2026-05-25'
-  description: The Enable Banking API is a single harmonized PSD2 Open Banking API providing Account Information
-    Services (AIS) and Payment Initiation Services (PIS) across 2,700+ banks (ASPSPs) in 30 European countries.
-    The API normalizes user sessions, consent and SCA flows, account details, balances, transactions, and payment
-    initiation behind one REST surface. Authentication uses application-issued JWTs signed with RS256 against an
-    eIDAS-backed certificate registered via the Enable Banking Control Panel. Endpoint groups cover User sessions
-    (/auth, /sessions), Accounts data (/accounts/{account_id}/details, /balances, /transactions), Payments
-    (/payments and /payments/{payment_id}), and Misc (/aspsps, /application).
-common:
-- url: https://enablebanking.com
-  type: Portal
-- url: https://enablebanking.com/docs/
-  type: Documentation
-- url: https://enablebanking.com/docs/api/getting-started/
-  type: GettingStarted
-- url: https://enablebanking.com/docs/api/reference/
-  type: Documentation
-- url: https://enablebanking.com/blog/
-  type: Blog
-- url: https://enablebanking.com/changelog/
-  type: Changelog
-- url: https://enablebanking.com/pricing/
-  type: Pricing
-- url: https://enablebanking.com/about/
-  type: About
-- url: https://enablebanking.com/contact/
-  type: ContactForm
-- url: https://enablebanking.com/cp/
-  name: Control Panel
-  type: Console
-- url: https://tilisy.com
-  name: Tilisy Demo
-  type: Demo
-- url: https://github.com/enablebanking
-  type: GitHubOrganization
-- url: https://github.com/enablebanking/enablebanking-api-samples
-  type: CodeSamples
-- url: https://github.com/enablebanking/enablebanking-cli
-  type: CLI
-- url: https://github.com/enablebanking/open_banking_eidas_broker
-  type: Tools
-- url: https://github.com/enablebanking/psd2-oidc-mock
-  type: Tools
-- url: https://www.linkedin.com/company/enable-banking/
-  type: LinkedIn
-- url: plans/enable-banking-plans-pricing.yml
-  type: Plans
-- url: rate-limits/enable-banking-rate-limits.yml
-  type: RateLimits
-- url: finops/enable-banking-finops.yml
-  type: FinOps
-created: '2026-05-25'
-modified: '2026-05-25'
-position: Consuming
-description: Enable Banking is a Finland-based Open Banking connectivity engine and licensed PSD2 Account
-  Information Service Provider (AISP) regulated by the Finnish Financial Supervisory Authority (FIN-FSA).
-  Headquartered in Espoo, Enable Banking provides a single harmonized API across 2,700+ banks (ASPSPs) in 30
-  European countries, exposing Account Information Services (AIS) and Payment Initiation Services (PIS), TPP
-  Infrastructure-as-a-Service for licensed Third Party Providers, and an eIDAS-backed JWT authentication model.
-  The platform processes 25M+ API requests monthly across the EEA and maintains 1,000+ ASPSP integrations,
-  serving accounting and ERP platforms, credit risk and KYC providers, wealth managers, and payment service
-  providers including Qred Bank, Fimento, CapitalBox, and iDenfy. Enable Banking is GDPR and DORA compliant
-  with an active PSD3 / FIDA roadmap.
-maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
-specificationVersion: '0.16'
-name: Enable Banking
-tags:
-- Open Banking
-- PSD2
-- AISP
-- PISP
-- Banking
-- Financial Services
-- Account Aggregation
-- Payment Initiation
-- Europe
-- Nordic
-- Finland
-- Compliance
-- eIDAS
-- SCA
-- DORA
-- GDPR
+  - Finland
+  - Compliance
+  - eIDAS
+  - SCA
+  - DORA
+  - GDPR
 image: https://enablebanking.com/static/og-image.png
