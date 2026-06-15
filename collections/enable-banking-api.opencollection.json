@@ -1,0 +1,524 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API reference",
+    "version": "1.0.0-3030f99c"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start user authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.enablebanking.com/auth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start authorization by getting a redirect link and redirecting a PSU to that link"
+        },
+        {
+          "info": {
+            "name": "Authorize user session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.enablebanking.com/sessions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authorize user session by provided authorization code"
+        },
+        {
+          "info": {
+            "name": "Get session data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/sessions/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Previously authorized session ID"
+              }
+            ]
+          },
+          "docs": "Get session data by session ID"
+        },
+        {
+          "info": {
+            "name": "Delete session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.enablebanking.com/sessions/:session_id",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "Previously authorized session ID"
+              }
+            ]
+          },
+          "docs": "Delete session by session ID. PSU's bank consent will be closed automatically if possible"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/details",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              }
+            ]
+          },
+          "docs": "Fetching account details from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get account balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/balances",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "PSU account ID accessible in the provided session"
+              }
+            ]
+          },
+          "docs": "Fetching account balances from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get account transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/transactions",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "PSU account ID accessible in the provided session"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Date to fetch transactions from (including the date, UTC timezone is assumed)"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Date to fetch transactions to (including the date, UTC timezone is assumed)"
+              },
+              {
+                "name": "continuation_key",
+                "value": "",
+                "type": "query",
+                "description": "Key, allowing iterate over multiple API pages of transactions"
+              },
+              {
+                "name": "transaction_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by provided status"
+              },
+              {
+                "name": "strategy",
+                "value": "",
+                "type": "query",
+                "description": "Strategy how transaction are fetched"
+              }
+            ]
+          },
+          "docs": "Fetching account transactions from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get transaction details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/transactions/:transaction_id",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction ID"
+              }
+            ]
+          },
+          "docs": "Fetching transaction details from ASPSP for an account transaction by its ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.enablebanking.com/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a payment consisting of one or multiple payment transactions"
+        },
+        {
+          "info": {
+            "name": "Get payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/payments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              }
+            ]
+          },
+          "docs": "Fetching payment status and details"
+        },
+        {
+          "info": {
+            "name": "Delete payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.enablebanking.com/payments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              }
+            ]
+          },
+          "docs": "Delete finished or failed payment"
+        },
+        {
+          "info": {
+            "name": "Get payment transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/payments/:payment_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction ID"
+              }
+            ]
+          },
+          "docs": "Fetching transaction details for a single transaction within a bulk payment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Misc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of ASPSPs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/aspsps",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs from specified country"
+              },
+              {
+                "name": "psu_type",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified psu type"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified service"
+              },
+              {
+                "name": "payment_type",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified payment type"
+              }
+            ]
+          },
+          "docs": "Get list of ASPSPs with their meta information"
+        },
+        {
+          "info": {
+            "name": "Get application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/application"
+          },
+          "docs": "Get application associated with provided JWT key ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

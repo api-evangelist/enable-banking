@@ -2,6 +2,13 @@
   "repo": "enable-banking",
   "feeds": [
     {
+      "source": "https://enablebanking.com/blog?format=rss",
+      "feed_url": "https://enablebanking.com/blog?format=rss",
+      "title": "",
+      "saved": 1,
+      "method": "feed"
+    },
+    {
       "source": "https://enablebanking.com/pricing/",
       "error": "HTTPError"
     },
@@ -9,10 +16,10 @@
       "source": "https://enablebanking.com/blog/",
       "feed_url": "https://enablebanking.com/blog?format=rss",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 2,
+  "fetched": "2026-06-14T20:42:17Z"
 }
