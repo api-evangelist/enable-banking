@@ -41,22 +41,22 @@ apis:
         type: SpectralRules
       - url: vocabulary/enable-banking-vocabulary.yml
         type: Vocabulary
-      - type: SDK
+      - type: SDKs
         name: Python Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/python_example
-      - type: SDK
+      - type: SDKs
         name: JavaScript Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/js_example
-      - type: SDK
+      - type: SDKs
         name: Go Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/go_example
-      - type: SDK
+      - type: SDKs
         name: C# Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/cs_example
-      - type: SDK
+      - type: SDKs
         name: PHP Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/php_example
-      - type: SDK
+      - type: SDKs
         name: Ruby Samples
         url: https://github.com/enablebanking/enablebanking-api-samples/tree/master/ruby_example
       - type: Postman
@@ -77,7 +77,7 @@ apis:
         url: https://enablebanking.com/pricing/
       - type: Blog
         url: https://enablebanking.com/blog/
-      - type: Changelog
+      - type: ChangeLog
         url: https://enablebanking.com/changelog/
       - type: Portal
         url: https://enablebanking.com
@@ -137,7 +137,7 @@ common:
   - url: https://enablebanking.com/blog/
     type: Blog
   - url: https://enablebanking.com/changelog/
-    type: Changelog
+    type: ChangeLog
   - url: https://enablebanking.com/pricing/
     type: Pricing
   - url: https://enablebanking.com/about/
