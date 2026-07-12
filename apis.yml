@@ -126,6 +126,10 @@ apis:
       data (/accounts/{account_id}/details, /balances, /transactions), Payments (/payments and /payments/{payment_id}),
       and Misc (/aspsps, /application).
 common:
+  - type: DomainSecurity
+    url: security/enable-banking-domain-security.yml
+  - type: Authentication
+    url: authentication/enable-banking-authentication.yml
   - url: https://enablebanking.com
     type: Portal
   - url: https://enablebanking.com/docs/

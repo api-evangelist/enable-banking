@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/enable-banking-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: "In order to get access to this API you need to:\n\n- Generate a private RSA\
+    \ key and a self-signed certificate;\n- Upload the certificate to enablebanking.com and\
+    \ get application ID;\n- Construct JWT with the data described below and signed with your\
+    \ private key;\n- Send the JWT in the Authorization header.\n\n## Private key and certificate\
+    \ generation\n\n> Generating private RSA key\n\n```bash\nopenssl genrsa "
+  sources:
+  - openapi/enable-banking-api-openapi.yml
