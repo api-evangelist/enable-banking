@@ -126,6 +126,8 @@ apis:
       data (/accounts/{account_id}/details, /balances, /transactions), Payments (/payments and /payments/{payment_id}),
       and Misc (/aspsps, /application).
 common:
+  - type: AgenticAccess
+    url: agentic-access/enable-banking-agentic-access.yml
   - type: DomainSecurity
     url: security/enable-banking-domain-security.yml
   - type: Authentication
