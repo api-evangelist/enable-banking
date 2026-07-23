@@ -1,0 +1,1188 @@
+openapi: 3.1.0
+info:
+  title: API reference Accounts data User sessions API
+  version: 1.0.0-3030f99c
+servers:
+- url: https://api.enablebanking.com
+- url: https://api.tilisy.com
+  description: (deprecated)
+security:
+- bearerAuth: []
+tags:
+- name: User sessions
+paths:
+  /auth:
+    post:
+      tags:
+      - User sessions
+      summary: Start user authorization
+      description: Start authorization by getting a redirect link and redirecting a PSU to that link
+      operationId: initialize_session_auth_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartAuthorizationRequest'
+              description: Provide desired PSU consent parameters
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartAuthorizationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '408':
+          description: Request Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /sessions:
+    post:
+      tags:
+      - User sessions
+      summary: Authorize user session
+      description: Authorize user session by provided authorization code
+      operationId: authorize_session_sessions_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizeSessionRequest'
+              description: Contains data necessary for authorizing session
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizeSessionResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '408':
+          description: Request Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /sessions/{session_id}:
+    get:
+      tags:
+      - User sessions
+      summary: Get session data
+      description: Get session data by session ID
+      operationId: get_session_sessions__session_id__get
+      parameters:
+      - name: session_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          description: Previously authorized session ID
+          title: Session Id
+        description: Previously authorized session ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionResponse'
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found
+        '408':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+    delete:
+      tags:
+      - User sessions
+      summary: Delete session
+      description: Delete session by session ID. PSU's bank consent will be closed automatically if possible
+      operationId: delete_session_sessions__session_id__delete
+      parameters:
+      - name: session_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          description: Previously authorized session ID
+          title: Session Id
+        description: Previously authorized session ID
+      - name: Psu-Ip-Address
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU IP address
+          title: Psu-Ip-Address
+        description: PSU IP address
+      - name: Psu-User-Agent
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU browser User Agent
+          title: Psu-User-Agent
+        description: PSU browser User Agent
+      - name: Psu-Referer
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU Referer
+          title: Psu-Referer
+        description: PSU Referer
+      - name: Psu-Accept
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU accept header
+          title: Psu-Accept
+        description: PSU accept header
+      - name: Psu-Accept-Charset
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU charset
+          title: Psu-Accept-Charset
+        description: PSU charset
+      - name: Psu-Accept-Encoding
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU accept encoding
+          title: Psu-Accept-Encoding
+        description: PSU accept encoding
+      - name: Psu-Accept-language
+        in: header
+        required: false
+        schema:
+          type: string
+          description: PSU accept language
+          title: Psu-Accept-Language
+        description: PSU accept language
+      - name: Psu-Geo-Location
+        in: header
+        required: false
+        schema:
+          type: string
+          pattern: -?\d{1,2}\.\d{1,6},-?\d{1,3}\.\d{1,6}
+          description: Comma separated latitude and longitude coordinates without spaces
+          examples:
+          - -1.2345,6.789
+          title: Psu-Geo-Location
+        description: Comma separated latitude and longitude coordinates without spaces
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found
+        '408':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+components:
+  schemas:
+    GenericIdentification:
+      properties:
+        identification:
+          type: string
+          title: Identification
+          description: An identifier
+          examples:
+          - '12345678'
+        scheme_name:
+          $ref: '#/components/schemas/SchemeName'
+          description: Name of the identification scheme. Partially based on ISO20022 external code list
+          examples:
+          - BBAN
+        issuer:
+          title: Issuer
+          description: Entity that assigns the identification. This could be a country code or any organisation name or identifier that can be recognized by both parties
+          examples:
+          - FR
+          type: string
+      type: object
+      required:
+      - identification
+      - scheme_name
+      title: GenericIdentification
+      example:
+        identification: '123456'
+        scheme_name: BBAN
+    SessionStatus:
+      type: string
+      enum:
+      - INVALID
+      - PENDING_AUTHORIZATION
+      - RETURNED_FROM_BANK
+      - AUTHORIZED
+      - EXPIRED
+      - CLOSED
+      - REVOKED
+      - CANCELLED
+      title: SessionStatus
+      example: INVALID
+      x-enum-descriptions:
+      - Session is authorised for access to account information
+      - Session authorisation has been cancelled by the end-user
+      - Session has been closed by the application
+      - Session has expired
+      - Session authorisation has failed
+      - Session authorisation by the end-user is pending
+      - Session authorisation has completed successfully by the end-user
+      - Session has been revoked by the end-user
+    AccountResource:
+      properties:
+        account_id:
+          description: Primary account identifier
+          $ref: '#/components/schemas/AccountIdentification'
+        all_account_ids:
+          title: All Account Ids
+          description: All account identifiers provided by ASPSPs (including primary identifier available in the accountId field)
+          items:
+            $ref: '#/components/schemas/GenericIdentification'
+          type: array
+        account_servicer:
+          description: Information about the financial institution servicing the account
+          $ref: '#/components/schemas/FinancialInstitutionIdentification'
+        name:
+          title: Name
+          description: Account holder(s) name
+          type: string
+        details:
+          title: Details
+          description: Account description set by PSU or provided by ASPSP
+          type: string
+        usage:
+          description: Specifies the usage of the account
+          $ref: '#/components/schemas/Usage'
+        cash_account_type:
+          $ref: '#/components/schemas/CashAccountType'
+          description: Specifies the type of the account
+        product:
+          title: Product
+          description: Product Name of the Bank for this account, proprietary definition
+          type: string
+        currency:
+          type: string
+          title: Currency
+          description: Specifies the currency of the account
+        psu_status:
+          title: Psu Status
+          description: Relationship between the PSU and the account - Account Holder - Co-account Holder - Attorney
+          type: string
+        credit_limit:
+          description: Specifies the maximum credit or overdraft allowed on the account
+          $ref: '#/components/schemas/AmountType'
+        legal_age:
+          title: Legal Age
+          description: 'Specifies whether Enable Banking is confident that the account holder is of legal age or is a minor. The field takes the following values:
+
+            true if the account holder is of legal age;
+
+            false if the account holder is a minor;
+
+            null (or the field is not set) if it is not possible to determine whether the account holder is of legal age or a minor or if the legal age check is not applicable (in cases such as if the account holder is a legal entity or there are multiple account co-holders)'
+          type: boolean
+        postal_address:
+          description: Postal address of the account holder
+          $ref: '#/components/schemas/PostalAddress'
+        uid:
+          title: Uid
+          description: Unique account identificator used for fetching account balances and transactions. It is valid only until the session to which the account belongs is in the AUTHORIZED status. It can be not set in case it is know that it is not possible to fetch balances and transactions for the account (for example, in case the account is blocked or closed at the ASPSP side).
+          type: string
+          format: uuid
+        identification_hash:
+          type: string
+          title: Identification Hash
+          description: Primary account identification hash. It can be used for matching accounts between multiple sessions (even in case the sessions are authorized by different PSUs).
+          examples:
+          - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
+        identification_hashes:
+          items:
+            type: string
+          type: array
+          title: Identification Hashes
+          description: List of possible account identification hashes. Identification hash is based on the account number. Some accounts may have multiple account numbers (e.g. IBAN and BBAN). This field contains all possible hashes. Not all of these hashes can be used to uniquely identify an account and that the primary goal of them is to be able to fuzzy matching of accounts by certain properties. Primary hash is included in this list.
+          examples:
+          - - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
+            - WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=
+      type: object
+      required:
+      - cash_account_type
+      - currency
+      - identification_hash
+      - identification_hashes
+      title: AccountResource
+    ASPSP:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the ASPSP (i.e. a bank or a similar financial institution)
+          examples:
+          - Nordea
+        country:
+          type: string
+          title: Country
+          description: Two-letter ISO 3166 code of the country, in which ASPSP operates
+          examples:
+          - FI
+      type: object
+      required:
+      - name
+      - country
+      title: ASPSP
+    AmountType:
+      properties:
+        currency:
+          type: string
+          title: Currency
+          description: ISO 4217 code of the currency of the amount
+          examples:
+          - EUR
+        amount:
+          type: string
+          pattern: ^-?\d+(\.\d+)?$
+          title: Amount
+          description: Numerical value or monetary figure associated with a particular transaction, representing balance on an account, a fee or similar. Represented as a decimal number, using . (dot) as a decimal separator. Allowed precision (number of digits after the decimal separator) varies depending on the currency and is validated differently depending on the context.
+          examples:
+          - '1.23'
+      type: object
+      required:
+      - currency
+      - amount
+      title: AmountType
+    CashAccountType:
+      type: string
+      enum:
+      - CACC
+      - CASH
+      - CARD
+      - LOAN
+      - SVGS
+      - OTHR
+      title: CashAccountType
+      example: CACC
+      x-enum-descriptions:
+      - Account used to post debits and credits when no specific account has been nominated
+      - Account used for card payments only
+      - Account used for the payment of cash
+      - Account used for loans
+      - Account not otherwise specified
+      - Account used for savings
+    AccountIdentification:
+      properties:
+        iban:
+          title: Iban
+          description: International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
+          examples:
+          - FI8821291587733472
+          type: string
+        other:
+          description: Other identification if iban is not provided
+          examples:
+          - identification: '123456'
+            scheme_name: BBAN
+          $ref: '#/components/schemas/GenericIdentification'
+      type: object
+      title: AccountIdentification
+      example:
+        iban: FI0455231152453547
+    Access:
+      properties:
+        accounts:
+          title: Accounts
+          description: 'List of accounts access to which is requested. If not set behaviour depends on the
+
+            bank: some banks allow users to choose list of accessible accounts through their
+
+            access consent UI, while other may provide access to all accounts or just access to
+
+            the list of accounts.'
+          examples:
+          - - iban: FI1737631867613465
+          items:
+            $ref: '#/components/schemas/AccountIdentification'
+          type: array
+        balances:
+          type: boolean
+          title: Balances
+          description: Request consent with balances access
+          default: true
+        transactions:
+          type: boolean
+          title: Transactions
+          description: Request consent with transactions access
+          default: true
+        valid_until:
+          type: string
+          format: date-time
+          title: Valid Until
+          description: 'This parameter specifies the date and time until which the authorised session
+
+            remains valid. The value must be in the RFC3339 date-time format with a timezone
+
+            offset, e.g. `2025-12-01T12:00:00.000000+00:00`. The provided value cannot exceed
+
+            the date and time, calculated as "now" + `maximum_consent_validity` (provided in
+
+            seconds for each ASPSP in response to the GET /aspsps request). The provided value
+
+            is subject to adjustment to comply with the ASPSP''s requirements. Specifically, if
+
+            the provided value is less than the minimum consent validity allowed by the ASPSP
+
+            (e.g., some ASPSPs require a minimum of 1 hour or 1 day), the consent validity will
+
+            be adjusted to meet these requirements. However, the session validity will remain
+
+            exactly as specified. This means that even if the consent remains valid on the
+
+            ASPSP''s side, the session will expire based on the initially provided value.'
+      type: object
+      required:
+      - valid_until
+      title: Access
+      example:
+        valid_until: '2019-08-24T14:15:22Z'
+    PostalAddress:
+      properties:
+        address_type:
+          description: Available address type values
+          examples:
+          - DeliveryTo
+          $ref: '#/components/schemas/AddressType'
+        department:
+          title: Department
+          description: Identification of a division of a large organisation or building.
+          examples:
+          - Department of resources
+          type: string
+        sub_department:
+          title: Sub Department
+          description: Identification of a sub-division of a large organisation or building.
+          examples:
+          - Sub Department of resources
+          type: string
+        street_name:
+          title: Street Name
+          description: Name of a street or thoroughfare.
+          examples:
+          - Vasavagen
+          type: string
+        building_number:
+          title: Building Number
+          description: Number that identifies the position of a building on a street.
+          examples:
+          - '4'
+          type: string
+        post_code:
+          title: Post Code
+          description: 'Identifier consisting of a group of letters and/or numbers that is
+
+            added to a postal address to assist the sorting of mail.'
+          examples:
+          - '00123'
+          type: string
+        town_name:
+          title: Town Name
+          description: Name of a built-up area, with defined boundaries, and a local government.
+          examples:
+          - Helsinki
+          type: string
+        country_sub_division:
+          title: Country Sub Division
+          description: Identifies a subdivision of a country such as state, region, county.
+          examples:
+          - Uusimaa
+          type: string
+        country:
+          title: Country
+          description: Two-letter ISO 3166 code of the country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+          examples:
+          - FI
+          type: string
+        address_line:
+          title: Address Line
+          description: Unstructured address. The two lines must embed zip code and town name
+          examples:
+          - - Mr Asko Teirila PO Box 511
+            - 39140 AKDENMAA FINLAND
+          items:
+            type: string
+          type: array
+      type: object
+      title: PostalAddress
+    ErrorResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Error message
+          examples:
+          - Required PSU header is not provided
+        code:
+          title: Code
+          description: Error code, identical to the http response code
+          examples:
+          - 422
+          type: integer
+        error:
+          description: Text error code
+          examples:
+          - PSU_HEADER_NOT_PROVIDED
+          $ref: '#/components/schemas/ErrorCode'
+        detail:
+          title: Detail
+          description: Detailed explanation of an error
+          examples:
+          - PSU header psuIpAddress is not provided
+      type: object
+      required:
+      - message
+      title: ErrorResponse
+    SessionAccount:
+      properties:
+        uid:
+          type: string
+          format: uuid
+          title: Uid
+          description: Account identificator within the session
+        identification_hash:
+          type: string
+          title: Identification Hash
+          description: Global account identification hash
+        identification_hashes:
+          items:
+            type: string
+          type: array
+          title: Identification Hashes
+          description: List of possible account identification hashes. Identification hash is based on the account number. Some accounts may have multiple account numbers (e.g. IBAN and BBAN). This field contains all possible hashes.
+      type: object
+      required:
+      - uid
+      - identification_hash
+      - identification_hashes
+      title: SessionAccount
+    FinancialInstitutionIdentification:
+      properties:
+        bic_fi:
+          title: Bic Fi
+          description: Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identification code (BIC)".
+          type: string
+        clearing_system_member_id:
+          description: Information used to identify a member within a clearing system.
+          $ref: '#/components/schemas/ClearingSystemMemberIdentification'
+        name:
+          title: Name
+          description: Name of the financial institution
+          type: string
+      type: object
+      title: FinancialInstitutionIdentification
+    AuthorizeSessionRequest:
+      properties:
+        code:
+          type: string
+          title: Code
+          description: Authorization code returned when redirecting PSU
+      type: object
+      required:
+      - code
+      title: AuthorizeSessionRequest
+    SchemeName:
+      type: string
+      enum:
+      - CHID
+      - GS1G
+      - DUNS
+      - BANK
+      - TXID
+      - CUST
+      - EMPL
+      - OTHC
+      - DRLC
+      - CUSI
+      - SOSE
+      - ARNU
+      - CCPT
+      - OTHI
+      - COID
+      - SREN
+      - SRET
+      - NIDN
+      - OAUT
+      - CPAN
+      - BBAN
+      - IBAN
+      - MIBN
+      - BGNR
+      - PGNR
+      title: SchemeName
+      example: CHID
+      x-enum-descriptions:
+      - AlienRegistrationNumber
+      - BankPartyIdentification. Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
+      - Basic Bank Account Number. Represents a country-specific bank account number.
+      - Swedish BankGiro account number. Used in domestic Swedish giro payments
+      - PassportNumber
+      - Clearing Identification Number
+      - CountryIdentificationCode. Country authority given organisation identification (e.g., corporate registration number)
+      - Card PAN (masked or plain)
+      - CustomerIdentificationNumberIndividual. Handelsbanken-specific code
+      - CorporateCustomerNumber
+      - DriversLicenseNumber
+      - Data Universal Numbering System
+      - EmployerIdentificationNumber
+      - GS1GLNIdentifier
+      - International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer.
+      - Masked IBAN
+      - NationalIdentityNumber. Number assigned by an authority to identify the national identity number of a person.
+      - OAUTH2 access token that is owned by the PISP being also an AISP and that can be used in order to identify the PSU
+      - OtherCorporate. Handelsbanken-specific code
+      - OtherIndividual. Handelsbanken-specific code
+      - Swedish PlusGiro account number. Used in domestic Swedish giro payments
+      - SocialSecurityNumber
+      - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
+      - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
+      - TaxIdentificationNumber
+    ClearingSystemMemberIdentification:
+      properties:
+        clearing_system_id:
+          title: Clearing System Id
+          description: Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
+          examples:
+          - NZNCC
+          type: string
+        member_id:
+          title: Member Id
+          description: Identification of a member of a clearing system.
+          examples:
+          - 020368
+          type: string
+      type: object
+      title: ClearingSystemMemberIdentification
+    Usage:
+      type: string
+      enum:
+      - PRIV
+      - ORGA
+      title: Usage
+      example: PRIV
+      x-enum-descriptions:
+      - professional account
+      - private personal account
+    SuccessResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Returns "OK" in case of successful request
+          default: OK
+      type: object
+      title: SuccessResponse
+    AuthorizeSessionResponse:
+      properties:
+        session_id:
+          type: string
+          format: uuid4
+          title: Session Id
+          description: ID of the PSU session
+        accounts:
+          items:
+            $ref: '#/components/schemas/AccountResource'
+          type: array
+          title: Accounts
+          description: List of authorized accounts
+        aspsp:
+          $ref: '#/components/schemas/ASPSP'
+          description: ASPSP used with the session
+        psu_type:
+          $ref: '#/components/schemas/PSUType'
+          description: PSU type used with the session
+        access:
+          $ref: '#/components/schemas/Access'
+          description: Scope of access requested from ASPSP and confirmed by PSU
+          examples:
+          - valid_until: '2021-01-01T00:00:00Z'
+      type: object
+      required:
+      - session_id
+      - accounts
+      - aspsp
+      - psu_type
+      - access
+      title: AuthorizeSessionResponse
+    GetSessionResponse:
+      properties:
+        status:
+          $ref: '#/components/schemas/SessionStatus'
+          description: Session status
+          examples:
+          - AUTHORIZED
+        accounts:
+          items:
+            type: string
+            format: uuid
+          type: array
+          title: Accounts
+          description: List of account ids available in the session
+        accounts_data:
+          items:
+            $ref: '#/components/schemas/SessionAccount'
+          type: array
+          title: Accounts Data
+          description: Accounts data stored in the session
+        aspsp:
+          $ref: '#/components/schemas/ASPSP'
+          description: ASPSP used with the session
+        psu_type:
+          $ref: '#/components/schemas/PSUType'
+          description: PSU type used with the session
+        psu_id_hash:
+          type: string
+          title: Psu Id Hash
+          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
+        access:
+          $ref: '#/components/schemas/Access'
+          description: Scope of access requested from ASPSP and confirmed by PSU
+          examples:
+          - valid_until: '2020-12-01T12:00:00.000000+00:00'
+        created:
+          type: string
+          format: date-time
+          title: Created
+          description: Date and time when the session was created
+          examples:
+          - '2020-12-01T12:00:00.000000+00:00'
+        authorized:
+          title: Authorized
+          description: Date and time when the session was authorized
+          examples:
+          - '2020-12-01T12:00:00.000000+00:00'
+          type: string
+          format: date-time
+        closed:
+          title: Closed
+          description: Date and time when the session was closed
+          type: string
+          format: date-time
+      type: object
+      required:
+      - status
+      - accounts
+      - accounts_data
+      - aspsp
+      - psu_type
+      - psu_id_hash
+      - access
+      - created
+      title: GetSessionResponse
+      example:
+        access:
+          valid_until: '2020-12-01T12:00:00.000000+00:00'
+        accounts:
+        - 497f6eca-6276-4993-bfeb-53cbbbba6f08
+        accounts_data:
+        - identification_hash: WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
+          uid: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+        aspsp:
+          country: FI
+          name: Nordea
+        authorized: '2020-12-01T12:00:00.000000+00:00'
+        created: '2020-12-01T12:00:00.000000+00:00'
+        psu_type: business
+        status: AUTHORIZED
+    PSUType:
+      type: string
+      enum:
+      - business
+      - personal
+      title: PSUType
+      example: business
+      x-enum-descriptions:
+      - Business/corporate users
+      - 'Private/retail users '
+    StartAuthorizationRequest:
+      properties:
+        access:
+          $ref: '#/components/schemas/Access'
+          description: Scope of access to be request from ASPSP and to be confirmed by PSU
+          examples:
+          - valid_until: '2020-12-01T12:00:00.000000+00:00'
+        aspsp:
+          $ref: '#/components/schemas/ASPSP'
+          description: ASPSP that PSU is going to be authenticated to
+          examples:
+          - country: FI
+            name: Nordea
+        state:
+          type: string
+          title: State
+          description: Arbitrary string. Same string will be returned in query parameter when redirecting to the URL passed via redirect_url parameter
+          examples:
+          - 3a57e2d3-2e0c-4336-af9b-7fa94f0606a3
+        redirect_url:
+          type: string
+          minLength: 1
+          format: uri
+          title: Redirect Url
+          description: URL that PSU will be redirected to after authorization
+        psu_type:
+          $ref: '#/components/schemas/PSUType'
+          description: PSU type which consent is created for
+        auth_method:
+          title: Auth Method
+          description: Desired authorization method (in case ASPSP integration supports multiple). Supported methods can be obtained from the `auth_methods` field available in ASPSP details.
+          examples:
+          - methodName
+          type: string
+        credentials:
+          title: Credentials
+          description: PSU credentials (e.g., user and/or company ID). If not provided through the API, they will be requested from the PSU during authorization. Credentials can be supplied only if `auth_method` is specified; otherwise, a `WRONG_REQUEST_PARAMETERS` error will be returned.
+          examples:
+          - userId: MyUsername
+          type: object
+        credentials_autosubmit:
+          type: boolean
+          title: Credentials Autosubmit
+          description: Controls whether user credentials will be autosubmitted (if passed). If set to `false` then credentials form will be prefilled with passed credentials
+          default: true
+        language:
+          title: Language
+          description: Preferred PSU language. Two-letter lowercase language code
+          examples:
+          - fi
+          type: string
+          pattern: ^[a-z]{2}$
+        psu_id:
+          title: Psu Id
+          description: Unique identification of a PSU used by the client application. It can be used to match sessions of the same user. Although only hashed value is stored, it is recommended to use anonymised identifiers (i.e. digital ID instead of email or social security number). In case the parameter is not passed by the application, random value will be used.
+          type: string
+      type: object
+      required:
+      - access
+      - aspsp
+      - state
+      - redirect_url
+      title: StartAuthorizationRequest
+    StartAuthorizationResponse:
+      properties:
+        url:
+          type: string
+          minLength: 1
+          format: uri
+          title: Url
+          description: URL to redirect PSU to
+          examples:
+          - https://tilisy.enablebanking.com/welcome?sessionid=73100c65-c54d-46a1-87d1-aa3effde435a
+        authorization_id:
+          type: string
+          format: uuid
+          title: Authorization Id
+          description: PSU authorisation ID, a value used to identify an authorisation session. Please note that another session ID will used to fetch account data.
+          examples:
+          - 73100c65-c54d-46a1-87d1-aa3effde435a
+        psu_id_hash:
+          type: string
+          title: Psu Id Hash
+          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
+      type: object
+      required:
+      - url
+      - authorization_id
+      - psu_id_hash
+      title: StartAuthorizationResponse
+    AddressType:
+      type: string
+      enum:
+      - Business
+      - Correspondence
+      - DeliveryTo
+      - MailTo
+      - POBox
+      - Postal
+      - Residential
+      - Statement
+      title: AddressType
+      example: Business
+      x-enum-descriptions:
+      - Business address
+      - Correspondence address
+      - Delivery address
+      - Mail to address
+      - PO Box address
+      - Postal address
+      - Residential address
+      - Statement address
+    ErrorCode:
+      type: string
+      enum:
+      - ACCESS_DENIED
+      - ACCOUNT_DOES_NOT_EXIST
+      - ALREADY_AUTHORIZED
+      - ASPSP_ACCOUNT_NOT_ACCESSIBLE
+      - ASPSP_ERROR
+      - ASPSP_TIMEOUT
+      - ASPSP_RATE_LIMIT_EXCEEDED
+      - AUTHORIZATION_NOT_PROVIDED
+      - CLOSED_SESSION
+      - DATE_TO_WITHOUT_DATE_FROM
+      - DATE_FROM_IN_FUTURE
+      - EXPIRED_AUTHORIZATION_CODE
+      - EXPIRED_SESSION
+      - INVALID_ACCOUNT_ID
+      - INVALID_HOST
+      - UNAUTHORIZED_IP
+      - NO_ACCOUNTS_ADDED
+      - PAYMENT_NOT_FOUND
+      - PSU_HEADER_NOT_PROVIDED
+      - PSU_HEADER_INVALID
+      - REDIRECT_URI_NOT_ALLOWED
+      - REVOKED_SESSION
+      - SESSION_DOES_NOT_EXIST
+      - UNAUTHORIZED_ACCESS
+      - UNTRUSTED_PAYMENT_PARTY
+      - WEBHOOK_URI_NOT_ALLOWED
+      - WRONG_ASPSP_PROVIDED
+      - WRONG_AUTHORIZATION_CODE
+      - WRONG_DATE_INTERVAL
+      - WRONG_CREDENTIALS_PROVIDED
+      - WRONG_REQUEST_PARAMETERS
+      - WRONG_SESSION_STATUS
+      - WRONG_TRANSACTIONS_PERIOD
+      - WRONG_CONTINUATION_KEY
+      - TRANSACTION_DOES_NOT_EXIST
+      - PAYMENT_LIMIT_EXCEEDED
+      - ASPSP_PAYMENT_NOT_ACCESSIBLE
+      - INVALID_PAYMENT
+      - ASPSP_PSU_ACTION_REQUIRED
+      - PAYMENT_NOT_FINALIZED
+      title: ErrorCode
+      example: PSU_HEADER_NOT_PROVIDED
+      x-enum-descriptions:
+      - Access to this resource is denied. Check services available for your application.
+      - No account found matching provided id
+      - Session is already authorized
+      - The PSU does not have access to the requested account or it doesn't exist
+      - Error interacting with ASPSP
+      - Payment can not be requested from the ASPSP
+      - PSU action is required to proceed
+      - ASPSP Rate limit exceeded
+      - Timeout interacting with ASPSP
+      - Authorization header is not provided
+      - Session is closed
+      - date_from can not be in the future
+      - date_from must be provided if date_to provided
+      - Authorization code is expired
+      - Session is expired
+      - Either iban or other account identification is required
+      - Invalid host
+      - Invalid or expired payment provided
+      - No allowed accounts added to the application
+      - The amount value or the the number of transactions exceeds the limit
+      - You can not delete a payment that is not finalized or cancelled
+      - Payment not found
+      - Provided PSU header contains invalid value
+      - Required PSU header is not provided
+      - Redirect URI not allowed
+      - Session is revoked
+      - No session found matching provided id
+      - No transaction found matching provided id
+      - Unauthorized access
+      - Used IP address is not authorized to access the resource
+      - Either creditor or debtor account is not trusted
+      - Webhook URI not allowed
+      - Wrong ASPSP name provided
+      - Wrong authorization code provided
+      - Wrong continuation key provided
+      - Wrong credentials provided
+      - date_from should be less than or equal date_to
+      - Wrong request parameters provided
+      - Wrong session status
+      - Wrong transactions period requested
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: "In order to get access to this API you need to:\n\n- Generate a private RSA key and a self-signed certificate;\n- Upload the certificate to enablebanking.com and get application ID;\n- Construct JWT with the data described below and signed with your private key;\n- Send the JWT in the Authorization header.\n\n## Private key and certificate generation\n\n> Generating private RSA key\n\n```bash\nopenssl genrsa -out private.key 4096\n```\n\nOpenSSL CLI can be used for generation of a private key and self-signed certificate.\n\nMake sure you keep the private key in secret (e.g. don't expose it to client, share\nwith anyone nor embed into mobile or other apps intalled to user devices).\n\n> Generating self-signed certificate\n\n```bash\nopenssl req -new -x509 -days 365 -key private.key -out public.crt -subj \"/C=FI/ST=Uusima/L=Helsinki/O=ExampleOrganisation/CN=www.bigorg.com\"\n```\n\nYou should replace values under `-subj` with appropriate values.\n\nAlternatively you can use the private key generated in your browser\n[when registering a new application](#certificate-upload-and-application-registration).\nJust choose **Generate in the browser (using SubtleCrypto) and export private key** option\nwhen registering an application, and the private key will be exported after the application\nhas been registered (the corresponding certificate will be used for the app registration).\n\n## Certificate upload and application registration\n\nTo register a new application you need to have an account on the \n[Enable Banking Control Panel](https://enablebanking.com/cp). You can create one by visiting\n[https://enablebanking.com/sign-in/](https://enablebanking.com/sign-in/)\nand entering your email address (a one-time authentication link will be sent to your email address).\n\nIn [the app registration form](https://enablebanking.com/cp/applications) you will be asked to\nupload the public certificate that you created for the application being registered.\n\nAn application can be registered to either `PRODUCTION` (aka \"live\") or `SANDBOX` (aka \"simulation\")\nenvironment. Applications can not be transferred from the sandbox to the production environment and\nvice versa.\n\nApplications registered into the sandbox environment are activated automatically. Applications\nregistered to the production environment at first appear as pending and will be activated either \nafter contractual formalities for the use of the API are cleared or after you \n[whitelist your own accounts](../linked-accounts/index.md). For more information please contact us at\n[info@enablebanking.com](mailto:info@enablebanking.com).\n\n<h3 id=\"application-registration-api\">Application registration API</h3>\n\nYou can also register an application sending POST request containing JSON with the application\ndetails and public certificate to `https://enablebanking.com/api/applications` endpoint.\n\nThe JSON body for the endpoint is to include the following fields:\n\n- \"certificate\": Content of the certificate or public key of the application (always required)\n- \"environment\": Environment (`SANDBOX` or `PRODUCTION`) in which the application will operate (always required)\n- \"name\": Name of the application being registered (always required)\n- \"redirect_urls\": List of allowed redirect URLs for the application (always required)\n- \"description\": Description of the application being registered (required when the `environment` field is set to `PRODUCTION`)\n- \"gdpr_email\": Email address for data protection matters (required when the `environment` field is set to `PRODUCTION`)\n- \"privacy_url\": URL of the application's privacy policy (required when the `environment` field is set to `PRODUCTION`)\n- \"terms_url\": URL of the application's terms of service (required when the `environment` field is set to `PRODUCTION`)\n\n> App registration example using curl\n\n```bash\ncurl -X POST -H \"Authorization: Bearer YOUR-JWT-ON-ENABLEBANKING-COM\" \\\n  -H \"Content-Type: application/json\" \\\n  -d \"{\\\"name\\\":\\\"My app\\\",\\\"certificate\\\":\\\"$(cat public.crt | tr '\\n' '|' | sed 's/|/\\\\n/g')\\\",\\\"environment\\\":\\\"SANDBOX\\\",\\\"redirect_urls\\\":[\\\"https://example.org/\\\"]}\" \\\n  https://enablebanking.com/api/applications\n```\n\nIn response to the app registration request, you will receive an ID assigned to your application, which\nis to be used when [forming JTW token](#jwt-format-and-signature).\n\n> Example response\n\n```json\n{\n  \"app_id\": \"cf589be3-3755-465b-a8df-a90a16a31403\"\n}\n```\n\n## JWT format and signature\n\n> JWT example\n\n```bash\neyJ0eXAiOiAiSldUIiwgImFsZyI6ICJSUzI1NiIsICJraWQiOiAiY2Y1ODliZTMtMzc1NS00NjViLWE4ZGYtYTkwYTE2YTMxNDAzIn0.eyJpc3MiOiAiZW5hYmxlYmFua2luZy5jb20iLCAiYXVkIjogImFwaS50aWxpc3kuY29tIiwgImlhdCI6IDE2MDE0NTY3NjgsICJleHAiOiAxNjAxNTQzMTY4fQ.daO3ENSYIA3ud7Ay7uGQ0xxqq9r4_WLcM5SbrN_6_fqsFZXFdoGQA5nKiyP8Ot4nWdYcZvaNWxEAOIodUFndOP8pjihF9-rMXuNGEjde1cq2WjYzKwiIeodUej8okDWdB--szcgurzGMd8RRMjqr951PWqnXS-PbrRsavDHp8l2q4YBjh2m80nRruKnQCAn0dtm4A5G9rZaEowo9z-c8HJU101jKddyOpHhl9UvxVrERzHtyO4LdidiP4rP1hmaVMWybSbcIMI_h30qjqWP21kYRH9ENITTttbf0uZIa8s74jKYxNIdiiDyRaq9WjoPolrHI_ZxcMjp8mmCKX-N-1w\n```\n\nYou can read more about JWT here: https://jwt.io/introduction/\n\nJWT header must contain following fields:\n\n- \"typ\": \"JWT\" (always the same)\n- \"alg\": \"RS256\" (always the same, only RS256 is supported)\n- \"kid\": \"<application_id>\" (application id obtained after certificate upload)\n\nJWT body must contain following fields:\n\n- \"iss\": \"enablebanking.com\" (always the same)\n- \"aud\": \"api.enablebanking.com\" (always the same, formerly had to be \"api.tilisy.com\", which is now deprecated)\n- \"iat\": 1601456603 (timestamp when the token is being created)\n- \"exp\": 1601460262 (timestamp when the token expires)\n\nMaximum allowed time-to-live for token is 86400 seconds (24 hours). Tokens created with longer\nTTL are not accepted by the API.\n\n> Check code samples in C#, Node.js, PHP, Python and Ruby in [our GitHub repository](https://github.com/enablebanking/enablebanking-api-samples)\n\n```\nhttps://github.com/enablebanking/enablebanking-api-samples\n```\n\n## Send request with JWT provided\n\n> Example request\n\n```http\nGET https://api.enablebanking.com/application HTTP/1.1\nHost: api.enablebanking.com\nAuthorization: Bearer eyJ0eXAiOiAiSldUIiwgImFsZyI6ICJSUzI1NiIsICJraWQiOiAiY2Y1ODliZTMtMzc1NS00NjViLWE4ZGYtYTkwYTE2YTMxNDAzIn0.eyJpc3MiOiAiZW5hYmxlYmFua2luZy5jb20iLCAiYXVkIjogImFwaS5lbmFibGViYW5raW5nLmNvbSIsICJpYXQiOiAxNjAxNDU2NzY4LCAiZXhwIjogMTYwMTU0MzE2OH0.daO3ENSYIA3ud7Ay7uGQ0xxqq9r4_WLcM5SbrN_6_fqsFZXFdoGQA5nKiyP8Ot4nWdYcZvaNWxEAOIodUFndOP8pjihF9-rMXuNGEjde1cq2WjYzKwiIeodUej8okDWdB--szcgurzGMd8RRMjqr951PWqnXS-PbrRsavDHp8l2q4YBjh2m80nRruKnQCAn0dtm4A5G9rZaEowo9z-c8HJU101jKddyOpHhl9UvxVrERzHtyO4LdidiP4rP1hmaVMWybSbcIMI_h30qjqWP21kYRH9ENITTttbf0uZIa8s74jKYxNIdiiDyRaq9WjoPolrHI_ZxcMjp8mmCKX-N-1w\n```\n\nIn order to authenticate your application, you need to provide JWT in the \"Authorization\" header\nof your request.\n"
