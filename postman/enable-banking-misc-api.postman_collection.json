@@ -1,0 +1,1085 @@
+{
+  "info": {
+    "_postman_id": "8511808b-b6ff-446c-9f8c-07d70f1a7fa1",
+    "name": "API reference Accounts data Misc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:55.000Z",
+    "updatedAt": "2026-07-28T01:33:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8511808b-b6ff-446c-9f8c-07d70f1a7fa1"
+  },
+  "item": [
+    {
+      "name": "aspsps",
+      "item": [
+        {
+          "name": "Get list of ASPSPs",
+          "id": "d33e304e-6226-4d7e-8d27-58b461d64647",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aspsps"
+              ],
+              "query": [
+                {
+                  "description": "Display only ASPSPs from specified country",
+                  "key": "country",
+                  "value": "MS"
+                },
+                {
+                  "description": "Display only ASPSPs which support specified psu type",
+                  "key": "psu_type",
+                  "value": "business"
+                },
+                {
+                  "description": "Display only ASPSPs which support specified service",
+                  "key": "service",
+                  "value": "PIS"
+                },
+                {
+                  "description": "Display only ASPSPs which support specified payment type",
+                  "key": "payment_type",
+                  "value": "CROSSBORDER"
+                }
+              ]
+            },
+            "description": "Get list of ASPSPs with their meta information"
+          },
+          "response": [
+            {
+              "id": "3b0419db-d430-46be-8d86-bc91a3f32361",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"aspsps\": [\n    {\n      \"name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"logo\": \"<uri>\",\n      \"psu_types\": [\n        \"business\",\n        \"personal\"\n      ],\n      \"auth_methods\": [\n        {\n          \"psu_type\": \"business\",\n          \"approach\": \"REDIRECT\",\n          \"hidden_method\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"credentials\": [\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"psu_type\": \"business\",\n          \"approach\": \"DECOUPLED\",\n          \"hidden_method\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"credentials\": [\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"maximum_consent_validity\": \"<integer>\",\n      \"beta\": \"<boolean>\",\n      \"sandbox\": {\n        \"users\": [\n          {\n            \"username\": \"<string>\",\n            \"password\": \"<string>\",\n            \"otp\": \"<string>\"\n          },\n          {\n            \"username\": \"<string>\",\n            \"password\": \"<string>\",\n            \"otp\": \"<string>\"\n          }\n        ]\n      },\n      \"bic\": \"<string>\",\n      \"required_psu_headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"payments\": [\n        {\n          \"payment_type\": \"DOMESTIC_SE_GIRO\",\n          \"psu_type\": \"business\",\n          \"max_transactions\": \"<integer>\",\n          \"currencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"debtor_account_required\": false,\n          \"debtor_account_schemas\": [\n            \"CPAN\",\n            \"GS1G\"\n          ],\n          \"creditor_account_schemas\": [\n            \"MIBN\",\n            \"NIDN\"\n          ],\n          \"priority_codes\": [\n            \"EXPR\",\n            \"HIGH\"\n          ],\n          \"charge_bearer_values\": [\n            \"CRED\",\n            \"DEBT\"\n          ],\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"remittance_information_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            },\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            }\n          ],\n          \"debtor_currency_required\": false,\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"allowed_auth_methods\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"regulatory_reporting_codes\": [\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            },\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            }\n          ],\n          \"regulatory_reporting_code_required\": false,\n          \"reference_number_supported\": false,\n          \"reference_number_schemas\": [\n            \"NORF\",\n            \"SDDM\"\n          ],\n          \"requested_execution_date_supported\": false,\n          \"requested_execution_date_max_period\": \"<integer>\",\n          \"remittance_reference_supported\": false,\n          \"final_successful_statuses\": [\n            \"RJCT\",\n            \"PDNG\"\n          ]\n        },\n        {\n          \"payment_type\": \"DOMESTIC_SE_GIRO\",\n          \"psu_type\": \"personal\",\n          \"max_transactions\": \"<integer>\",\n          \"currencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"debtor_account_required\": false,\n          \"debtor_account_schemas\": [\n            \"CCPT\",\n            \"OAUT\"\n          ],\n          \"creditor_account_schemas\": [\n            \"NIDN\",\n            \"SREN\"\n          ],\n          \"priority_codes\": [\n            \"HIGH\",\n            \"EXPR\"\n          ],\n          \"charge_bearer_values\": [\n            \"SHAR\",\n            \"CRED\"\n          ],\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"remittance_information_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            },\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            }\n          ],\n          \"debtor_currency_required\": false,\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"allowed_auth_methods\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"regulatory_reporting_codes\": [\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            },\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            }\n          ],\n          \"regulatory_reporting_code_required\": false,\n          \"reference_number_supported\": false,\n          \"reference_number_schemas\": [\n            \"NORF\",\n            \"BERF\"\n          ],\n          \"requested_execution_date_supported\": false,\n          \"requested_execution_date_max_period\": \"<integer>\",\n          \"remittance_reference_supported\": false,\n          \"final_successful_statuses\": [\n            \"PDNG\",\n            \"RJCT\"\n          ]\n        }\n      ],\n      \"group\": {\n        \"name\": \"<string>\",\n        \"logo\": \"<uri>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"logo\": \"<uri>\",\n      \"psu_types\": [\n        \"business\",\n        \"business\"\n      ],\n      \"auth_methods\": [\n        {\n          \"psu_type\": \"business\",\n          \"approach\": \"DECOUPLED\",\n          \"hidden_method\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"credentials\": [\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"psu_type\": \"business\",\n          \"approach\": \"DECOUPLED\",\n          \"hidden_method\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"credentials\": [\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"required\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"template\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"maximum_consent_validity\": \"<integer>\",\n      \"beta\": \"<boolean>\",\n      \"sandbox\": {\n        \"users\": [\n          {\n            \"username\": \"<string>\",\n            \"password\": \"<string>\",\n            \"otp\": \"<string>\"\n          },\n          {\n            \"username\": \"<string>\",\n            \"password\": \"<string>\",\n            \"otp\": \"<string>\"\n          }\n        ]\n      },\n      \"bic\": \"<string>\",\n      \"required_psu_headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"payments\": [\n        {\n          \"payment_type\": \"BULK_SEPA\",\n          \"psu_type\": \"business\",\n          \"max_transactions\": \"<integer>\",\n          \"currencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"debtor_account_required\": false,\n          \"debtor_account_schemas\": [\n            \"NIDN\",\n            \"NIDN\"\n          ],\n          \"creditor_account_schemas\": [\n            \"IBAN\",\n            \"BBAN\"\n          ],\n          \"priority_codes\": [\n            \"EXPR\",\n            \"NORM\"\n          ],\n          \"charge_bearer_values\": [\n            \"CRED\",\n            \"CRED\"\n          ],\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"remittance_information_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            },\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            }\n          ],\n          \"debtor_currency_required\": false,\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"allowed_auth_methods\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"regulatory_reporting_codes\": [\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            },\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            }\n          ],\n          \"regulatory_reporting_code_required\": false,\n          \"reference_number_supported\": false,\n          \"reference_number_schemas\": [\n            \"FIRF\",\n            \"INTL\"\n          ],\n          \"requested_execution_date_supported\": false,\n          \"requested_execution_date_max_period\": \"<integer>\",\n          \"remittance_reference_supported\": false,\n          \"final_successful_statuses\": [\n            \"PART\",\n            \"NULL\"\n          ]\n        },\n        {\n          \"payment_type\": \"SEPA\",\n          \"psu_type\": \"personal\",\n          \"max_transactions\": \"<integer>\",\n          \"currencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"debtor_account_required\": false,\n          \"debtor_account_schemas\": [\n            \"GS1G\",\n            \"TXID\"\n          ],\n          \"creditor_account_schemas\": [\n            \"NIDN\",\n            \"OTHC\"\n          ],\n          \"priority_codes\": [\n            \"EXPR\",\n            \"NORM\"\n          ],\n          \"charge_bearer_values\": [\n            \"DEBT\",\n            \"CRED\"\n          ],\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"remittance_information_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            },\n            {\n              \"min_length\": \"<integer>\",\n              \"max_length\": \"<integer>\",\n              \"pattern\": \"<string>\"\n            }\n          ],\n          \"debtor_currency_required\": false,\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"allowed_auth_methods\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"regulatory_reporting_codes\": [\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            },\n            {\n              \"value\": \"<string>\",\n              \"description\": \"<string>\"\n            }\n          ],\n          \"regulatory_reporting_code_required\": false,\n          \"reference_number_supported\": false,\n          \"reference_number_schemas\": [\n            \"SDDM\",\n            \"FIRF\"\n          ],\n          \"requested_execution_date_supported\": false,\n          \"requested_execution_date_max_period\": \"<integer>\",\n          \"remittance_reference_supported\": false,\n          \"final_successful_statuses\": [\n            \"ACTC\",\n            \"RJCT\"\n          ]\n        }\n      ],\n      \"group\": {\n        \"name\": \"<string>\",\n        \"logo\": \"<uri>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-3b0419db-d430-46be-8d86-bc91a3f32361"
+            },
+            {
+              "id": "4b1b9a46-4d92-45e2-9826-7997f77c69de",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-4b1b9a46-4d92-45e2-9826-7997f77c69de"
+            },
+            {
+              "id": "a4c02cba-334e-4999-8174-f41da9666092",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-a4c02cba-334e-4999-8174-f41da9666092"
+            },
+            {
+              "id": "aafe3bc3-2437-4237-90cc-d0ca3d32e605",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-aafe3bc3-2437-4237-90cc-d0ca3d32e605"
+            },
+            {
+              "id": "8c48a93c-549d-4949-a8a3-d4afd3caad52",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-8c48a93c-549d-4949-a8a3-d4afd3caad52"
+            },
+            {
+              "id": "044c94c1-7a79-48e9-bba4-9a9cc6408797",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-044c94c1-7a79-48e9-bba4-9a9cc6408797"
+            },
+            {
+              "id": "40c9115d-5b1b-4b48-ab4b-0047cd80b1d8",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-40c9115d-5b1b-4b48-ab4b-0047cd80b1d8"
+            },
+            {
+              "id": "4ebd1783-e521-4040-b189-0dcd8aa6746b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-4ebd1783-e521-4040-b189-0dcd8aa6746b"
+            },
+            {
+              "id": "3f319214-e9c7-46a3-86d7-f8bede97af9f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aspsps?country=MS&psu_type=business&service=PIS&payment_type=CROSSBORDER",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aspsps"
+                  ],
+                  "query": [
+                    {
+                      "description": "Display only ASPSPs from specified country",
+                      "key": "country",
+                      "value": "MS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified psu type",
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified service",
+                      "key": "service",
+                      "value": "PIS"
+                    },
+                    {
+                      "description": "Display only ASPSPs which support specified payment type",
+                      "key": "payment_type",
+                      "value": "CROSSBORDER"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-3f319214-e9c7-46a3-86d7-f8bede97af9f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:56.000Z",
+          "updatedAt": "2026-07-28T01:33:56.000Z",
+          "uid": "35240-d33e304e-6226-4d7e-8d27-58b461d64647"
+        }
+      ],
+      "id": "b7265468-3a0c-40f7-89a1-f22e5a67dd54",
+      "createdAt": "2026-07-28T01:33:56.000Z",
+      "updatedAt": "2026-07-28T01:33:56.000Z",
+      "uid": "35240-b7265468-3a0c-40f7-89a1-f22e5a67dd54"
+    },
+    {
+      "name": "application",
+      "item": [
+        {
+          "name": "Get application",
+          "id": "53bf4671-85d4-4d5f-b59b-939fb55db9a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/application",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application"
+              ]
+            },
+            "description": "Get application associated with provided JWT key ID"
+          },
+          "response": [
+            {
+              "id": "89393177-5a88-4463-84f1-41e0ab1ce4f0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"kid\": \"<string>\",\n  \"environment\": \"PRODUCTION\",\n  \"redirect_urls\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"active\": \"<boolean>\",\n  \"countries\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"services\": [\n    \"AIS\",\n    \"AIS\"\n  ],\n  \"description\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-89393177-5a88-4463-84f1-41e0ab1ce4f0"
+            },
+            {
+              "id": "6c5e86c6-a159-4fc8-91b4-4a2ab7a285f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-6c5e86c6-a159-4fc8-91b4-4a2ab7a285f6"
+            },
+            {
+              "id": "04bf585d-ac05-4bf6-acbf-6e8cbf78c2e6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-04bf585d-ac05-4bf6-acbf-6e8cbf78c2e6"
+            },
+            {
+              "id": "e69dc0ff-0599-4368-bfcd-761ff24131fd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-e69dc0ff-0599-4368-bfcd-761ff24131fd"
+            },
+            {
+              "id": "bae4771f-4594-4553-9aae-a929751aeae9",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-bae4771f-4594-4553-9aae-a929751aeae9"
+            },
+            {
+              "id": "93ed7750-84d4-4c43-b8ba-29cb041cd4ef",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-93ed7750-84d4-4c43-b8ba-29cb041cd4ef"
+            },
+            {
+              "id": "14ae9f01-716e-4d3a-ad01-cf05486fa278",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-14ae9f01-716e-4d3a-ad01-cf05486fa278"
+            },
+            {
+              "id": "b15b84ec-12bb-4a35-9aa7-52a2b66d6a74",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-b15b84ec-12bb-4a35-9aa7-52a2b66d6a74"
+            },
+            {
+              "id": "b22b9041-e0ca-4e23-a7c4-f4c4ce571666",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"WRONG_REQUEST_PARAMETERS\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:56.000Z",
+              "updatedAt": "2026-07-28T01:33:56.000Z",
+              "uid": "35240-b22b9041-e0ca-4e23-a7c4-f4c4ce571666"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:56.000Z",
+          "updatedAt": "2026-07-28T01:33:56.000Z",
+          "uid": "35240-53bf4671-85d4-4d5f-b59b-939fb55db9a5"
+        }
+      ],
+      "id": "b1d490f1-7fb2-493a-a808-e778169a401a",
+      "createdAt": "2026-07-28T01:33:56.000Z",
+      "updatedAt": "2026-07-28T01:33:56.000Z",
+      "uid": "35240-b1d490f1-7fb2-493a-a808-e778169a401a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.enablebanking.com"
+    }
+  ]
+}

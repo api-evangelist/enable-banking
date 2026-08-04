@@ -1,0 +1,2083 @@
+{
+  "info": {
+    "_postman_id": "70ebe5e4-a2be-4b3e-8f2c-2c70aacb9f52",
+    "name": "API reference Accounts data Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:57.000Z",
+    "updatedAt": "2026-07-28T01:33:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70ebe5e4-a2be-4b3e-8f2c-2c70aacb9f52"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "{payment_id}",
+          "item": [
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "{transaction_id}",
+                  "item": [
+                    {
+                      "name": "Get payment transaction",
+                      "id": "d651f245-290f-42d9-b311-b1e0efd836df",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "transactions",
+                            ":transaction_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5cc9ed20-362c-4ef5-8bcd-b2428949ef3c",
+                              "key": "payment_id",
+                              "value": "<string>",
+                              "description": "(Required) Payment ID"
+                            },
+                            {
+                              "id": "50a17863-b05b-4c3a-8777-4634e2000b79",
+                              "key": "transaction_id",
+                              "value": "<string>",
+                              "description": "(Required) Transaction ID"
+                            }
+                          ]
+                        },
+                        "description": "Fetching transaction details for a single transaction within a bulk payment"
+                      },
+                      "response": [
+                        {
+                          "id": "2b3c6d49-5376-4e05-ba72-e01840fc3c0c",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"payment_id\": \"<uuid>\",\n  \"transaction_details\": {\n    \"instructed_amount\": {\n      \"currency\": \"<string>\",\n      \"amount\": \"-63.5382043818\"\n    },\n    \"beneficiary\": {\n      \"creditor_account\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"COID\",\n        \"issuer\": \"<string>\"\n      },\n      \"creditor_agent\": {\n        \"bic_fi\": \"<string>\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"<string>\",\n          \"member_id\": \"<string>\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"creditor\": {\n        \"name\": \"<string>\",\n        \"postal_address\": {\n          \"address_type\": \"Residential\",\n          \"department\": \"<string>\",\n          \"sub_department\": \"<string>\",\n          \"street_name\": \"<string>\",\n          \"building_number\": \"<string>\",\n          \"post_code\": \"<string>\",\n          \"town_name\": \"<string>\",\n          \"country_sub_division\": \"<string>\",\n          \"country\": \"<string>\",\n          \"address_line\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"organisation_id\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"DUNS\",\n          \"issuer\": \"<string>\"\n        },\n        \"private_id\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"OTHC\",\n          \"issuer\": \"<string>\"\n        },\n        \"contact_details\": {\n          \"email_address\": \"<string>\",\n          \"phone_number\": \"<string>\"\n        }\n      },\n      \"creditor_currency\": \"<string>\"\n    },\n    \"payment_id\": {\n      \"instruction_id\": \"<string>\",\n      \"end_to_end_id\": \"<string>\"\n    },\n    \"requested_execution_date\": \"<date>\",\n    \"reference_number\": \"<string>\",\n    \"end_date\": \"<date>\",\n    \"execution_rule\": \"FWNG\",\n    \"frequency\": \"YEAR\",\n    \"ultimate_debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"Correspondence\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"CUSI\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"ultimate_creditor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"Postal\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"CUSI\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"regulatory_reporting\": [\n      {\n        \"details\": {\n          \"information\": \"<string>\",\n          \"amount\": {\n            \"currency\": \"<string>\",\n            \"amount\": \"-6323991357\"\n          },\n          \"code\": \"<string>\"\n        },\n        \"authority\": {\n          \"country\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      }\n    ],\n    \"remittance_information\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"transaction_id\": \"<string>\",\n    \"transaction_status\": \"NULL\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-2b3c6d49-5376-4e05-ba72-e01840fc3c0c"
+                        },
+                        {
+                          "id": "8d0fff2d-f990-44dd-b38b-5f92639d27d0",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-8d0fff2d-f990-44dd-b38b-5f92639d27d0"
+                        },
+                        {
+                          "id": "b3850ddf-260c-40f1-8575-775f38cb4acd",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-b3850ddf-260c-40f1-8575-775f38cb4acd"
+                        },
+                        {
+                          "id": "15a25a87-5f39-4f68-86b8-4446791ee51c",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-15a25a87-5f39-4f68-86b8-4446791ee51c"
+                        },
+                        {
+                          "id": "dd81960f-74e2-4d77-82e6-1e7fac592f51",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-dd81960f-74e2-4d77-82e6-1e7fac592f51"
+                        },
+                        {
+                          "id": "db58911d-8d1d-4225-b0e2-82ff18df5482",
+                          "name": "Request Timeout",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Request Timeout",
+                          "code": 408,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-db58911d-8d1d-4225-b0e2-82ff18df5482"
+                        },
+                        {
+                          "id": "a9a5e4d3-1693-4474-9f6d-7e3b6449b541",
+                          "name": "Unprocessable Entity",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-a9a5e4d3-1693-4474-9f6d-7e3b6449b541"
+                        },
+                        {
+                          "id": "dde2015d-67a0-42db-af67-42d10310f23b",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-dde2015d-67a0-42db-af67-42d10310f23b"
+                        },
+                        {
+                          "id": "95f92b74-e503-4467-b3c3-7aaacb6faf08",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/payments/:payment_id/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payments",
+                                ":payment_id",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "payment_id"
+                                },
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:57.000Z",
+                          "updatedAt": "2026-07-28T01:33:57.000Z",
+                          "uid": "35240-95f92b74-e503-4467-b3c3-7aaacb6faf08"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:33:57.000Z",
+                      "updatedAt": "2026-07-28T01:33:57.000Z",
+                      "uid": "35240-d651f245-290f-42d9-b311-b1e0efd836df"
+                    }
+                  ],
+                  "id": "ec4e2b38-29a7-4cdd-b3f1-00a32663ce9c",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-ec4e2b38-29a7-4cdd-b3f1-00a32663ce9c"
+                }
+              ],
+              "id": "f56cc1a5-5b04-453c-959e-bc666fafa6ac",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-f56cc1a5-5b04-453c-959e-bc666fafa6ac"
+            },
+            {
+              "name": "Get payment",
+              "id": "ed64c0eb-2182-4a02-a632-f53481c85ade",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/:payment_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6387ebd6-697e-4e93-8887-3fc88b0ff2c7",
+                      "key": "payment_id",
+                      "value": "<string>",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "description": "Fetching payment status and details"
+              },
+              "response": [
+                {
+                  "id": "aed1374c-e51a-4c69-aac0-e62e5b0492dd",
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"payment_id\": \"<uuid>\",\n  \"status\": \"ACSC\",\n  \"payment_details\": {\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"NORM\",\n      \"service_level\": \"G003\",\n      \"category_purpose\": \"TAXS\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"Correspondence\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"BANK\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"TXID\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"OTHC\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"CPKC\",\n    \"charge_bearer\": \"DEBT\",\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-79826860300.21593\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"CUST\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"Residential\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"ARNU\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"OTHC\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"FWNG\",\n        \"frequency\": \"SEMI\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"Residential\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"SREN\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"Correspondence\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"SRET\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"CUSI\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-354\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ],\n        \"transaction_id\": \"<string>\",\n        \"transaction_status\": \"RCVD\"\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"final_status\": \"<boolean>\",\n  \"psu_id_hash\": \"<string>\",\n  \"status_reason_information\": {\n    \"status_reason_code\": \"<string>\",\n    \"status_reason_description\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-aed1374c-e51a-4c69-aac0-e62e5b0492dd"
+                },
+                {
+                  "id": "f63ece8d-c4ed-48b0-9ae8-dda05dd6b4f3",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-f63ece8d-c4ed-48b0-9ae8-dda05dd6b4f3"
+                },
+                {
+                  "id": "73be3d3e-301e-4c47-85eb-5251efbb5ee8",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-73be3d3e-301e-4c47-85eb-5251efbb5ee8"
+                },
+                {
+                  "id": "3bac11f1-39a9-45f0-b244-6f1ce2a38796",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-3bac11f1-39a9-45f0-b244-6f1ce2a38796"
+                },
+                {
+                  "id": "690ea48f-0dc8-4eca-9fac-adfb088961d9",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-690ea48f-0dc8-4eca-9fac-adfb088961d9"
+                },
+                {
+                  "id": "bce4530e-d736-4457-9fed-a6a16ceb7976",
+                  "name": "Request Timeout",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Timeout",
+                  "code": 408,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-bce4530e-d736-4457-9fed-a6a16ceb7976"
+                },
+                {
+                  "id": "d5297150-1786-4099-ae60-ea1d08b1a0ff",
+                  "name": "Unprocessable Entity",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-d5297150-1786-4099-ae60-ea1d08b1a0ff"
+                },
+                {
+                  "id": "b8b3a1eb-c8e3-4e0a-8a2c-2d165f7692a2",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-b8b3a1eb-c8e3-4e0a-8a2c-2d165f7692a2"
+                },
+                {
+                  "id": "bed8fc61-9107-4a62-a08e-c1e2f51a0ca8",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-bed8fc61-9107-4a62-a08e-c1e2f51a0ca8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-ed64c0eb-2182-4a02-a632-f53481c85ade"
+            },
+            {
+              "name": "Delete payment",
+              "id": "d378051e-1a9e-4eff-8ca0-82c2f713ea2d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/:payment_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0bdc6a8f-5576-4ef8-9fb2-892c2e49cce8",
+                      "key": "payment_id",
+                      "value": "<string>",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "description": "Delete finished or failed payment"
+              },
+              "response": [
+                {
+                  "id": "deba08b4-5b4f-408e-8126-e3887583fecc",
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"OK\"\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-deba08b4-5b4f-408e-8126-e3887583fecc"
+                },
+                {
+                  "id": "13d6fa7f-e6a4-4a54-ae37-5edc0d81de49",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-13d6fa7f-e6a4-4a54-ae37-5edc0d81de49"
+                },
+                {
+                  "id": "671627ab-4da4-4d76-83a9-e90a89597d3e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-671627ab-4da4-4d76-83a9-e90a89597d3e"
+                },
+                {
+                  "id": "c448f77f-c371-4420-9a5d-db61d5e6d1f0",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-c448f77f-c371-4420-9a5d-db61d5e6d1f0"
+                },
+                {
+                  "id": "6793fd13-6084-4ab8-99ac-64b2ab75e615",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-6793fd13-6084-4ab8-99ac-64b2ab75e615"
+                },
+                {
+                  "id": "6199a3d7-7753-4af4-9e44-9d8b5ada343c",
+                  "name": "Request Timeout",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Timeout",
+                  "code": 408,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-6199a3d7-7753-4af4-9e44-9d8b5ada343c"
+                },
+                {
+                  "id": "c91fddfb-e749-41a2-aa68-8012ec43a340",
+                  "name": "Unprocessable Entity",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-c91fddfb-e749-41a2-aa68-8012ec43a340"
+                },
+                {
+                  "id": "22a9d3f5-f45e-4516-bac3-1b3e54bc9219",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-22a9d3f5-f45e-4516-bac3-1b3e54bc9219"
+                },
+                {
+                  "id": "9e4a0228-c30d-426c-a50c-199864db697b",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:57.000Z",
+                  "updatedAt": "2026-07-28T01:33:57.000Z",
+                  "uid": "35240-9e4a0228-c30d-426c-a50c-199864db697b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-d378051e-1a9e-4eff-8ca0-82c2f713ea2d"
+            }
+          ],
+          "id": "e0833a58-d314-495b-bc7d-032bdf0a3154",
+          "createdAt": "2026-07-28T01:33:57.000Z",
+          "updatedAt": "2026-07-28T01:33:57.000Z",
+          "uid": "35240-e0833a58-d314-495b-bc7d-032bdf0a3154"
+        },
+        {
+          "name": "Create payment",
+          "id": "4cb168d1-3456-4b7f-a995-d9f639c6d22b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ]
+            },
+            "description": "Creating a payment consisting of one or multiple payment transactions"
+          },
+          "response": [
+            {
+              "id": "32fcf0c4-929a-4daa-a737-95bd244ef27d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"payment_id\": \"<uuid>\",\n  \"status\": \"ACSC\",\n  \"url\": \"<uri>\",\n  \"psu_id_hash\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-32fcf0c4-929a-4daa-a737-95bd244ef27d"
+            },
+            {
+              "id": "e8c4d121-0d71-414e-95ce-08d08f7385e2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-e8c4d121-0d71-414e-95ce-08d08f7385e2"
+            },
+            {
+              "id": "02b0a75a-9e13-42d7-91dd-fdc74b8d4f78",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-02b0a75a-9e13-42d7-91dd-fdc74b8d4f78"
+            },
+            {
+              "id": "f798d5db-f33b-4749-9e25-6de12c9a41c7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-f798d5db-f33b-4749-9e25-6de12c9a41c7"
+            },
+            {
+              "id": "2160ff3f-3559-47ca-8e4a-ea1410db9084",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-2160ff3f-3559-47ca-8e4a-ea1410db9084"
+            },
+            {
+              "id": "199ccc59-fa6a-4855-9434-0a6fac859532",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-199ccc59-fa6a-4855-9434-0a6fac859532"
+            },
+            {
+              "id": "beca4f6f-066a-45be-94e9-1aa9f571a254",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-beca4f6f-066a-45be-94e9-1aa9f571a254"
+            },
+            {
+              "id": "34856c96-3daa-41bc-938a-a2d6f3228516",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-34856c96-3daa-41bc-938a-a2d6f3228516"
+            },
+            {
+              "id": "068f9794-4ae3-4330-9b16-c52a7dcca017",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_type\": \"INTERNAL\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"-4174247\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"BBAN\",\n            \"issuer\": \"<string>\"\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": \"<string>\",\n            \"clearing_system_member_id\": {\n              \"clearing_system_id\": \"<string>\",\n              \"member_id\": \"<string>\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"creditor\": {\n            \"name\": \"<string>\",\n            \"postal_address\": {\n              \"address_type\": \"DeliveryTo\",\n              \"department\": \"<string>\",\n              \"sub_department\": \"<string>\",\n              \"street_name\": \"<string>\",\n              \"building_number\": \"<string>\",\n              \"post_code\": \"<string>\",\n              \"town_name\": \"<string>\",\n              \"country_sub_division\": \"<string>\",\n              \"country\": \"<string>\",\n              \"address_line\": [\n                \"<string>\"\n              ]\n            },\n            \"organisation_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"MIBN\",\n              \"issuer\": \"<string>\"\n            },\n            \"private_id\": {\n              \"identification\": \"<string>\",\n              \"scheme_name\": \"CPAN\",\n              \"issuer\": \"<string>\"\n            },\n            \"contact_details\": {\n              \"email_address\": \"<string>\",\n              \"phone_number\": \"<string>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"PREC\",\n        \"frequency\": \"TOWK\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"MailTo\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"ARNU\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": \"POBox\",\n            \"department\": \"<string>\",\n            \"sub_department\": \"<string>\",\n            \"street_name\": \"<string>\",\n            \"building_number\": \"<string>\",\n            \"post_code\": \"<string>\",\n            \"town_name\": \"<string>\",\n            \"country_sub_division\": \"<string>\",\n            \"country\": \"<string>\",\n            \"address_line\": [\n              \"<string>\"\n            ]\n          },\n          \"organisation_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"MIBN\",\n            \"issuer\": \"<string>\"\n          },\n          \"private_id\": {\n            \"identification\": \"<string>\",\n            \"scheme_name\": \"OTHC\",\n            \"issuer\": \"<string>\"\n          },\n          \"contact_details\": {\n            \"email_address\": \"<string>\",\n            \"phone_number\": \"<string>\"\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"information\": \"<string>\",\n              \"amount\": {\n                \"currency\": \"<string>\",\n                \"amount\": \"-056114\"\n              },\n              \"code\": \"<string>\"\n            },\n            \"authority\": {\n              \"country\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"EXPR\",\n      \"service_level\": \"NUGP\",\n      \"category_purpose\": \"FCOL\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"MIBN\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"NIDN\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"CHID\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"COMC\",\n    \"charge_bearer\": \"CRED\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"language\": \"zv\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"UNTRUSTED_PAYMENT_PARTY\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:57.000Z",
+              "updatedAt": "2026-07-28T01:33:57.000Z",
+              "uid": "35240-068f9794-4ae3-4330-9b16-c52a7dcca017"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:57.000Z",
+          "updatedAt": "2026-07-28T01:33:57.000Z",
+          "uid": "35240-4cb168d1-3456-4b7f-a995-d9f639c6d22b"
+        }
+      ],
+      "id": "81aeecdd-966f-4c61-ad73-1f7abe833e94",
+      "createdAt": "2026-07-28T01:33:57.000Z",
+      "updatedAt": "2026-07-28T01:33:57.000Z",
+      "uid": "35240-81aeecdd-966f-4c61-ad73-1f7abe833e94"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.enablebanking.com"
+    }
+  ]
+}

@@ -1,0 +1,2498 @@
+{
+  "info": {
+    "_postman_id": "178f86df-0677-4b55-b42b-4a7fc67bb217",
+    "name": "API reference Accounts data User sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:58.000Z",
+    "updatedAt": "2026-07-28T01:33:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-178f86df-0677-4b55-b42b-4a7fc67bb217"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "Start user authorization",
+          "id": "00775fcb-2d68-46ab-9ed7-680df130dc25",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "Start authorization by getting a redirect link and redirecting a PSU to that link"
+          },
+          "response": [
+            {
+              "id": "cd8d6103-e500-43df-b9e5-0d060e4fb622",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"url\": \"<uri>\",\n  \"authorization_id\": \"<uuid>\",\n  \"psu_id_hash\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-cd8d6103-e500-43df-b9e5-0d060e4fb622"
+            },
+            {
+              "id": "766f7d9b-9198-4024-b26d-8bb9e1af34ae",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-766f7d9b-9198-4024-b26d-8bb9e1af34ae"
+            },
+            {
+              "id": "cd96ab5c-3fd5-4536-aff3-9c5ca2f034dc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-cd96ab5c-3fd5-4536-aff3-9c5ca2f034dc"
+            },
+            {
+              "id": "a2d450be-dc2f-439f-b938-9145c1fa6579",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-a2d450be-dc2f-439f-b938-9145c1fa6579"
+            },
+            {
+              "id": "e4b24fef-b8c2-4af2-9bcc-c1cd1b317dc8",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-e4b24fef-b8c2-4af2-9bcc-c1cd1b317dc8"
+            },
+            {
+              "id": "9e4a5eef-8b15-4b1d-8197-ddc01f24e178",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-9e4a5eef-8b15-4b1d-8197-ddc01f24e178"
+            },
+            {
+              "id": "32ea5c46-c67f-47fd-ab5c-155bcf2eaf31",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-32ea5c46-c67f-47fd-ab5c-155bcf2eaf31"
+            },
+            {
+              "id": "39550123-0986-4320-89ce-8331262871c2",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-39550123-0986-4320-89ce-8331262871c2"
+            },
+            {
+              "id": "7905a3ef-5f38-49b8-b89a-64bfabe321b9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CCPT\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": {},\n  \"credentials_autosubmit\": true,\n  \"language\": \"ks\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-7905a3ef-5f38-49b8-b89a-64bfabe321b9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:59.000Z",
+          "updatedAt": "2026-07-28T01:33:59.000Z",
+          "uid": "35240-00775fcb-2d68-46ab-9ed7-680df130dc25"
+        }
+      ],
+      "id": "94cfd1cf-ea5a-43cf-ad3d-4f9a20b2f3ba",
+      "createdAt": "2026-07-28T01:33:59.000Z",
+      "updatedAt": "2026-07-28T01:33:59.000Z",
+      "uid": "35240-94cfd1cf-ea5a-43cf-ad3d-4f9a20b2f3ba"
+    },
+    {
+      "name": "sessions",
+      "item": [
+        {
+          "name": "{session_id}",
+          "item": [
+            {
+              "name": "Get session data",
+              "id": "f0f3f4fc-70b1-4436-84a1-eecd05b586cf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sessions/:session_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3b4d4bf7-8594-44b5-8747-b33cc013166f",
+                      "key": "session_id",
+                      "value": "<uuid>",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "description": "Get session data by session ID"
+              },
+              "response": [
+                {
+                  "id": "0c3fc0af-a911-4f1c-953f-39335f427b7b",
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"RETURNED_FROM_BANK\",\n  \"accounts\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"accounts_data\": [\n    {\n      \"uid\": \"<uuid>\",\n      \"identification_hash\": \"<string>\",\n      \"identification_hashes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"uid\": \"<uuid>\",\n      \"identification_hash\": \"<string>\",\n      \"identification_hashes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"psu_type\": \"business\",\n  \"psu_id_hash\": \"<string>\",\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"ARNU\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"NIDN\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"created\": \"<dateTime>\",\n  \"authorized\": \"<dateTime>\",\n  \"closed\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-0c3fc0af-a911-4f1c-953f-39335f427b7b"
+                },
+                {
+                  "id": "555c5211-b0ad-41d2-8125-07240d5a54bb",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-555c5211-b0ad-41d2-8125-07240d5a54bb"
+                },
+                {
+                  "id": "bf9c5c24-6626-4a7b-854f-3e4c56ba33a6",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-bf9c5c24-6626-4a7b-854f-3e4c56ba33a6"
+                },
+                {
+                  "id": "900e9786-8643-499f-b830-ad15f529fa63",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-900e9786-8643-499f-b830-ad15f529fa63"
+                },
+                {
+                  "id": "7d68509f-c831-4b9c-94fc-13efe6d36250",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-7d68509f-c831-4b9c-94fc-13efe6d36250"
+                },
+                {
+                  "id": "098a3eae-412c-4993-ac31-e793af6a3551",
+                  "name": "Request Timeout",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Timeout",
+                  "code": 408,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-098a3eae-412c-4993-ac31-e793af6a3551"
+                },
+                {
+                  "id": "b9aa14dd-36a1-471d-aaac-f9dc093aecdf",
+                  "name": "Unprocessable Entity",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-b9aa14dd-36a1-471d-aaac-f9dc093aecdf"
+                },
+                {
+                  "id": "7fc2496f-f7ae-4b22-9211-c8c7ff8b749f",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-7fc2496f-f7ae-4b22-9211-c8c7ff8b749f"
+                },
+                {
+                  "id": "ed3327f6-3f98-4fe6-8fc0-c3e1700a6344",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-ed3327f6-3f98-4fe6-8fc0-c3e1700a6344"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-f0f3f4fc-70b1-4436-84a1-eecd05b586cf"
+            },
+            {
+              "name": "Delete session",
+              "id": "4350182f-79fc-4160-b371-17f9f575a32e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "03.4,025.490"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sessions/:session_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b804bcdb-55c9-4dad-a44b-e8b27dff3be6",
+                      "key": "session_id",
+                      "value": "<uuid>",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "description": "Delete session by session ID. PSU's bank consent will be closed automatically if possible"
+              },
+              "response": [
+                {
+                  "id": "6c1481a1-5085-4563-bd13-2745de57359f",
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"OK\"\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-6c1481a1-5085-4563-bd13-2745de57359f"
+                },
+                {
+                  "id": "7e00ee2b-90ad-4eb1-98de-32c1c6ebf8b5",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-7e00ee2b-90ad-4eb1-98de-32c1c6ebf8b5"
+                },
+                {
+                  "id": "3c25cf49-9797-4015-8fa6-c3d59f02ec9d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-3c25cf49-9797-4015-8fa6-c3d59f02ec9d"
+                },
+                {
+                  "id": "34599854-b0b3-4116-a29d-a96faeb3d8a1",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-34599854-b0b3-4116-a29d-a96faeb3d8a1"
+                },
+                {
+                  "id": "4901cbd8-1be1-4c84-be7d-92df5d83582c",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-4901cbd8-1be1-4c84-be7d-92df5d83582c"
+                },
+                {
+                  "id": "d2099aa5-84a2-45f5-be29-042eb6135e1b",
+                  "name": "Request Timeout",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Request Timeout",
+                  "code": 408,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-d2099aa5-84a2-45f5-be29-042eb6135e1b"
+                },
+                {
+                  "id": "707dde8d-7ccf-4d0a-92b2-f08926841518",
+                  "name": "Unprocessable Entity",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-707dde8d-7ccf-4d0a-92b2-f08926841518"
+                },
+                {
+                  "id": "22d10d47-f243-481b-86df-e9b89720c4b9",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-22d10d47-f243-481b-86df-e9b89720c4b9"
+                },
+                {
+                  "id": "237de69a-73f1-4f5c-8cd3-fe19110526a8",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "PSU IP address",
+                        "key": "Psu-Ip-Address",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU browser User Agent",
+                        "key": "Psu-User-Agent",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU Referer",
+                        "key": "Psu-Referer",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept header",
+                        "key": "Psu-Accept",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU charset",
+                        "key": "Psu-Accept-Charset",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept encoding",
+                        "key": "Psu-Accept-Encoding",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "PSU accept language",
+                        "key": "Psu-Accept-language",
+                        "value": "<string>"
+                      },
+                      {
+                        "description": "Comma separated latitude and longitude coordinates without spaces",
+                        "key": "Psu-Geo-Location",
+                        "value": "03.4,025.490"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sessions/:session_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sessions",
+                        ":session_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "session_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:59.000Z",
+                  "updatedAt": "2026-07-28T01:33:59.000Z",
+                  "uid": "35240-237de69a-73f1-4f5c-8cd3-fe19110526a8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-4350182f-79fc-4160-b371-17f9f575a32e"
+            }
+          ],
+          "id": "285ba2d9-4180-4aaf-9f70-a99732243ec0",
+          "createdAt": "2026-07-28T01:33:59.000Z",
+          "updatedAt": "2026-07-28T01:33:59.000Z",
+          "uid": "35240-285ba2d9-4180-4aaf-9f70-a99732243ec0"
+        },
+        {
+          "name": "Authorize user session",
+          "id": "7f931782-4d6c-4cf3-aa3a-e1b475597e67",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sessions"
+              ]
+            },
+            "description": "Authorize user session by provided authorization code"
+          },
+          "response": [
+            {
+              "id": "59ab82ef-74bb-4e45-b331-f96eb08fe58b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"session_id\": \"<string>\",\n  \"accounts\": [\n    {\n      \"cash_account_type\": \"CASH\",\n      \"currency\": \"<string>\",\n      \"identification_hash\": \"<string>\",\n      \"identification_hashes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"account_id\": {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CPAN\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      \"all_account_ids\": [\n        {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SREN\",\n          \"issuer\": \"<string>\"\n        },\n        {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"CUST\",\n          \"issuer\": \"<string>\"\n        }\n      ],\n      \"account_servicer\": {\n        \"bic_fi\": \"<string>\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"<string>\",\n          \"member_id\": \"<string>\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"details\": \"<string>\",\n      \"usage\": \"PRIV\",\n      \"product\": \"<string>\",\n      \"psu_status\": \"<string>\",\n      \"credit_limit\": {\n        \"currency\": \"<string>\",\n        \"amount\": \"-60447499538\"\n      },\n      \"legal_age\": \"<boolean>\",\n      \"postal_address\": {\n        \"address_type\": \"Postal\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"uid\": \"<uuid>\"\n    },\n    {\n      \"cash_account_type\": \"OTHR\",\n      \"currency\": \"<string>\",\n      \"identification_hash\": \"<string>\",\n      \"identification_hashes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"account_id\": {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"BBAN\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      \"all_account_ids\": [\n        {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"SRET\",\n          \"issuer\": \"<string>\"\n        },\n        {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"PGNR\",\n          \"issuer\": \"<string>\"\n        }\n      ],\n      \"account_servicer\": {\n        \"bic_fi\": \"<string>\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"<string>\",\n          \"member_id\": \"<string>\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"details\": \"<string>\",\n      \"usage\": \"PRIV\",\n      \"product\": \"<string>\",\n      \"psu_status\": \"<string>\",\n      \"credit_limit\": {\n        \"currency\": \"<string>\",\n        \"amount\": \"-54.0\"\n      },\n      \"legal_age\": \"<boolean>\",\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"uid\": \"<uuid>\"\n    }\n  ],\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"psu_type\": \"business\",\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"DUNS\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"BBAN\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-59ab82ef-74bb-4e45-b331-f96eb08fe58b"
+            },
+            {
+              "id": "dd33c536-7526-4195-9a5a-c4f5c218997a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-dd33c536-7526-4195-9a5a-c4f5c218997a"
+            },
+            {
+              "id": "9a75366b-e61f-4907-b051-43f4a276f5b0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-9a75366b-e61f-4907-b051-43f4a276f5b0"
+            },
+            {
+              "id": "e79b3382-d6fc-4eda-8f83-23141a308163",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-e79b3382-d6fc-4eda-8f83-23141a308163"
+            },
+            {
+              "id": "d5db2d08-470b-4ea2-a52e-6f152e1a5da9",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-d5db2d08-470b-4ea2-a52e-6f152e1a5da9"
+            },
+            {
+              "id": "0dab357a-bad3-4bdf-af8c-19a8c7372d23",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-0dab357a-bad3-4bdf-af8c-19a8c7372d23"
+            },
+            {
+              "id": "25d8dd17-ddbd-483a-8e09-687725472b8c",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-25d8dd17-ddbd-483a-8e09-687725472b8c"
+            },
+            {
+              "id": "ffba7ef3-74e9-4141-933e-093225f4300e",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-ffba7ef3-74e9-4141-933e-093225f4300e"
+            },
+            {
+              "id": "b121d642-5e96-4ff9-977d-e98fd863cd62",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"error\": \"ASPSP_PSU_ACTION_REQUIRED\",\n  \"detail\": {\n    \"title\": \"Detail\",\n    \"description\": \"Detailed explanation of an error\",\n    \"examples\": [\n      \"PSU header psuIpAddress is not provided\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:33:59.000Z",
+              "updatedAt": "2026-07-28T01:33:59.000Z",
+              "uid": "35240-b121d642-5e96-4ff9-977d-e98fd863cd62"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:59.000Z",
+          "updatedAt": "2026-07-28T01:33:59.000Z",
+          "uid": "35240-7f931782-4d6c-4cf3-aa3a-e1b475597e67"
+        }
+      ],
+      "id": "3bc11d4e-750b-4ebc-8122-54941c07622e",
+      "createdAt": "2026-07-28T01:33:59.000Z",
+      "updatedAt": "2026-07-28T01:33:59.000Z",
+      "uid": "35240-3bc11d4e-750b-4ebc-8122-54941c07622e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.enablebanking.com"
+    }
+  ]
+}

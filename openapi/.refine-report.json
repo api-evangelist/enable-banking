@@ -1,0 +1,20 @@
+{
+  "provider": "enable-banking",
+  "sources": [
+    "enable-banking-accounts-data-api-openapi.yml",
+    "enable-banking-misc-api-openapi.yml",
+    "enable-banking-payments-api-openapi.yml",
+    "enable-banking-user-sessions-api-openapi.yml"
+  ],
+  "outputs": [
+    "enable-banking-accounts-data-api-openapi.yml",
+    "enable-banking-misc-api-openapi.yml",
+    "enable-banking-payments-api-openapi.yml",
+    "enable-banking-user-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
