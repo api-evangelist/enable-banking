@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API reference Accounts data Payments API",
+    "version": "1.0.0-3030f99c"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.enablebanking.com/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a payment consisting of one or multiple payment transactions"
+        },
+        {
+          "info": {
+            "name": "Get payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/payments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              }
+            ]
+          },
+          "docs": "Fetching payment status and details"
+        },
+        {
+          "info": {
+            "name": "Delete payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.enablebanking.com/payments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              }
+            ]
+          },
+          "docs": "Delete finished or failed payment"
+        },
+        {
+          "info": {
+            "name": "Get payment transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/payments/:payment_id/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Payment ID"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction ID"
+              }
+            ]
+          },
+          "docs": "Fetching transaction details for a single transaction within a bulk payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

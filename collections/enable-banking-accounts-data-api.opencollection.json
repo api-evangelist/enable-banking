@@ -1,0 +1,272 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API reference Accounts data API",
+    "version": "1.0.0-3030f99c"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/details",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              }
+            ]
+          },
+          "docs": "Fetching account details from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get account balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/balances",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "PSU account ID accessible in the provided session"
+              }
+            ]
+          },
+          "docs": "Fetching account balances from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get account transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/transactions",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "PSU account ID accessible in the provided session"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Date to fetch transactions from (including the date, UTC timezone is assumed)"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Date to fetch transactions to (including the date, UTC timezone is assumed)"
+              },
+              {
+                "name": "continuation_key",
+                "value": "",
+                "type": "query",
+                "description": "Key, allowing iterate over multiple API pages of transactions"
+              },
+              {
+                "name": "transaction_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by provided status"
+              },
+              {
+                "name": "strategy",
+                "value": "",
+                "type": "query",
+                "description": "Strategy how transaction are fetched"
+              }
+            ]
+          },
+          "docs": "Fetching account transactions from ASPSP for an account by its ID"
+        },
+        {
+          "info": {
+            "name": "Get transaction details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/accounts/:account_id/transactions/:transaction_id",
+            "headers": [
+              {
+                "name": "Psu-Ip-Address",
+                "value": ""
+              },
+              {
+                "name": "Psu-User-Agent",
+                "value": ""
+              },
+              {
+                "name": "Psu-Referer",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Charset",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-Encoding",
+                "value": ""
+              },
+              {
+                "name": "Psu-Accept-language",
+                "value": ""
+              },
+              {
+                "name": "Psu-Geo-Location",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              },
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction ID"
+              }
+            ]
+          },
+          "docs": "Fetching transaction details from ASPSP for an account transaction by its ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

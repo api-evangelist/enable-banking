@@ -1,0 +1,2174 @@
+{
+  "item": [
+    {
+      "id": "2f9e0593-7650-4210-921c-b5b3742a15e2",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33565405-1265-4f39-be33-11b2314ff212",
+          "name": "Create payment",
+          "request": {
+            "name": "Create payment",
+            "description": {
+              "content": "Creating a payment consisting of one or multiple payment transactions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_type\": \"<string>\",\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"instructed_amount\": {\n          \"currency\": \"<string>\",\n          \"amount\": \"<string>\"\n        },\n        \"beneficiary\": {\n          \"creditor_account\": {\n            \"identification\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scheme_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issuer\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"creditor_agent\": {\n            \"bic_fi\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"clearing_system_member_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"creditor\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"postal_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"organisation_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"private_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contact_details\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"creditor_currency\": \"<string>\"\n        },\n        \"payment_id\": {\n          \"instruction_id\": \"<string>\",\n          \"end_to_end_id\": \"<string>\"\n        },\n        \"requested_execution_date\": \"<date>\",\n        \"reference_number\": \"<string>\",\n        \"end_date\": \"<date>\",\n        \"execution_rule\": \"<string>\",\n        \"frequency\": \"<string>\",\n        \"ultimate_debtor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sub_department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"building_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"post_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country_sub_division\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address_line\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"organisation_id\": {\n            \"identification\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scheme_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issuer\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"private_id\": {\n            \"identification\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scheme_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issuer\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"contact_details\": {\n            \"email_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"ultimate_creditor\": {\n          \"name\": \"<string>\",\n          \"postal_address\": {\n            \"address_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sub_department\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"building_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"post_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country_sub_division\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"address_line\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"organisation_id\": {\n            \"identification\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scheme_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issuer\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"private_id\": {\n            \"identification\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"scheme_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"issuer\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"contact_details\": {\n            \"email_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"regulatory_reporting\": [\n          {\n            \"details\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"authority\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"remittance_information\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"payment_information_id\": \"<string>\",\n    \"payment_type_information\": {\n      \"instruction_priority\": \"<string>\",\n      \"service_level\": \"<string>\",\n      \"category_purpose\": \"<string>\",\n      \"local_instrument\": \"<string>\"\n    },\n    \"debtor\": {\n      \"name\": \"<string>\",\n      \"postal_address\": {\n        \"address_type\": \"<string>\",\n        \"department\": \"<string>\",\n        \"sub_department\": \"<string>\",\n        \"street_name\": \"<string>\",\n        \"building_number\": \"<string>\",\n        \"post_code\": \"<string>\",\n        \"town_name\": \"<string>\",\n        \"country_sub_division\": \"<string>\",\n        \"country\": \"<string>\",\n        \"address_line\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"organisation_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"<string>\",\n        \"issuer\": \"<string>\"\n      },\n      \"private_id\": {\n        \"identification\": \"<string>\",\n        \"scheme_name\": \"<string>\",\n        \"issuer\": \"<string>\"\n      },\n      \"contact_details\": {\n        \"email_address\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    },\n    \"debtor_account\": {\n      \"identification\": \"<string>\",\n      \"scheme_name\": \"<string>\",\n      \"issuer\": \"<string>\"\n    },\n    \"debtor_agent\": {\n      \"bic_fi\": \"<string>\",\n      \"clearing_system_member_id\": {\n        \"clearing_system_id\": \"<string>\",\n        \"member_id\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    \"debtor_currency\": \"XXX\",\n    \"purpose\": \"<string>\",\n    \"charge_bearer\": \"<string>\"\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"<string>\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": \"<object>\",\n  \"language\": \"<string>\",\n  \"webhook_url\": \"<uri>\",\n  \"psu_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "632d7e5a-0215-4298-992b-ccfa4d22771f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"1989edcd-08c8-51e3-dbc1-1c6a410df096\",\n  \"status\": \"ACCC\",\n  \"url\": \"http://DRNtwqOtbYziRLeFHVuPvPneZNQyI.mffdsgIuyiM7heBkfkhdd\",\n  \"psu_id_hash\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb46f27f-f29e-4250-b8b0-eeb70f3ff968",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ba9edc9-855f-4ddd-9989-08ae98f69fcd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77821085-954e-4890-9588-2528815e0f79",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52999b35-a48e-43da-97e6-0c4bb59a6e03",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0424a653-15e8-4837-92d6-db3fedebafd9",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "990df0cc-2f71-4c1c-b955-190a8df22cc6",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d3318c9-f4ad-494a-9180-5a6add01e88f",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ee530c8-d44c-42b7-bc71-a9b4a4abec6f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"S-Pankki\"\n  },\n  \"payment_request\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ]\n  },\n  \"payment_type\": \"SEPA\",\n  \"psu_type\": \"personal\",\n  \"redirect_url\": \"https://google.com/\",\n  \"state\": \"b463a960-9616-4df6-909f-f80884190c22\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf5fc0ad-49e4-406c-a3f7-62f16e53411d",
+          "name": "Get payment",
+          "request": {
+            "name": "Get payment",
+            "description": {
+              "content": "Fetching payment status and details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                ":payment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payment_id",
+                  "description": "(Required) Payment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42a5dceb-9235-4598-9242-9e2e736ec817",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"5d71011b-03ef-677b-1d18-ea47354d7a04\",\n  \"status\": \"ACCC\",\n  \"payment_details\": {\n    \"credit_transfer_transaction\": [\n      {\n        \"beneficiary\": {\n          \"creditor\": {\n            \"name\": \"Organisation/Person Name\"\n          },\n          \"creditor_account\": {\n            \"identification\": \"FI0455231152453547\",\n            \"scheme_name\": \"IBAN\"\n          }\n        },\n        \"instructed_amount\": {\n          \"amount\": \"10.33\",\n          \"currency\": \"EUR\"\n        }\n      }\n    ],\n    \"debtor_account\": {\n      \"identification\": \"FI7727551317119265\",\n      \"scheme_name\": \"IBAN\"\n    }\n  },\n  \"payment_type\": \"SEPA\",\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"final_status\": false,\n  \"psu_id_hash\": \"string\",\n  \"status_reason_information\": {\n    \"status_reason_code\": \"string\",\n    \"status_reason_description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f381aff6-8bd1-4587-9cbe-14aa9241712a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b05f866-a103-4ebd-a223-ed6614107a9e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fae724d0-bb35-48ca-aefc-8c9a98230787",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "825f5666-4ca3-4323-be54-e211f71e4f5d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0239e289-f952-48e2-ac26-4cf5914d0b48",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7749f1f-595c-4886-ad9d-8f9cdc9b5751",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b39770f-4f48-47d8-8130-ce75a5c44200",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "628cbd9a-8e2d-40c2-bd85-cd8ae2805f59",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4037c383-cf52-48d4-b3a3-19e24df8c234",
+          "name": "Delete payment",
+          "request": {
+            "name": "Delete payment",
+            "description": {
+              "content": "Delete finished or failed payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                ":payment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payment_id",
+                  "description": "(Required) Payment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64878f09-f23d-4751-91ab-b9109059f38f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a96f657-22fc-4f8c-b762-332eb93aa6ab",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "178566a0-09f5-4035-a16f-784ea5a7b0e2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0240c32-b877-4c94-87e8-298d9958c785",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d567896-4810-4692-8f96-e6452f47f402",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f83abfb2-2a85-4cb1-b0ec-978431d4d24f",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cbeaa8b-59fb-487a-bd44-08cea534a2c8",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5de193e-a99b-4979-952c-e86e6aa188f3",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac6541dc-9d99-4bb4-8485-0560f72c6369",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01331ced-3313-44e2-9fe9-7182b14edf68",
+          "name": "Get payment transaction",
+          "request": {
+            "name": "Get payment transaction",
+            "description": {
+              "content": "Fetching transaction details for a single transaction within a bulk payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                ":payment_id",
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payment_id",
+                  "description": "(Required) Payment ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction_id",
+                  "description": "(Required) Transaction ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8964d713-3096-45f4-99f3-7c4d40f7b2fc",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"583009b1-0ac1-7b60-ae2a-c92189d82349\",\n  \"transaction_details\": {\n    \"instructed_amount\": {\n      \"currency\": \"EUR\",\n      \"amount\": \"1.23\"\n    },\n    \"beneficiary\": {\n      \"creditor\": {\n        \"name\": \"Organisation/Person Name\"\n      },\n      \"creditor_account\": {\n        \"identification\": \"FI0455231152453547\",\n        \"scheme_name\": \"IBAN\"\n      }\n    },\n    \"payment_id\": {\n      \"instruction_id\": \"string\",\n      \"end_to_end_id\": \"string\"\n    },\n    \"requested_execution_date\": \"2023-01-10\",\n    \"reference_number\": \"string\",\n    \"end_date\": \"2026-02-04\",\n    \"execution_rule\": \"FWNG\",\n    \"frequency\": \"DAIL\",\n    \"ultimate_debtor\": {\n      \"name\": \"MyPreferredAisp\",\n      \"postal_address\": {\n        \"address_line\": [\n          \"Mr Asko Teirila PO Box 511\",\n          \"39140 AKDENMAA FINLAND\"\n        ],\n        \"address_type\": \"Business\",\n        \"building_number\": \"4\",\n        \"country\": \"FI\",\n        \"country_sub_division\": \"Uusimaa\",\n        \"department\": \"Department of resources\",\n        \"post_code\": \"00123\",\n        \"street_name\": \"Vasavagen\",\n        \"sub_department\": \"Sub Department of resources\",\n        \"town_name\": \"Helsinki\"\n      }\n    },\n    \"ultimate_creditor\": {\n      \"name\": \"MyPreferredAisp\",\n      \"postal_address\": {\n        \"address_line\": [\n          \"Mr Asko Teirila PO Box 511\",\n          \"39140 AKDENMAA FINLAND\"\n        ],\n        \"address_type\": \"Business\",\n        \"building_number\": \"4\",\n        \"country\": \"FI\",\n        \"country_sub_division\": \"Uusimaa\",\n        \"department\": \"Department of resources\",\n        \"post_code\": \"00123\",\n        \"street_name\": \"Vasavagen\",\n        \"sub_department\": \"Sub Department of resources\",\n        \"town_name\": \"Helsinki\"\n      }\n    },\n    \"regulatory_reporting\": [\n      {\n        \"details\": {\n          \"information\": \"string\",\n          \"amount\": {\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"code\": \"string\"\n        },\n        \"authority\": {\n          \"country\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    ],\n    \"remittance_information\": [\n      \"string\",\n      \"string\"\n    ],\n    \"transaction_id\": \"string\",\n    \"transaction_status\": \"ACCC\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42dd5f23-1bc8-490b-b445-49453ca54740",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "289a6d89-719d-49e4-a6b4-dd0f834f3c25",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5a08376-56d0-497b-8cc7-34c8ea89c913",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "433a0429-c27d-45d9-88bd-0f09a065a631",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51bdac0f-315e-4d34-9fc1-7e246e13f82d",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a494d8f-b000-45f1-80ff-81af1d1e52e7",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4998a64d-66cc-469b-809c-64a102755e7b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38e9575c-70dd-49d7-930a-46b89cb64a89",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Payment ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.enablebanking.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4e6baec5-dea5-4c0d-9f49-1bb159f14de4",
+    "name": "API reference Accounts data Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

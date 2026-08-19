@@ -1,0 +1,2559 @@
+{
+  "item": [
+    {
+      "id": "3d6b4ea6-e31e-4900-b5a4-64e997406dd2",
+      "name": "User sessions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4833f0f2-4d64-4c33-98d0-ca2441ed9aa9",
+          "name": "Start user authorization",
+          "request": {
+            "name": "Start user authorization",
+            "description": {
+              "content": "Start authorization by getting a redirect link and redirecting a PSU to that link",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": {\n    \"valid_until\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"<string>\",\n          \"issuer\": \"<string>\"\n        }\n      },\n      {\n        \"iban\": \"<string>\",\n        \"other\": {\n          \"identification\": \"<string>\",\n          \"scheme_name\": \"<string>\",\n          \"issuer\": \"<string>\"\n        }\n      }\n    ],\n    \"balances\": true,\n    \"transactions\": true\n  },\n  \"aspsp\": {\n    \"name\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"<string>\",\n  \"auth_method\": \"<string>\",\n  \"credentials\": \"<object>\",\n  \"credentials_autosubmit\": true,\n  \"language\": \"<string>\",\n  \"psu_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "872e9c18-2181-46be-abce-9ef28dcb74ec",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://tilisy.enablebanking.com/welcome?sessionid=73100c65-c54d-46a1-87d1-aa3effde435a\",\n  \"authorization_id\": \"73100c65-c54d-46a1-87d1-aa3effde435a\",\n  \"psu_id_hash\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bcafc56-e34c-42dd-aa75-45441ef29374",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e10efb92-4632-478f-8595-092b743565e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "418b52ad-83e3-416a-a245-fb3e163cdac3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a19d0235-6d0d-41d9-81d8-3232c17e9bd9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb2e29e5-56eb-4d48-bf47-e31f82c1727d",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1863b517-4714-4193-84c1-dff7e559952a",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f7568d1-354f-4776-8b8f-e88c28514179",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d22c25d6-2da4-4e4d-a700-e33608a53052",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"aspsp\": {\n    \"country\": \"FI\",\n    \"name\": \"Nordea\"\n  },\n  \"state\": \"3a57e2d3-2e0c-4336-af9b-7fa94f0606a3\",\n  \"redirect_url\": \"<uri>\",\n  \"psu_type\": \"business\",\n  \"auth_method\": \"methodName\",\n  \"credentials\": {\n    \"userId\": \"MyUsername\"\n  },\n  \"credentials_autosubmit\": true,\n  \"language\": \"fi\",\n  \"psu_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68ae6135-1061-48e1-be97-d7ebab42c827",
+          "name": "Authorize user session",
+          "request": {
+            "name": "Authorize user session",
+            "description": {
+              "content": "Authorize user session by provided authorization code",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c007794f-3935-4f14-93b8-f7e36a293a70",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"session_id\": \"string\",\n  \"accounts\": [\n    {\n      \"cash_account_type\": \"CACC\",\n      \"currency\": \"string\",\n      \"identification_hash\": \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n      \"identification_hashes\": [\n        \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n        \"WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=\"\n      ],\n      \"account_id\": {\n        \"iban\": \"FI0455231152453547\"\n      },\n      \"all_account_ids\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"account_servicer\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"name\": \"string\",\n      \"details\": \"string\",\n      \"usage\": \"PRIV\",\n      \"product\": \"string\",\n      \"psu_status\": \"string\",\n      \"credit_limit\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"legal_age\": true,\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"Department of resources\",\n        \"sub_department\": \"Sub Department of resources\",\n        \"street_name\": \"Vasavagen\",\n        \"building_number\": \"4\",\n        \"post_code\": \"00123\",\n        \"town_name\": \"Helsinki\",\n        \"country_sub_division\": \"Uusimaa\",\n        \"country\": \"FI\",\n        \"address_line\": [\n          \"Mr Asko Teirila PO Box 511\",\n          \"39140 AKDENMAA FINLAND\"\n        ]\n      },\n      \"uid\": \"3b1639b1-0f21-8080-521b-6533487995ea\"\n    },\n    {\n      \"cash_account_type\": \"CACC\",\n      \"currency\": \"string\",\n      \"identification_hash\": \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n      \"identification_hashes\": [\n        \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n        \"WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=\"\n      ],\n      \"account_id\": {\n        \"iban\": \"FI0455231152453547\"\n      },\n      \"all_account_ids\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"account_servicer\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"name\": \"string\",\n      \"details\": \"string\",\n      \"usage\": \"PRIV\",\n      \"product\": \"string\",\n      \"psu_status\": \"string\",\n      \"credit_limit\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"legal_age\": false,\n      \"postal_address\": {\n        \"address_type\": \"DeliveryTo\",\n        \"department\": \"Department of resources\",\n        \"sub_department\": \"Sub Department of resources\",\n        \"street_name\": \"Vasavagen\",\n        \"building_number\": \"4\",\n        \"post_code\": \"00123\",\n        \"town_name\": \"Helsinki\",\n        \"country_sub_division\": \"Uusimaa\",\n        \"country\": \"FI\",\n        \"address_line\": [\n          \"Mr Asko Teirila PO Box 511\",\n          \"39140 AKDENMAA FINLAND\"\n        ]\n      },\n      \"uid\": \"51656b6f-2fcd-a5f5-d3d0-0bd84bafe338\"\n    }\n  ],\n  \"aspsp\": {\n    \"name\": \"Nordea\",\n    \"country\": \"FI\"\n  },\n  \"psu_type\": \"business\",\n  \"access\": {\n    \"valid_until\": \"2021-01-01T00:00:00Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d45a22c4-7f32-4aad-b13e-135cc6b23403",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9836b8a-a812-41f5-aa2a-d45febe4a303",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28616a04-a376-49a2-9d03-4cc91d777570",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f1df523-c9fc-452c-bd0a-76b62b2b4d83",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7b8f16b-26c8-4390-a4b0-1bfbbd96e4f9",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "307ecbdd-0129-45eb-8488-9fa6e9cc088f",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1762db2-2d1a-49e8-a2d1-d8323c5dafab",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34fdec9e-cc3d-4e72-a155-9e28e51aadfa",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70dd79b5-e257-4e53-b8fe-2559dd0b8b1e",
+          "name": "Get session data",
+          "request": {
+            "name": "Get session data",
+            "description": {
+              "content": "Get session data by session ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":session_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "session_id",
+                  "description": "(Required) Previously authorized session ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32377dc8-59fe-42e5-b362-08dfd74b4bb3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"AUTHORIZED\",\n  \"accounts\": [\n    \"34b75733-2539-2554-9d0c-5ca6a7dddb75\",\n    \"b9f7299d-3fa6-c887-aba1-7c9aebf6b4a6\"\n  ],\n  \"accounts_data\": [\n    {\n      \"uid\": \"00c11cd5-d011-f3a8-6502-68ef712b59b8\",\n      \"identification_hash\": \"string\",\n      \"identification_hashes\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"uid\": \"cd094e2f-2ffd-7c5a-eb4b-8ccd10532059\",\n      \"identification_hash\": \"string\",\n      \"identification_hashes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"aspsp\": {\n    \"name\": \"Nordea\",\n    \"country\": \"FI\"\n  },\n  \"psu_type\": \"business\",\n  \"psu_id_hash\": \"string\",\n  \"access\": {\n    \"valid_until\": \"2020-12-01T12:00:00.000000+00:00\"\n  },\n  \"created\": \"2020-12-01T12:00:00.000000+00:00\",\n  \"authorized\": \"2020-12-01T12:00:00.000000+00:00\",\n  \"closed\": \"1964-11-28T05:36:25.114Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38eefa81-61e6-4046-ab84-a86a4e6bab93",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ed59880-f706-4b20-8e80-834802640af8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8bfd320-1f52-41dd-b583-a30b9d48ebeb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "816d626c-08ec-4211-82b5-9c3759dfa8ea",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8198ee8b-abd6-4021-a351-fe141b0ca940",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4185a572-0c6e-43f7-b955-4c48c639a289",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebf196b8-0bac-4071-a4bc-c7db3465e36e",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "944ca370-431b-4f6a-895c-11edb3a1f7fb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "312f2881-5817-40d9-9eab-0b8b031f7e70",
+          "name": "Delete session",
+          "request": {
+            "name": "Delete session",
+            "description": {
+              "content": "Delete session by session ID. PSU's bank consent will be closed automatically if possible",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":session_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "session_id",
+                  "description": "(Required) Previously authorized session ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "PSU IP address",
+                "key": "Psu-Ip-Address",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU browser User Agent",
+                "key": "Psu-User-Agent",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU Referer",
+                "key": "Psu-Referer",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept header",
+                "key": "Psu-Accept",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU charset",
+                "key": "Psu-Accept-Charset",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept encoding",
+                "key": "Psu-Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept language",
+                "key": "Psu-Accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Comma separated latitude and longitude coordinates without spaces",
+                "key": "Psu-Geo-Location",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c73f53d4-d6d6-4376-98e1-5426cb9a0fd1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86665412-7fdd-4911-be2b-1b134160e4f8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52031da3-729d-4adc-962c-46d10edfb790",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cebcad57-9561-41ab-8326-938a0be47268",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1a705b6-f136-4ec3-a9a8-4ff2ab7d23da",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdc31044-29fa-4f4d-b0a0-7573359f3ce6",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20d47b01-c66d-43bb-b083-a19a9b14335d",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4510704d-69d9-42ca-a7c8-aba107877eb6",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2db2b74-0cf0-405d-ac6c-5d98421bbd90",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "session_id",
+                      "description": "(Required) Previously authorized session ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.enablebanking.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "792b6f35-6cd4-41bc-b6e0-d686bd81aa1d",
+    "name": "API reference Accounts data User sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

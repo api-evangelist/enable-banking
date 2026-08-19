@@ -1,0 +1,1063 @@
+{
+  "item": [
+    {
+      "id": "5a9c6294-ce81-404c-9050-74d4e8ad4fac",
+      "name": "Misc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1bcc06dd-e495-481c-892e-a18cb566a163",
+          "name": "Get list of ASPSPs",
+          "request": {
+            "name": "Get list of ASPSPs",
+            "description": {
+              "content": "Get list of ASPSPs with their meta information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aspsps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Display only ASPSPs from specified country"
+                },
+                {
+                  "disabled": false,
+                  "key": "psu_type",
+                  "value": "<string>",
+                  "description": "Display only ASPSPs which support specified psu type"
+                },
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<string>",
+                  "description": "Display only ASPSPs which support specified service"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_type",
+                  "value": "<string>",
+                  "description": "Display only ASPSPs which support specified payment type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14b0459d-13f2-461c-a0d2-b9528c7702ba",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aspsps\": [\n    {\n      \"auth_methods\": [\n        {\n          \"approach\": \"REDIRECT\",\n          \"credentials\": [\n            {\n              \"description\": \"Business identity code (Y-tunnus) in 1234567-8 format\",\n              \"name\": \"companyId\",\n              \"required\": true,\n              \"template\": \"^\\\\d{7}-\\\\d$\",\n              \"title\": \"Company ID\"\n            }\n          ],\n          \"hidden_method\": false,\n          \"name\": \"MTA\",\n          \"psu_type\": \"business\"\n        }\n      ],\n      \"beta\": false,\n      \"bic\": \"NDEAFIHH\",\n      \"country\": \"FI\",\n      \"logo\": \"https://enablebanking.com/brands/FI/Nordea/\",\n      \"maximum_consent_validity\": 15552000,\n      \"name\": \"Nordea\",\n      \"payments\": [\n        {\n          \"allowed_auth_methods\": [\n            \"MTA\"\n          ],\n          \"charge_bearer_values\": [\n            \"SLEV\"\n          ],\n          \"creditor_account_schemas\": [\n            \"IBAN\"\n          ],\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"currencies\": [\n            \"EUR\"\n          ],\n          \"debtor_account_required\": true,\n          \"debtor_account_schemas\": [\n            \"IBAN\"\n          ],\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"debtor_currency_required\": false,\n          \"max_transactions\": 1,\n          \"payment_type\": \"SEPA\",\n          \"priority_codes\": [\n            \"NORM\"\n          ],\n          \"psu_type\": \"business\",\n          \"reference_number_schemas\": [\n            \"FIRF\",\n            \"INTL\"\n          ],\n          \"reference_number_supported\": true,\n          \"regulatory_reporting_code_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"max_length\": 140,\n              \"min_length\": 1,\n              \"pattern\": \"^.{1,140}$\"\n            }\n          ],\n          \"remittance_information_required\": true,\n          \"requested_execution_date_max_period\": 365,\n          \"requested_execution_date_supported\": true\n        }\n      ],\n      \"psu_types\": [\n        \"business\"\n      ],\n      \"required_psu_headers\": [\n        \"Psu-Ip-Address\"\n      ]\n    },\n    {\n      \"auth_methods\": [\n        {\n          \"approach\": \"REDIRECT\",\n          \"credentials\": [\n            {\n              \"description\": \"Business identity code (Y-tunnus) in 1234567-8 format\",\n              \"name\": \"companyId\",\n              \"required\": true,\n              \"template\": \"^\\\\d{7}-\\\\d$\",\n              \"title\": \"Company ID\"\n            }\n          ],\n          \"hidden_method\": false,\n          \"name\": \"MTA\",\n          \"psu_type\": \"business\"\n        }\n      ],\n      \"beta\": false,\n      \"bic\": \"NDEAFIHH\",\n      \"country\": \"FI\",\n      \"logo\": \"https://enablebanking.com/brands/FI/Nordea/\",\n      \"maximum_consent_validity\": 15552000,\n      \"name\": \"Nordea\",\n      \"payments\": [\n        {\n          \"allowed_auth_methods\": [\n            \"MTA\"\n          ],\n          \"charge_bearer_values\": [\n            \"SLEV\"\n          ],\n          \"creditor_account_schemas\": [\n            \"IBAN\"\n          ],\n          \"creditor_agent_bic_fi_required\": false,\n          \"creditor_agent_clearing_system_member_id_required\": false,\n          \"creditor_country_required\": false,\n          \"creditor_name_required\": false,\n          \"creditor_postal_address_required\": false,\n          \"currencies\": [\n            \"EUR\"\n          ],\n          \"debtor_account_required\": true,\n          \"debtor_account_schemas\": [\n            \"IBAN\"\n          ],\n          \"debtor_contact_email_required\": false,\n          \"debtor_contact_phone_required\": false,\n          \"debtor_currency_required\": false,\n          \"max_transactions\": 1,\n          \"payment_type\": \"SEPA\",\n          \"priority_codes\": [\n            \"NORM\"\n          ],\n          \"psu_type\": \"business\",\n          \"reference_number_schemas\": [\n            \"FIRF\",\n            \"INTL\"\n          ],\n          \"reference_number_supported\": true,\n          \"regulatory_reporting_code_required\": false,\n          \"remittance_information_lines\": [\n            {\n              \"max_length\": 140,\n              \"min_length\": 1,\n              \"pattern\": \"^.{1,140}$\"\n            }\n          ],\n          \"remittance_information_required\": true,\n          \"requested_execution_date_max_period\": 365,\n          \"requested_execution_date_supported\": true\n        }\n      ],\n      \"psu_types\": [\n        \"business\"\n      ],\n      \"required_psu_headers\": [\n        \"Psu-Ip-Address\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8bb6a37-f9df-4e69-b3cb-524a6d383ffb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2837ab39-4c38-45b6-9ecc-288231043a11",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c11dc847-72c0-443f-8201-22d2eb19fb6c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ce46ff0-a781-403d-9a30-a02961570dbe",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "298a3fe4-6a4e-4c17-a8a0-9b104b98aa6f",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ac3cbab-543c-4c01-bde1-2a0c6b589957",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "976a4c6e-4cec-4d4c-a85d-fcd87a7fcc68",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf239040-eceb-414c-8088-1ea69458c8f6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aspsps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "psu_type",
+                      "value": "business"
+                    },
+                    {
+                      "key": "service",
+                      "value": "AIS"
+                    },
+                    {
+                      "key": "payment_type",
+                      "value": "SEPA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fff2b98c-5c76-4e3b-bf20-9e82b51c280a",
+          "name": "Get application",
+          "request": {
+            "name": "Get application",
+            "description": {
+              "content": "Get application associated with provided JWT key ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57bff48f-cc8a-4030-bc5d-1696267dd641",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"kid\": \"string\",\n  \"environment\": \"SANDBOX\",\n  \"redirect_urls\": [\n    \"http://OlhCreImHyabMxhBYGvWoDZYfDCzNPiy.ihflZNuO+rWdLTc6cmk5p2gyzyZBqRfCnCO+rHn7r5S6jUTIEpCWCsrblkIot1ZycUQ\",\n    \"http://ZWgVjzzVF.vaokH7vkzY4Siunb9q.8jc-Jj,a,\"\n  ],\n  \"active\": false,\n  \"countries\": [\n    \"string\",\n    \"string\"\n  ],\n  \"services\": [\n    \"AIS\",\n    \"AIS\"\n  ],\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c17a5a8e-44c9-4004-9a03-ec8d40e56cc0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5875a01-6293-4527-b110-f2fadae3a5f4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df8d1a0b-f08c-4551-9fa2-968475d15073",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ccf7bb3-d85c-49cd-a349-1132d4ec79d0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3264c8ca-4806-45b4-952e-3bba0458d86a",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09dbed54-4e93-4b68-9531-338ea1e3bb7e",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81a1bcf9-8b5a-47a3-9cd0-0015a4a62aef",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d05b2363-fbd4-416d-b274-be73d13c2c22",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.enablebanking.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1421697a-821c-4ea9-8468-f4734b696123",
+    "name": "API reference Accounts data Misc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

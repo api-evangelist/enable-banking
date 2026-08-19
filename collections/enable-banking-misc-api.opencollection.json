@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API reference Accounts data Misc API",
+    "version": "1.0.0-3030f99c"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Misc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of ASPSPs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/aspsps",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs from specified country"
+              },
+              {
+                "name": "psu_type",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified psu type"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified service"
+              },
+              {
+                "name": "payment_type",
+                "value": "",
+                "type": "query",
+                "description": "Display only ASPSPs which support specified payment type"
+              }
+            ]
+          },
+          "docs": "Get list of ASPSPs with their meta information"
+        },
+        {
+          "info": {
+            "name": "Get application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.enablebanking.com/application"
+          },
+          "docs": "Get application associated with provided JWT key ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

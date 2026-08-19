@@ -1,0 +1,4349 @@
+{
+  "item": [
+    {
+      "id": "5f4f90dd-4a34-4cb1-8f7c-b8a3f08f18e6",
+      "name": "Accounts data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3317594d-e8bc-4579-9a71-e1307ce0403e",
+          "name": "Get account details",
+          "request": {
+            "name": "Get account details",
+            "description": {
+              "content": "Fetching account details from ASPSP for an account by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "account_id",
+                  "description": "(Required) Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "PSU IP address",
+                "key": "Psu-Ip-Address",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU browser User Agent",
+                "key": "Psu-User-Agent",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU Referer",
+                "key": "Psu-Referer",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept header",
+                "key": "Psu-Accept",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU charset",
+                "key": "Psu-Accept-Charset",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept encoding",
+                "key": "Psu-Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept language",
+                "key": "Psu-Accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Comma separated latitude and longitude coordinates without spaces",
+                "key": "Psu-Geo-Location",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f03f908-f249-4e11-bcfd-a032ffc496da",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cash_account_type\": \"CACC\",\n  \"currency\": \"string\",\n  \"identification_hash\": \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n  \"identification_hashes\": [\n    \"WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=\",\n    \"WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=\"\n  ],\n  \"account_id\": {\n    \"iban\": \"FI0455231152453547\"\n  },\n  \"all_account_ids\": [\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    },\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    }\n  ],\n  \"account_servicer\": {\n    \"bic_fi\": \"string\",\n    \"clearing_system_member_id\": {\n      \"clearing_system_id\": \"NZNCC\",\n      \"member_id\": \"string\"\n    },\n    \"name\": \"string\"\n  },\n  \"name\": \"string\",\n  \"details\": \"string\",\n  \"usage\": \"PRIV\",\n  \"product\": \"string\",\n  \"psu_status\": \"string\",\n  \"credit_limit\": {\n    \"currency\": \"EUR\",\n    \"amount\": \"1.23\"\n  },\n  \"legal_age\": false,\n  \"postal_address\": {\n    \"address_type\": \"DeliveryTo\",\n    \"department\": \"Department of resources\",\n    \"sub_department\": \"Sub Department of resources\",\n    \"street_name\": \"Vasavagen\",\n    \"building_number\": \"4\",\n    \"post_code\": \"00123\",\n    \"town_name\": \"Helsinki\",\n    \"country_sub_division\": \"Uusimaa\",\n    \"country\": \"FI\",\n    \"address_line\": [\n      \"Mr Asko Teirila PO Box 511\",\n      \"39140 AKDENMAA FINLAND\"\n    ]\n  },\n  \"uid\": \"91d14153-4b7b-c51b-0b67-665ff607ae00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcc279b2-ba4e-43f7-ad8f-fb2085ef1a08",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97e1944b-bf5f-4746-8ee5-d061937632c9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "394c56da-fa0c-4c5e-be65-36057f0d2f77",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4d39be6-08d9-4b98-a969-3882ffbe7ade",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b77edf33-c78c-4d2f-a53e-d652c341b2c8",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca186b14-879a-41bf-b3fb-d54dbc95f970",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25529a18-ce62-4440-b854-56901c625028",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d689c1b-10ec-4b85-ae0d-76e74ad5c9ee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55b7bed0-dab2-4e43-ab3e-adc101f080ec",
+          "name": "Get account balances",
+          "request": {
+            "name": "Get account balances",
+            "description": {
+              "content": "Fetching account balances from ASPSP for an account by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "account_id",
+                  "description": "(Required) PSU account ID accessible in the provided session"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "PSU IP address",
+                "key": "Psu-Ip-Address",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU browser User Agent",
+                "key": "Psu-User-Agent",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU Referer",
+                "key": "Psu-Referer",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept header",
+                "key": "Psu-Accept",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU charset",
+                "key": "Psu-Accept-Charset",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept encoding",
+                "key": "Psu-Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept language",
+                "key": "Psu-Accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Comma separated latitude and longitude coordinates without spaces",
+                "key": "Psu-Geo-Location",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfdd27ac-ae41-413f-b361-e015ea344eb9",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balances\": [\n    {\n      \"name\": \"Booked balance\",\n      \"balance_amount\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"balance_type\": \"CLBD\",\n      \"last_change_date_time\": \"1990-09-05T12:42:14.526Z\",\n      \"reference_date\": \"1992-09-07\",\n      \"last_committed_transaction\": \"4604aa90f8a8418092d80c3270846f0a\"\n    },\n    {\n      \"name\": \"Booked balance\",\n      \"balance_amount\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"balance_type\": \"CLBD\",\n      \"last_change_date_time\": \"1986-04-26T15:07:04.030Z\",\n      \"reference_date\": \"2005-07-14\",\n      \"last_committed_transaction\": \"4604aa90f8a8418092d80c3270846f0a\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4559a2fb-fbec-46fa-bf7b-1e6cc139e1cf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c80f72bb-af05-4f66-8914-825683d19cd2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd96ebfa-2c7a-48b6-ae0c-60173003c71b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4de66da-9f77-475e-abc7-2d6476e12cb9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f17e1734-05bd-420f-8779-e4de49164456",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b654eb92-332f-4792-b23f-8c5ebdb26b4f",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fb65346-1983-41f9-943b-5253e104aa84",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37574c05-a390-4194-b398-04492899f849",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eae82555-c17b-4d79-b5ef-a759ea036b2a",
+          "name": "Get account transactions",
+          "request": {
+            "name": "Get account transactions",
+            "description": {
+              "content": "Fetching account transactions from ASPSP for an account by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Date to fetch transactions from (including the date, UTC timezone is assumed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "Date to fetch transactions to (including the date, UTC timezone is assumed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation_key",
+                  "value": "<string>",
+                  "description": "Key, allowing iterate over multiple API pages of transactions"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_status",
+                  "value": "<string>",
+                  "description": "Filter transactions by provided status"
+                },
+                {
+                  "disabled": false,
+                  "key": "strategy",
+                  "value": "default",
+                  "description": "Strategy how transaction are fetched"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "account_id",
+                  "description": "(Required) PSU account ID accessible in the provided session"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "PSU IP address",
+                "key": "Psu-Ip-Address",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU browser User Agent",
+                "key": "Psu-User-Agent",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU Referer",
+                "key": "Psu-Referer",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept header",
+                "key": "Psu-Accept",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU charset",
+                "key": "Psu-Accept-Charset",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept encoding",
+                "key": "Psu-Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept language",
+                "key": "Psu-Accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Comma separated latitude and longitude coordinates without spaces",
+                "key": "Psu-Geo-Location",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b216d972-e08a-442b-890f-7e85e8d96402",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"transaction_amount\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"credit_debit_indicator\": \"CRDT\",\n      \"status\": \"BOOK\",\n      \"entry_reference\": \"5561990681\",\n      \"merchant_category_code\": \"5511\",\n      \"creditor\": {\n        \"name\": \"MyPreferredAisp\",\n        \"postal_address\": {\n          \"address_line\": [\n            \"Mr Asko Teirila PO Box 511\",\n            \"39140 AKDENMAA FINLAND\"\n          ],\n          \"address_type\": \"Business\",\n          \"building_number\": \"4\",\n          \"country\": \"FI\",\n          \"country_sub_division\": \"Uusimaa\",\n          \"department\": \"Department of resources\",\n          \"post_code\": \"00123\",\n          \"street_name\": \"Vasavagen\",\n          \"sub_department\": \"Sub Department of resources\",\n          \"town_name\": \"Helsinki\"\n        }\n      },\n      \"creditor_account\": {\n        \"iban\": \"FI1737631867613465\"\n      },\n      \"creditor_agent\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"debtor\": {\n        \"name\": \"MyPreferredAisp\",\n        \"postal_address\": {\n          \"address_line\": [\n            \"Mr Asko Teirila PO Box 511\",\n            \"39140 AKDENMAA FINLAND\"\n          ],\n          \"address_type\": \"Business\",\n          \"building_number\": \"4\",\n          \"country\": \"FI\",\n          \"country_sub_division\": \"Uusimaa\",\n          \"department\": \"Department of resources\",\n          \"post_code\": \"00123\",\n          \"street_name\": \"Vasavagen\",\n          \"sub_department\": \"Sub Department of resources\",\n          \"town_name\": \"Helsinki\"\n        }\n      },\n      \"debtor_account\": {\n        \"iban\": \"FI8638798819867751\"\n      },\n      \"debtor_agent\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"bank_transaction_code\": {\n        \"description\": \"Utlandsbetalning\",\n        \"code\": \"12\",\n        \"sub_code\": \"32\"\n      },\n      \"booking_date\": \"2020-01-03\",\n      \"value_date\": \"2020-01-02\",\n      \"transaction_date\": \"2020-01-01\",\n      \"balance_after_transaction\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"reference_number\": \"RF07850352502356628678117\",\n      \"reference_number_schema\": \"SDDM\",\n      \"remittance_information\": [\n        \"RF07850352502356628678117\",\n        \"Gift for Alex\"\n      ],\n      \"debtor_account_additional_identification\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"creditor_account_additional_identification\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"exchange_rate\": {\n        \"unit_currency\": \"EUR\",\n        \"exchange_rate\": \"string\",\n        \"rate_type\": \"SPOT\",\n        \"contract_identification\": \"string\",\n        \"instructed_amount\": {\n          \"currency\": \"EUR\",\n          \"amount\": \"1.23\"\n        }\n      },\n      \"note\": \"string\",\n      \"transaction_id\": \"string\"\n    },\n    {\n      \"transaction_amount\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"credit_debit_indicator\": \"CRDT\",\n      \"status\": \"BOOK\",\n      \"entry_reference\": \"5561990681\",\n      \"merchant_category_code\": \"5511\",\n      \"creditor\": {\n        \"name\": \"MyPreferredAisp\",\n        \"postal_address\": {\n          \"address_line\": [\n            \"Mr Asko Teirila PO Box 511\",\n            \"39140 AKDENMAA FINLAND\"\n          ],\n          \"address_type\": \"Business\",\n          \"building_number\": \"4\",\n          \"country\": \"FI\",\n          \"country_sub_division\": \"Uusimaa\",\n          \"department\": \"Department of resources\",\n          \"post_code\": \"00123\",\n          \"street_name\": \"Vasavagen\",\n          \"sub_department\": \"Sub Department of resources\",\n          \"town_name\": \"Helsinki\"\n        }\n      },\n      \"creditor_account\": {\n        \"iban\": \"FI1737631867613465\"\n      },\n      \"creditor_agent\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"debtor\": {\n        \"name\": \"MyPreferredAisp\",\n        \"postal_address\": {\n          \"address_line\": [\n            \"Mr Asko Teirila PO Box 511\",\n            \"39140 AKDENMAA FINLAND\"\n          ],\n          \"address_type\": \"Business\",\n          \"building_number\": \"4\",\n          \"country\": \"FI\",\n          \"country_sub_division\": \"Uusimaa\",\n          \"department\": \"Department of resources\",\n          \"post_code\": \"00123\",\n          \"street_name\": \"Vasavagen\",\n          \"sub_department\": \"Sub Department of resources\",\n          \"town_name\": \"Helsinki\"\n        }\n      },\n      \"debtor_account\": {\n        \"iban\": \"FI8638798819867751\"\n      },\n      \"debtor_agent\": {\n        \"bic_fi\": \"string\",\n        \"clearing_system_member_id\": {\n          \"clearing_system_id\": \"NZNCC\",\n          \"member_id\": \"string\"\n        },\n        \"name\": \"string\"\n      },\n      \"bank_transaction_code\": {\n        \"description\": \"Utlandsbetalning\",\n        \"code\": \"12\",\n        \"sub_code\": \"32\"\n      },\n      \"booking_date\": \"2020-01-03\",\n      \"value_date\": \"2020-01-02\",\n      \"transaction_date\": \"2020-01-01\",\n      \"balance_after_transaction\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"1.23\"\n      },\n      \"reference_number\": \"RF07850352502356628678117\",\n      \"reference_number_schema\": \"SDDM\",\n      \"remittance_information\": [\n        \"RF07850352502356628678117\",\n        \"Gift for Alex\"\n      ],\n      \"debtor_account_additional_identification\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"creditor_account_additional_identification\": [\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        },\n        {\n          \"identification\": \"123456\",\n          \"scheme_name\": \"BBAN\"\n        }\n      ],\n      \"exchange_rate\": {\n        \"unit_currency\": \"EUR\",\n        \"exchange_rate\": \"string\",\n        \"rate_type\": \"SPOT\",\n        \"contract_identification\": \"string\",\n        \"instructed_amount\": {\n          \"currency\": \"EUR\",\n          \"amount\": \"1.23\"\n        }\n      },\n      \"note\": \"string\",\n      \"transaction_id\": \"string\"\n    }\n  ],\n  \"continuation_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a0e5827-1a62-41f1-bd1a-c00d6ac4ca4f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc95c342-cf83-4028-9d73-eb6606c45859",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dfe8830-6986-4d0e-b502-089484781f24",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d02c0da4-aa07-4e1a-865f-2afa479bcbe0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54809209-6074-492d-bf7e-35725a1c5e66",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8eace40d-10d2-45f7-886a-288751a998f7",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51d047ec-4a92-4055-a9e3-2903b2c9218b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f126a1c-6661-4ccb-803c-930ff7677f56",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "continuation_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_status",
+                      "value": "BOOK"
+                    },
+                    {
+                      "key": "strategy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) PSU account ID accessible in the provided session"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3e50788-b6c5-4b88-b3d8-ced5e8e7847b",
+          "name": "Get transaction details",
+          "request": {
+            "name": "Get transaction details",
+            "description": {
+              "content": "Fetching transaction details from ASPSP for an account transaction by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "account_id",
+                  "description": "(Required) Account ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction_id",
+                  "description": "(Required) Transaction ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "PSU IP address",
+                "key": "Psu-Ip-Address",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU browser User Agent",
+                "key": "Psu-User-Agent",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU Referer",
+                "key": "Psu-Referer",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept header",
+                "key": "Psu-Accept",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU charset",
+                "key": "Psu-Accept-Charset",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept encoding",
+                "key": "Psu-Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "PSU accept language",
+                "key": "Psu-Accept-language",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Comma separated latitude and longitude coordinates without spaces",
+                "key": "Psu-Geo-Location",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d549ece-daff-4db6-b959-e57d91646048",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction_amount\": {\n    \"currency\": \"EUR\",\n    \"amount\": \"1.23\"\n  },\n  \"credit_debit_indicator\": \"CRDT\",\n  \"status\": \"BOOK\",\n  \"entry_reference\": \"5561990681\",\n  \"merchant_category_code\": \"5511\",\n  \"creditor\": {\n    \"name\": \"MyPreferredAisp\",\n    \"postal_address\": {\n      \"address_line\": [\n        \"Mr Asko Teirila PO Box 511\",\n        \"39140 AKDENMAA FINLAND\"\n      ],\n      \"address_type\": \"Business\",\n      \"building_number\": \"4\",\n      \"country\": \"FI\",\n      \"country_sub_division\": \"Uusimaa\",\n      \"department\": \"Department of resources\",\n      \"post_code\": \"00123\",\n      \"street_name\": \"Vasavagen\",\n      \"sub_department\": \"Sub Department of resources\",\n      \"town_name\": \"Helsinki\"\n    }\n  },\n  \"creditor_account\": {\n    \"iban\": \"FI1737631867613465\"\n  },\n  \"creditor_agent\": {\n    \"bic_fi\": \"string\",\n    \"clearing_system_member_id\": {\n      \"clearing_system_id\": \"NZNCC\",\n      \"member_id\": \"string\"\n    },\n    \"name\": \"string\"\n  },\n  \"debtor\": {\n    \"name\": \"MyPreferredAisp\",\n    \"postal_address\": {\n      \"address_line\": [\n        \"Mr Asko Teirila PO Box 511\",\n        \"39140 AKDENMAA FINLAND\"\n      ],\n      \"address_type\": \"Business\",\n      \"building_number\": \"4\",\n      \"country\": \"FI\",\n      \"country_sub_division\": \"Uusimaa\",\n      \"department\": \"Department of resources\",\n      \"post_code\": \"00123\",\n      \"street_name\": \"Vasavagen\",\n      \"sub_department\": \"Sub Department of resources\",\n      \"town_name\": \"Helsinki\"\n    }\n  },\n  \"debtor_account\": {\n    \"iban\": \"FI8638798819867751\"\n  },\n  \"debtor_agent\": {\n    \"bic_fi\": \"string\",\n    \"clearing_system_member_id\": {\n      \"clearing_system_id\": \"NZNCC\",\n      \"member_id\": \"string\"\n    },\n    \"name\": \"string\"\n  },\n  \"bank_transaction_code\": {\n    \"description\": \"Utlandsbetalning\",\n    \"code\": \"12\",\n    \"sub_code\": \"32\"\n  },\n  \"booking_date\": \"2020-01-03\",\n  \"value_date\": \"2020-01-02\",\n  \"transaction_date\": \"2020-01-01\",\n  \"balance_after_transaction\": {\n    \"currency\": \"EUR\",\n    \"amount\": \"1.23\"\n  },\n  \"reference_number\": \"RF07850352502356628678117\",\n  \"reference_number_schema\": \"SDDM\",\n  \"remittance_information\": [\n    \"RF07850352502356628678117\",\n    \"Gift for Alex\"\n  ],\n  \"debtor_account_additional_identification\": [\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    },\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    }\n  ],\n  \"creditor_account_additional_identification\": [\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    },\n    {\n      \"identification\": \"123456\",\n      \"scheme_name\": \"BBAN\"\n    }\n  ],\n  \"exchange_rate\": {\n    \"unit_currency\": \"EUR\",\n    \"exchange_rate\": \"string\",\n    \"rate_type\": \"SPOT\",\n    \"contract_identification\": \"string\",\n    \"instructed_amount\": {\n      \"currency\": \"EUR\",\n      \"amount\": \"1.23\"\n    }\n  },\n  \"note\": \"string\",\n  \"transaction_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bda17890-2288-4260-bca0-5e8cb4a1aba6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29d43563-a928-4096-afd8-297eb4703091",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e0de25a-2791-449e-b6ba-0e7a80da0aeb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01fb3626-96c6-4ec9-89f6-1a2b13ee99e0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa3bc5d6-61d0-4a02-8d3c-e28cd4ce0a6b",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37a1f678-de40-49bd-861b-0a5985231238",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79269832-f7de-44e0-885a-aaaf74bc7266",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9a2de4b-fabc-4969-aaaf-9c72fcdc2558",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "account_id",
+                      "description": "(Required) Account ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU IP address",
+                    "key": "Psu-Ip-Address",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU browser User Agent",
+                    "key": "Psu-User-Agent",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU Referer",
+                    "key": "Psu-Referer",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept header",
+                    "key": "Psu-Accept",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU charset",
+                    "key": "Psu-Accept-Charset",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept encoding",
+                    "key": "Psu-Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "PSU accept language",
+                    "key": "Psu-Accept-language",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Comma separated latitude and longitude coordinates without spaces",
+                    "key": "Psu-Geo-Location",
+                    "value": "-1.2345,6.789"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Required PSU header is not provided\",\n  \"code\": 422,\n  \"error\": \"PSU_HEADER_NOT_PROVIDED\",\n  \"detail\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.enablebanking.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f9c833f9-cda4-4a09-b8a3-895f872082d7",
+    "name": "API reference Accounts data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
