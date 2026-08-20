@@ -78,7 +78,8 @@ apis:
   description: The Misc API from Enable Banking — 2 operation(s) for misc.
   humanURL: https://enablebanking.com/docs/api/reference/
   baseURL: https://api.enablebanking.com
-  tags:
+  tags: []
+  tags_raw:
   - Misc
   properties:
   - type: OpenAPI
@@ -223,6 +224,8 @@ apis:
   humanURL: https://enablebanking.com/docs/api/reference/
   baseURL: https://api.enablebanking.com
   tags:
+  - User Sessions
+  tags_raw:
   - User sessions
   properties:
   - type: OpenAPI
@@ -373,6 +376,23 @@ maintainers:
 specificationVersion: '0.23'
 name: Enable Banking
 tags:
+  - Open Banking
+  - PSD2
+  - AISP
+  - PISP
+  - Banking
+  - Financial-Services
+  - Account Aggregation
+  - Payment Initiation
+  - Europe
+  - Nordic
+  - Finland
+  - Compliance
+  - eIDAS
+  - SCA
+  - DORA
+  - GDPR
+tags_raw:
   - Open Banking
   - PSD2
   - AISP
