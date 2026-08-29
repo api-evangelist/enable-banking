@@ -1,0 +1,25 @@
+slug: enable-banking
+provider: Enable Banking
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Payments
+  spec_file: enable-banking-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /payments 'Create payment'; schemas PaymentRequestResource, CreditTransferTransactionDetails,
+    RequestedExecutionDate, PaymentTypeInformation
+  reason: 'PSD2 Payment Initiation Services: capture, authorisation and status tracking of payment instructions,
+    which is squarely payment initiation management.'

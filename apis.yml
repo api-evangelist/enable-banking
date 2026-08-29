@@ -293,6 +293,9 @@ apis:
   - type: Features
     url: null
 common:
+  - type: CapabilityMap
+    url: capabilities/enable-banking-capability-edges.yml
+    name: Enable Banking Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/enable-banking/overview
   - type: AgenticAccess
