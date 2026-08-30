@@ -224,7 +224,7 @@ apis:
   humanURL: https://enablebanking.com/docs/api/reference/
   baseURL: https://api.enablebanking.com
   tags:
-  - User Sessions
+  - User sessions
   tags_raw:
   - User sessions
   properties:
