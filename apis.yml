@@ -293,6 +293,8 @@ apis:
   - type: Features
     url: null
 common:
+  - type: Website
+    url: https://www.enablebanking.com/
   - type: CapabilityMap
     url: capabilities/enable-banking-capability-edges.yml
     name: Enable Banking Business Capability Map
