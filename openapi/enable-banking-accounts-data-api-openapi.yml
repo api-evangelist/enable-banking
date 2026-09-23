@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API reference Accounts data API
+  title: reference Accounts data API
   version: 1.0.0-3030f99c
 servers:
 - url: https://api.enablebanking.com
@@ -638,500 +638,28 @@ components:
       example:
         identification: '123456'
         scheme_name: BBAN
-    RateType:
+    AddressType:
       type: string
       enum:
-      - SPOT
-      - SALE
-      - AGRD
-      title: RateType
-      example: SPOT
+      - Business
+      - Correspondence
+      - DeliveryTo
+      - MailTo
+      - POBox
+      - Postal
+      - Residential
+      - Statement
+      title: AddressType
+      example: Business
       x-enum-descriptions:
-      - Exchange rate applied is the rate agreed between the parties
-      - Exchange rate applied is the market rate at the time of the sale.
-      - Exchange rate applied is the spot rate.
-    AccountResource:
-      properties:
-        account_id:
-          description: Primary account identifier
-          $ref: '#/components/schemas/AccountIdentification'
-        all_account_ids:
-          title: All Account Ids
-          description: All account identifiers provided by ASPSPs (including primary identifier available in the accountId field)
-          items:
-            $ref: '#/components/schemas/GenericIdentification'
-          type: array
-        account_servicer:
-          description: Information about the financial institution servicing the account
-          $ref: '#/components/schemas/FinancialInstitutionIdentification'
-        name:
-          title: Name
-          description: Account holder(s) name
-          type: string
-        details:
-          title: Details
-          description: Account description set by PSU or provided by ASPSP
-          type: string
-        usage:
-          description: Specifies the usage of the account
-          $ref: '#/components/schemas/Usage'
-        cash_account_type:
-          $ref: '#/components/schemas/CashAccountType'
-          description: Specifies the type of the account
-        product:
-          title: Product
-          description: Product Name of the Bank for this account, proprietary definition
-          type: string
-        currency:
-          type: string
-          title: Currency
-          description: Specifies the currency of the account
-        psu_status:
-          title: Psu Status
-          description: Relationship between the PSU and the account - Account Holder - Co-account Holder - Attorney
-          type: string
-        credit_limit:
-          description: Specifies the maximum credit or overdraft allowed on the account
-          $ref: '#/components/schemas/AmountType'
-        legal_age:
-          title: Legal Age
-          description: 'Specifies whether Enable Banking is confident that the account holder is of legal age or is a minor. The field takes the following values:
-
-            true if the account holder is of legal age;
-
-            false if the account holder is a minor;
-
-            null (or the field is not set) if it is not possible to determine whether the account holder is of legal age or a minor or if the legal age check is not applicable (in cases such as if the account holder is a legal entity or there are multiple account co-holders)'
-          type: boolean
-        postal_address:
-          description: Postal address of the account holder
-          $ref: '#/components/schemas/PostalAddress'
-        uid:
-          title: Uid
-          description: Unique account identificator used for fetching account balances and transactions. It is valid only until the session to which the account belongs is in the AUTHORIZED status. It can be not set in case it is know that it is not possible to fetch balances and transactions for the account (for example, in case the account is blocked or closed at the ASPSP side).
-          type: string
-          format: uuid
-        identification_hash:
-          type: string
-          title: Identification Hash
-          description: Primary account identification hash. It can be used for matching accounts between multiple sessions (even in case the sessions are authorized by different PSUs).
-          examples:
-          - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
-        identification_hashes:
-          items:
-            type: string
-          type: array
-          title: Identification Hashes
-          description: List of possible account identification hashes. Identification hash is based on the account number. Some accounts may have multiple account numbers (e.g. IBAN and BBAN). This field contains all possible hashes. Not all of these hashes can be used to uniquely identify an account and that the primary goal of them is to be able to fuzzy matching of accounts by certain properties. Primary hash is included in this list.
-          examples:
-          - - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
-            - WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=
-      type: object
-      required:
-      - cash_account_type
-      - currency
-      - identification_hash
-      - identification_hashes
-      title: AccountResource
-    ReferenceNumberScheme:
-      type: string
-      enum:
-      - SEBG
-      - NORF
-      - FIRF
-      - INTL
-      - BERF
-      - SDDM
-      title: ReferenceNumberScheme
-      example: SEBG
-      x-enum-descriptions:
-      - Belgian reference number
-      - Finnish reference number
-      - International reference number (starting with RF)
-      - Norwegian KID (OCR)
-      - SEPA Direct Debit Mandate ID
-      - Swedish Bankgiro OCR
-    TransactionStatus:
-      type: string
-      enum:
-      - BOOK
-      - CNCL
-      - HOLD
-      - OTHR
-      - PDNG
-      - RJCT
-      - SCHD
-      title: TransactionStatus
-      example: BOOK
-      x-enum-descriptions:
-      - Accounted transaction (ISO20022 Closing Booked)
-      - Cancelled transaction
-      - Account hold
-      - Transaction with unknown status or not fitting the other options
-      - Instant Balance Transaction (ISO20022 Expected)
-      - Rejected transaction
-      - Scheduled transaction
-    CashAccountType:
-      type: string
-      enum:
-      - CACC
-      - CASH
-      - CARD
-      - LOAN
-      - SVGS
-      - OTHR
-      title: CashAccountType
-      example: CACC
-      x-enum-descriptions:
-      - Account used to post debits and credits when no specific account has been nominated
-      - Account used for card payments only
-      - Account used for the payment of cash
-      - Account used for loans
-      - Account not otherwise specified
-      - Account used for savings
-    AmountType:
-      properties:
-        currency:
-          type: string
-          title: Currency
-          description: ISO 4217 code of the currency of the amount
-          examples:
-          - EUR
-        amount:
-          type: string
-          pattern: ^-?\d+(\.\d+)?$
-          title: Amount
-          description: Numerical value or monetary figure associated with a particular transaction, representing balance on an account, a fee or similar. Represented as a decimal number, using . (dot) as a decimal separator. Allowed precision (number of digits after the decimal separator) varies depending on the currency and is validated differently depending on the context.
-          examples:
-          - '1.23'
-      type: object
-      required:
-      - currency
-      - amount
-      title: AmountType
-    AccountIdentification:
-      properties:
-        iban:
-          title: Iban
-          description: International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
-          examples:
-          - FI8821291587733472
-          type: string
-        other:
-          description: Other identification if iban is not provided
-          examples:
-          - identification: '123456'
-            scheme_name: BBAN
-          $ref: '#/components/schemas/GenericIdentification'
-      type: object
-      title: AccountIdentification
-      example:
-        iban: FI0455231152453547
-    HalTransactions:
-      properties:
-        transactions:
-          items:
-            $ref: '#/components/schemas/Transaction'
-          type: array
-          title: Transactions
-          description: List of transactions
-        continuation_key:
-          title: Continuation Key
-          description: Value to retrieve next page of transactions. Null if there are no more pages. Only valid in current session.
-          type: string
-      type: object
-      required:
-      - transactions
-      title: HalTransactions
-    BalanceStatus:
-      type: string
-      enum:
-      - CLAV
-      - CLBD
-      - FWAV
-      - INFO
-      - ITAV
-      - ITBD
-      - OPAV
-      - OPBD
-      - PRCD
-      - OTHR
-      - VALU
-      - XPCD
-      title: BalanceStatus
-      example: CLAV
-      x-enum-descriptions:
-      - (ISO20022 Closing Available) Closing available balance
-      - (ISO20022 ClosingBooked) Accounting Balance
-      - (ISO20022 ForwardAvailable) Balance that is at the disposal of account holders on the date specified
-      - (ISO20022 Information) Balance for informational purposes
-      - (ISO20022 InterimAvailable) Available balance calculated in the course of the day
-      - (ISO20022 InterimBooked) Booked balance calculated in the course of the day
-      - (ISO20022 OpeningAvailable) Opening balance that is at the disposal of account holders at the beginning of the date specified
-      - (ISO20022 OpeningBooked) Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report
-      - Other Balance
-      - (ISO20022 PreviouslyClosedBooked) Balance of the account at the end of the previous reporting period
-      - Value-date balance
-      - (ISO20022 Expected) Instant Balance
-    PostalAddress:
-      properties:
-        address_type:
-          description: Available address type values
-          examples:
-          - DeliveryTo
-          $ref: '#/components/schemas/AddressType'
-        department:
-          title: Department
-          description: Identification of a division of a large organisation or building.
-          examples:
-          - Department of resources
-          type: string
-        sub_department:
-          title: Sub Department
-          description: Identification of a sub-division of a large organisation or building.
-          examples:
-          - Sub Department of resources
-          type: string
-        street_name:
-          title: Street Name
-          description: Name of a street or thoroughfare.
-          examples:
-          - Vasavagen
-          type: string
-        building_number:
-          title: Building Number
-          description: Number that identifies the position of a building on a street.
-          examples:
-          - '4'
-          type: string
-        post_code:
-          title: Post Code
-          description: 'Identifier consisting of a group of letters and/or numbers that is
-
-            added to a postal address to assist the sorting of mail.'
-          examples:
-          - '00123'
-          type: string
-        town_name:
-          title: Town Name
-          description: Name of a built-up area, with defined boundaries, and a local government.
-          examples:
-          - Helsinki
-          type: string
-        country_sub_division:
-          title: Country Sub Division
-          description: Identifies a subdivision of a country such as state, region, county.
-          examples:
-          - Uusimaa
-          type: string
-        country:
-          title: Country
-          description: Two-letter ISO 3166 code of the country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
-          examples:
-          - FI
-          type: string
-        address_line:
-          title: Address Line
-          description: Unstructured address. The two lines must embed zip code and town name
-          examples:
-          - - Mr Asko Teirila PO Box 511
-            - 39140 AKDENMAA FINLAND
-          items:
-            type: string
-          type: array
-      type: object
-      title: PostalAddress
-    ErrorResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Error message
-          examples:
-          - Required PSU header is not provided
-        code:
-          title: Code
-          description: Error code, identical to the http response code
-          examples:
-          - 422
-          type: integer
-        error:
-          description: Text error code
-          examples:
-          - PSU_HEADER_NOT_PROVIDED
-          $ref: '#/components/schemas/ErrorCode'
-        detail:
-          title: Detail
-          description: Detailed explanation of an error
-          examples:
-          - PSU header psuIpAddress is not provided
-      type: object
-      required:
-      - message
-      title: ErrorResponse
-    FinancialInstitutionIdentification:
-      properties:
-        bic_fi:
-          title: Bic Fi
-          description: Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identification code (BIC)".
-          type: string
-        clearing_system_member_id:
-          description: Information used to identify a member within a clearing system.
-          $ref: '#/components/schemas/ClearingSystemMemberIdentification'
-        name:
-          title: Name
-          description: Name of the financial institution
-          type: string
-      type: object
-      title: FinancialInstitutionIdentification
-    TransactionsFetchStrategy:
-      type: string
-      enum:
-      - default
-      - longest
-      title: TransactionsFetchStrategy
-      example: default
-      x-enum-descriptions:
-      - Fetches transactions as requested by the user by passing the `date_from` and `date_to` parameters to an ASPSP. If not date_from or date_to is passed, then meaningful defaults are used.
-      - Tries to find the longest possible period of transactions and fetches transactions for that period. Passed date_from is also taken into account. This strategy may use extra ASPSP calls. date_to is ignored in this strategy.
-    BankTransactionCode:
-      properties:
-        description:
-          title: Description
-          description: Arbitrary transaction categorization description
-          examples:
-          - Utlandsbetalning
-          type: string
-        code:
-          title: Code
-          description: Specifies the family of a transaction within the domain
-          examples:
-          - '12'
-          type: string
-        sub_code:
-          title: Sub Code
-          description: Specifies the sub-product family of a transaction within a specific family
-          examples:
-          - '32'
-          type: string
-      type: object
-      title: BankTransactionCode
-    SchemeName:
-      type: string
-      enum:
-      - CHID
-      - GS1G
-      - DUNS
-      - BANK
-      - TXID
-      - CUST
-      - EMPL
-      - OTHC
-      - DRLC
-      - CUSI
-      - SOSE
-      - ARNU
-      - CCPT
-      - OTHI
-      - COID
-      - SREN
-      - SRET
-      - NIDN
-      - OAUT
-      - CPAN
-      - BBAN
-      - IBAN
-      - MIBN
-      - BGNR
-      - PGNR
-      title: SchemeName
-      example: CHID
-      x-enum-descriptions:
-      - AlienRegistrationNumber
-      - BankPartyIdentification. Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
-      - Basic Bank Account Number. Represents a country-specific bank account number.
-      - Swedish BankGiro account number. Used in domestic Swedish giro payments
-      - PassportNumber
-      - Clearing Identification Number
-      - CountryIdentificationCode. Country authority given organisation identification (e.g., corporate registration number)
-      - Card PAN (masked or plain)
-      - CustomerIdentificationNumberIndividual. Handelsbanken-specific code
-      - CorporateCustomerNumber
-      - DriversLicenseNumber
-      - Data Universal Numbering System
-      - EmployerIdentificationNumber
-      - GS1GLNIdentifier
-      - International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer.
-      - Masked IBAN
-      - NationalIdentityNumber. Number assigned by an authority to identify the national identity number of a person.
-      - OAUTH2 access token that is owned by the PISP being also an AISP and that can be used in order to identify the PSU
-      - OtherCorporate. Handelsbanken-specific code
-      - OtherIndividual. Handelsbanken-specific code
-      - Swedish PlusGiro account number. Used in domestic Swedish giro payments
-      - SocialSecurityNumber
-      - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
-      - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
-      - TaxIdentificationNumber
-    ClearingSystemMemberIdentification:
-      properties:
-        clearing_system_id:
-          title: Clearing System Id
-          description: Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
-          examples:
-          - NZNCC
-          type: string
-        member_id:
-          title: Member Id
-          description: Identification of a member of a clearing system.
-          examples:
-          - 020368
-          type: string
-      type: object
-      title: ClearingSystemMemberIdentification
-    Usage:
-      type: string
-      enum:
-      - PRIV
-      - ORGA
-      title: Usage
-      example: PRIV
-      x-enum-descriptions:
-      - professional account
-      - private personal account
-    ContactDetails:
-      properties:
-        email_address:
-          title: Email Address
-          description: Email address of a person
-          type: string
-        phone_number:
-          title: Phone Number
-          description: Phone number of a person
-          type: string
-      type: object
-      title: ContactDetails
-    HalBalances:
-      properties:
-        balances:
-          items:
-            $ref: '#/components/schemas/BalanceResource'
-          type: array
-          title: Balances
-          description: List of account balances
-      type: object
-      required:
-      - balances
-      title: HalBalances
-    CreditDebitIndicator:
-      type: string
-      enum:
-      - CRDT
-      - DBIT
-      title: CreditDebitIndicator
-      example: CRDT
-      x-enum-descriptions:
-      - Credit type transaction
-      - Debit type transaction
+      - Business address
+      - Correspondence address
+      - Delivery address
+      - Mail to address
+      - PO Box address
+      - Postal address
+      - Residential address
+      - Statement address
     Transaction:
       properties:
         entry_reference:
@@ -1269,49 +797,16 @@ components:
       - credit_debit_indicator
       - status
       title: Transaction
-    AddressType:
+    Usage:
       type: string
       enum:
-      - Business
-      - Correspondence
-      - DeliveryTo
-      - MailTo
-      - POBox
-      - Postal
-      - Residential
-      - Statement
-      title: AddressType
-      example: Business
+      - PRIV
+      - ORGA
+      title: Usage
+      example: PRIV
       x-enum-descriptions:
-      - Business address
-      - Correspondence address
-      - Delivery address
-      - Mail to address
-      - PO Box address
-      - Postal address
-      - Residential address
-      - Statement address
-    ExchangeRate:
-      properties:
-        unit_currency:
-          description: ISO 4217 code of the currency, in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
-          $ref: '#/components/schemas/CurrencyCode'
-        exchange_rate:
-          title: Exchange Rate
-          description: The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.
-          type: string
-        rate_type:
-          description: Specifies the type of exchange rate applied to the transaction
-          $ref: '#/components/schemas/RateType'
-        contract_identification:
-          title: Contract Identification
-          description: Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.
-          type: string
-        instructed_amount:
-          description: Original amount, in which transaction was initiated. In particular, for cross-currency card transactions, the value represents original value of a purchase or a withdrawal in a currency different from the card's native or default currency.
-          $ref: '#/components/schemas/AmountType'
-      type: object
-      title: ExchangeRate
+      - professional account
+      - private personal account
     PartyIdentification:
       properties:
         name:
@@ -1349,6 +844,534 @@ components:
           street_name: Vasavagen
           sub_department: Sub Department of resources
           town_name: Helsinki
+    ReferenceNumberScheme:
+      type: string
+      enum:
+      - SEBG
+      - NORF
+      - FIRF
+      - INTL
+      - BERF
+      - SDDM
+      title: ReferenceNumberScheme
+      example: SEBG
+      x-enum-descriptions:
+      - Belgian reference number
+      - Finnish reference number
+      - International reference number (starting with RF)
+      - Norwegian KID (OCR)
+      - SEPA Direct Debit Mandate ID
+      - Swedish Bankgiro OCR
+    HalTransactions:
+      properties:
+        transactions:
+          items:
+            $ref: '#/components/schemas/Transaction'
+          type: array
+          title: Transactions
+          description: List of transactions
+        continuation_key:
+          title: Continuation Key
+          description: Value to retrieve next page of transactions. Null if there are no more pages. Only valid in current session.
+          type: string
+      type: object
+      required:
+      - transactions
+      title: HalTransactions
+    HalBalances:
+      properties:
+        balances:
+          items:
+            $ref: '#/components/schemas/BalanceResource'
+          type: array
+          title: Balances
+          description: List of account balances
+      type: object
+      required:
+      - balances
+      title: HalBalances
+    TransactionStatus:
+      type: string
+      enum:
+      - BOOK
+      - CNCL
+      - HOLD
+      - OTHR
+      - PDNG
+      - RJCT
+      - SCHD
+      title: TransactionStatus
+      example: BOOK
+      x-enum-descriptions:
+      - Accounted transaction (ISO20022 Closing Booked)
+      - Cancelled transaction
+      - Account hold
+      - Transaction with unknown status or not fitting the other options
+      - Instant Balance Transaction (ISO20022 Expected)
+      - Rejected transaction
+      - Scheduled transaction
+    AccountIdentification:
+      properties:
+        iban:
+          title: Iban
+          description: International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
+          examples:
+          - FI8821291587733472
+          type: string
+        other:
+          description: Other identification if iban is not provided
+          examples:
+          - identification: '123456'
+            scheme_name: BBAN
+          $ref: '#/components/schemas/GenericIdentification'
+      type: object
+      title: AccountIdentification
+      example:
+        iban: FI0455231152453547
+    BankTransactionCode:
+      properties:
+        description:
+          title: Description
+          description: Arbitrary transaction categorization description
+          examples:
+          - Utlandsbetalning
+          type: string
+        code:
+          title: Code
+          description: Specifies the family of a transaction within the domain
+          examples:
+          - '12'
+          type: string
+        sub_code:
+          title: Sub Code
+          description: Specifies the sub-product family of a transaction within a specific family
+          examples:
+          - '32'
+          type: string
+      type: object
+      title: BankTransactionCode
+    CreditDebitIndicator:
+      type: string
+      enum:
+      - CRDT
+      - DBIT
+      title: CreditDebitIndicator
+      example: CRDT
+      x-enum-descriptions:
+      - Credit type transaction
+      - Debit type transaction
+    ContactDetails:
+      properties:
+        email_address:
+          title: Email Address
+          description: Email address of a person
+          type: string
+        phone_number:
+          title: Phone Number
+          description: Phone number of a person
+          type: string
+      type: object
+      title: ContactDetails
+    SchemeName:
+      type: string
+      enum:
+      - CHID
+      - GS1G
+      - DUNS
+      - BANK
+      - TXID
+      - CUST
+      - EMPL
+      - OTHC
+      - DRLC
+      - CUSI
+      - SOSE
+      - ARNU
+      - CCPT
+      - OTHI
+      - COID
+      - SREN
+      - SRET
+      - NIDN
+      - OAUT
+      - CPAN
+      - BBAN
+      - IBAN
+      - MIBN
+      - BGNR
+      - PGNR
+      title: SchemeName
+      example: CHID
+      x-enum-descriptions:
+      - AlienRegistrationNumber
+      - BankPartyIdentification. Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
+      - Basic Bank Account Number. Represents a country-specific bank account number.
+      - Swedish BankGiro account number. Used in domestic Swedish giro payments
+      - PassportNumber
+      - Clearing Identification Number
+      - CountryIdentificationCode. Country authority given organisation identification (e.g., corporate registration number)
+      - Card PAN (masked or plain)
+      - CustomerIdentificationNumberIndividual. Handelsbanken-specific code
+      - CorporateCustomerNumber
+      - DriversLicenseNumber
+      - Data Universal Numbering System
+      - EmployerIdentificationNumber
+      - GS1GLNIdentifier
+      - International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer.
+      - Masked IBAN
+      - NationalIdentityNumber. Number assigned by an authority to identify the national identity number of a person.
+      - OAUTH2 access token that is owned by the PISP being also an AISP and that can be used in order to identify the PSU
+      - OtherCorporate. Handelsbanken-specific code
+      - OtherIndividual. Handelsbanken-specific code
+      - Swedish PlusGiro account number. Used in domestic Swedish giro payments
+      - SocialSecurityNumber
+      - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
+      - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
+      - TaxIdentificationNumber
+    PostalAddress:
+      properties:
+        address_type:
+          description: Available address type values
+          examples:
+          - DeliveryTo
+          $ref: '#/components/schemas/AddressType'
+        department:
+          title: Department
+          description: Identification of a division of a large organisation or building.
+          examples:
+          - Department of resources
+          type: string
+        sub_department:
+          title: Sub Department
+          description: Identification of a sub-division of a large organisation or building.
+          examples:
+          - Sub Department of resources
+          type: string
+        street_name:
+          title: Street Name
+          description: Name of a street or thoroughfare.
+          examples:
+          - Vasavagen
+          type: string
+        building_number:
+          title: Building Number
+          description: Number that identifies the position of a building on a street.
+          examples:
+          - '4'
+          type: string
+        post_code:
+          title: Post Code
+          description: 'Identifier consisting of a group of letters and/or numbers that is
+
+            added to a postal address to assist the sorting of mail.'
+          examples:
+          - '00123'
+          type: string
+        town_name:
+          title: Town Name
+          description: Name of a built-up area, with defined boundaries, and a local government.
+          examples:
+          - Helsinki
+          type: string
+        country_sub_division:
+          title: Country Sub Division
+          description: Identifies a subdivision of a country such as state, region, county.
+          examples:
+          - Uusimaa
+          type: string
+        country:
+          title: Country
+          description: Two-letter ISO 3166 code of the country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+          examples:
+          - FI
+          type: string
+        address_line:
+          title: Address Line
+          description: Unstructured address. The two lines must embed zip code and town name
+          examples:
+          - - Mr Asko Teirila PO Box 511
+            - 39140 AKDENMAA FINLAND
+          items:
+            type: string
+          type: array
+      type: object
+      title: PostalAddress
+    RateType:
+      type: string
+      enum:
+      - SPOT
+      - SALE
+      - AGRD
+      title: RateType
+      example: SPOT
+      x-enum-descriptions:
+      - Exchange rate applied is the rate agreed between the parties
+      - Exchange rate applied is the market rate at the time of the sale.
+      - Exchange rate applied is the spot rate.
+    TransactionsFetchStrategy:
+      type: string
+      enum:
+      - default
+      - longest
+      title: TransactionsFetchStrategy
+      example: default
+      x-enum-descriptions:
+      - Fetches transactions as requested by the user by passing the `date_from` and `date_to` parameters to an ASPSP. If not date_from or date_to is passed, then meaningful defaults are used.
+      - Tries to find the longest possible period of transactions and fetches transactions for that period. Passed date_from is also taken into account. This strategy may use extra ASPSP calls. date_to is ignored in this strategy.
+    AmountType:
+      properties:
+        currency:
+          type: string
+          title: Currency
+          description: ISO 4217 code of the currency of the amount
+          examples:
+          - EUR
+        amount:
+          type: string
+          pattern: ^-?\d+(\.\d+)?$
+          title: Amount
+          description: Numerical value or monetary figure associated with a particular transaction, representing balance on an account, a fee or similar. Represented as a decimal number, using . (dot) as a decimal separator. Allowed precision (number of digits after the decimal separator) varies depending on the currency and is validated differently depending on the context.
+          examples:
+          - '1.23'
+      type: object
+      required:
+      - currency
+      - amount
+      title: AmountType
+    BalanceStatus:
+      type: string
+      enum:
+      - CLAV
+      - CLBD
+      - FWAV
+      - INFO
+      - ITAV
+      - ITBD
+      - OPAV
+      - OPBD
+      - PRCD
+      - OTHR
+      - VALU
+      - XPCD
+      title: BalanceStatus
+      example: CLAV
+      x-enum-descriptions:
+      - (ISO20022 Closing Available) Closing available balance
+      - (ISO20022 ClosingBooked) Accounting Balance
+      - (ISO20022 ForwardAvailable) Balance that is at the disposal of account holders on the date specified
+      - (ISO20022 Information) Balance for informational purposes
+      - (ISO20022 InterimAvailable) Available balance calculated in the course of the day
+      - (ISO20022 InterimBooked) Booked balance calculated in the course of the day
+      - (ISO20022 OpeningAvailable) Opening balance that is at the disposal of account holders at the beginning of the date specified
+      - (ISO20022 OpeningBooked) Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report
+      - Other Balance
+      - (ISO20022 PreviouslyClosedBooked) Balance of the account at the end of the previous reporting period
+      - Value-date balance
+      - (ISO20022 Expected) Instant Balance
+    CashAccountType:
+      type: string
+      enum:
+      - CACC
+      - CASH
+      - CARD
+      - LOAN
+      - SVGS
+      - OTHR
+      title: CashAccountType
+      example: CACC
+      x-enum-descriptions:
+      - Account used to post debits and credits when no specific account has been nominated
+      - Account used for card payments only
+      - Account used for the payment of cash
+      - Account used for loans
+      - Account not otherwise specified
+      - Account used for savings
+    BalanceResource:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Label of the balance
+          examples:
+          - Booked balance
+        balance_amount:
+          $ref: '#/components/schemas/AmountType'
+          description: Structure aiming to embed the amount and the currency to be used
+        balance_type:
+          $ref: '#/components/schemas/BalanceStatus'
+          description: Available balance type values
+          examples:
+          - CLBD
+        last_change_date_time:
+          title: Last Change Date Time
+          description: Timestamp of the last change of the balance amount
+          type: string
+          format: date-time
+        reference_date:
+          title: Reference Date
+          description: Reference date for the balance
+          type: string
+          format: date
+        last_committed_transaction:
+          title: Last Committed Transaction
+          description: Entry reference of the last transaction contributing to the balance value
+          examples:
+          - 4604aa90f8a8418092d80c3270846f0a
+          type: string
+      type: object
+      required:
+      - name
+      - balance_amount
+      - balance_type
+      title: BalanceResource
+    ErrorResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Error message
+          examples:
+          - Required PSU header is not provided
+        code:
+          title: Code
+          description: Error code, identical to the http response code
+          examples:
+          - 422
+          type: integer
+        error:
+          description: Text error code
+          examples:
+          - PSU_HEADER_NOT_PROVIDED
+          $ref: '#/components/schemas/ErrorCode'
+        detail:
+          title: Detail
+          description: Detailed explanation of an error
+          examples:
+          - PSU header psuIpAddress is not provided
+      type: object
+      required:
+      - message
+      title: ErrorResponse
+    ExchangeRate:
+      properties:
+        unit_currency:
+          description: ISO 4217 code of the currency, in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
+          $ref: '#/components/schemas/CurrencyCode'
+        exchange_rate:
+          title: Exchange Rate
+          description: The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.
+          type: string
+        rate_type:
+          description: Specifies the type of exchange rate applied to the transaction
+          $ref: '#/components/schemas/RateType'
+        contract_identification:
+          title: Contract Identification
+          description: Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.
+          type: string
+        instructed_amount:
+          description: Original amount, in which transaction was initiated. In particular, for cross-currency card transactions, the value represents original value of a purchase or a withdrawal in a currency different from the card's native or default currency.
+          $ref: '#/components/schemas/AmountType'
+      type: object
+      title: ExchangeRate
+    AccountResource:
+      properties:
+        account_id:
+          description: Primary account identifier
+          $ref: '#/components/schemas/AccountIdentification'
+        all_account_ids:
+          title: All Account Ids
+          description: All account identifiers provided by ASPSPs (including primary identifier available in the accountId field)
+          items:
+            $ref: '#/components/schemas/GenericIdentification'
+          type: array
+        account_servicer:
+          description: Information about the financial institution servicing the account
+          $ref: '#/components/schemas/FinancialInstitutionIdentification'
+        name:
+          title: Name
+          description: Account holder(s) name
+          type: string
+        details:
+          title: Details
+          description: Account description set by PSU or provided by ASPSP
+          type: string
+        usage:
+          description: Specifies the usage of the account
+          $ref: '#/components/schemas/Usage'
+        cash_account_type:
+          $ref: '#/components/schemas/CashAccountType'
+          description: Specifies the type of the account
+        product:
+          title: Product
+          description: Product Name of the Bank for this account, proprietary definition
+          type: string
+        currency:
+          type: string
+          title: Currency
+          description: Specifies the currency of the account
+        psu_status:
+          title: Psu Status
+          description: Relationship between the PSU and the account - Account Holder - Co-account Holder - Attorney
+          type: string
+        credit_limit:
+          description: Specifies the maximum credit or overdraft allowed on the account
+          $ref: '#/components/schemas/AmountType'
+        legal_age:
+          title: Legal Age
+          description: 'Specifies whether Enable Banking is confident that the account holder is of legal age or is a minor. The field takes the following values:
+
+            true if the account holder is of legal age;
+
+            false if the account holder is a minor;
+
+            null (or the field is not set) if it is not possible to determine whether the account holder is of legal age or a minor or if the legal age check is not applicable (in cases such as if the account holder is a legal entity or there are multiple account co-holders)'
+          type: boolean
+        postal_address:
+          description: Postal address of the account holder
+          $ref: '#/components/schemas/PostalAddress'
+        uid:
+          title: Uid
+          description: Unique account identificator used for fetching account balances and transactions. It is valid only until the session to which the account belongs is in the AUTHORIZED status. It can be not set in case it is know that it is not possible to fetch balances and transactions for the account (for example, in case the account is blocked or closed at the ASPSP side).
+          type: string
+          format: uuid
+        identification_hash:
+          type: string
+          title: Identification Hash
+          description: Primary account identification hash. It can be used for matching accounts between multiple sessions (even in case the sessions are authorized by different PSUs).
+          examples:
+          - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
+        identification_hashes:
+          items:
+            type: string
+          type: array
+          title: Identification Hashes
+          description: List of possible account identification hashes. Identification hash is based on the account number. Some accounts may have multiple account numbers (e.g. IBAN and BBAN). This field contains all possible hashes. Not all of these hashes can be used to uniquely identify an account and that the primary goal of them is to be able to fuzzy matching of accounts by certain properties. Primary hash is included in this list.
+          examples:
+          - - WwpbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoiaWJhbiIKXQpd.E8GzhnnsFC7K+4e3YMYYKpyM83Zx6toXrjgcvPP/Lqc=
+            - WwpbCiJhc3BzcF9uYW1lIgpdLApbCiJhc3BzcF9jb3VudHJ5IgpdLApbCiJhY2NvdW50IiwKImFjY291bnRfaWQiLAoib3RoZXIiLAoic2NoZW1lX25hbWUiCl0sClsKImFjY291bnQiLAoiYWNjb3VudF9pZCIsCiJvdGhlciIsCiJpZGVudGlmaWNhdGlvbiIKXQpd.AOm/TULGPD4a4GdcWhR9xh0GPlPUZuB2O1S9SYFWEz0=
+      type: object
+      required:
+      - cash_account_type
+      - currency
+      - identification_hash
+      - identification_hashes
+      title: AccountResource
+    ClearingSystemMemberIdentification:
+      properties:
+        clearing_system_id:
+          title: Clearing System Id
+          description: Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
+          examples:
+          - NZNCC
+          type: string
+        member_id:
+          title: Member Id
+          description: Identification of a member of a clearing system.
+          examples:
+          - 020368
+          type: string
+      type: object
+      title: ClearingSystemMemberIdentification
     ErrorCode:
       type: string
       enum:
@@ -1435,44 +1458,21 @@ components:
       - Wrong request parameters provided
       - Wrong session status
       - Wrong transactions period requested
-    BalanceResource:
+    FinancialInstitutionIdentification:
       properties:
+        bic_fi:
+          title: Bic Fi
+          description: Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identification code (BIC)".
+          type: string
+        clearing_system_member_id:
+          description: Information used to identify a member within a clearing system.
+          $ref: '#/components/schemas/ClearingSystemMemberIdentification'
         name:
-          type: string
           title: Name
-          description: Label of the balance
-          examples:
-          - Booked balance
-        balance_amount:
-          $ref: '#/components/schemas/AmountType'
-          description: Structure aiming to embed the amount and the currency to be used
-        balance_type:
-          $ref: '#/components/schemas/BalanceStatus'
-          description: Available balance type values
-          examples:
-          - CLBD
-        last_change_date_time:
-          title: Last Change Date Time
-          description: Timestamp of the last change of the balance amount
-          type: string
-          format: date-time
-        reference_date:
-          title: Reference Date
-          description: Reference date for the balance
-          type: string
-          format: date
-        last_committed_transaction:
-          title: Last Committed Transaction
-          description: Entry reference of the last transaction contributing to the balance value
-          examples:
-          - 4604aa90f8a8418092d80c3270846f0a
+          description: Name of the financial institution
           type: string
       type: object
-      required:
-      - name
-      - balance_amount
-      - balance_type
-      title: BalanceResource
+      title: FinancialInstitutionIdentification
     CurrencyCode:
       type: string
       title: CurrencyCode

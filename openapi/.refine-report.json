@@ -1,10 +1,7 @@
 {
   "provider": "enable-banking",
   "sources": [
-    "enable-banking-accounts-data-api-openapi.yml",
-    "enable-banking-misc-api-openapi.yml",
-    "enable-banking-payments-api-openapi.yml",
-    "enable-banking-user-sessions-api-openapi.yml"
+    "_original/enable-banking-api-openapi.yml"
   ],
   "outputs": [
     "enable-banking-accounts-data-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "enable-banking-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "enable-banking-api-openapi.yml: declared missing tag: Accounts data",
+    "enable-banking-api-openapi.yml: declared missing tag: Misc",
+    "enable-banking-api-openapi.yml: declared missing tag: Payments",
+    "enable-banking-api-openapi.yml: declared missing tag: User sessions",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "enable-banking-accounts-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "enable-banking-misc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "enable-banking-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "enable-banking-user-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
