@@ -168,155 +168,21 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    PriorityCode:
-      type: string
-      enum:
-      - HIGH
-      - NORM
-      - EXPR
-      title: PriorityCode
-      example: HIGH
-      x-enum-descriptions:
-      - Express priority. Polish-specific priority code
-      - High priority
-      - Normal priority
-    ASPSPData:
+    RegulatoryReportingCode:
       properties:
-        name:
+        value:
           type: string
-          title: Name
-          description: Name of the ASPSP (i.e. a bank or a similar financial institution)
-          examples:
-          - Nordea
-        country:
+          title: Value
+          description: Value of the code, i.e. what needs to be passed as a code when filling in regulatory reporting details.
+        description:
+          title: Description
+          description: Regulatory authority to which reporting shall be made
           type: string
-          title: Country
-          description: Two-letter ISO 3166 code of the country, in which ASPSP operates
-          examples:
-          - FI
-        logo:
-          type: string
-          maxLength: 2083
-          minLength: 1
-          format: uri
-          title: Logo
-          description: ASPSP logo URL. It is possible to transform (e.g. resize) the logo by adding special suffixes at the end of the URL. For example, `-/resize/500x/`. For full list of possible transformations, please refer to https://uploadcare.com/docs/transformations/image/
-          examples:
-          - https://enablebanking.com/brands/FI/Nordea/
-        psu_types:
-          items:
-            $ref: '#/components/schemas/PSUType'
-          type: array
-          title: Psu Types
-          description: List of PSU types supported by ASPSP
-          examples:
-          - - personal
-            - business
-        auth_methods:
-          items:
-            $ref: '#/components/schemas/AuthMethod'
-          type: array
-          title: Auth Methods
-          description: List of available authentication methods. Provided in case multiple methods are available or it is possible to supply authentication credentials while initiating authorization.
-        maximum_consent_validity:
-          type: integer
-          title: Maximum Consent Validity
-          description: Maximum consent validity which bank supports in seconds
-        sandbox:
-          description: Applicable only to sandbox environment. Additional information necessary to use sandbox environment.
-          $ref: '#/components/schemas/SandboxInfo'
-        beta:
-          type: boolean
-          title: Beta
-          description: Flag showing whether implementation is in beta mode
-        bic:
-          title: Bic
-          description: BIC of the ASPSP
-          type: string
-        required_psu_headers:
-          items:
-            type: string
-          type: array
-          title: Required Psu Headers
-          description: List of the headers required to indicate to data retrieval endpoints that PSU is online. Either all required PSU headers or none of PSU headers are to be provided, otherwise PSU_HEADER_NOT_PROVIDED error will be returned.
-        payments:
-          items:
-            $ref: '#/components/schemas/ResponsePaymentType'
-          type: array
-          title: Payments
-          description: Supported payment types by country and their properties
-        group:
-          description: Group, which the ASPSP belongs to
-          $ref: '#/components/schemas/ASPSPGroup'
       type: object
       required:
-      - name
-      - country
-      - logo
-      - psu_types
-      - auth_methods
-      - maximum_consent_validity
-      - beta
-      title: ASPSPData
-      example:
-        auth_methods:
-        - approach: REDIRECT
-          credentials:
-          - description: Business identity code (Y-tunnus) in 1234567-8 format
-            name: companyId
-            required: true
-            template: ^\d{7}-\d$
-            title: Company ID
-          hidden_method: false
-          name: MTA
-          psu_type: business
-        beta: false
-        bic: NDEAFIHH
-        country: FI
-        logo: https://enablebanking.com/brands/FI/Nordea/
-        maximum_consent_validity: 15552000
-        name: Nordea
-        payments:
-        - allowed_auth_methods:
-          - MTA
-          charge_bearer_values:
-          - SLEV
-          creditor_account_schemas:
-          - IBAN
-          creditor_agent_bic_fi_required: false
-          creditor_agent_clearing_system_member_id_required: false
-          creditor_country_required: false
-          creditor_name_required: false
-          creditor_postal_address_required: false
-          currencies:
-          - EUR
-          debtor_account_required: true
-          debtor_account_schemas:
-          - IBAN
-          debtor_contact_email_required: false
-          debtor_contact_phone_required: false
-          debtor_currency_required: false
-          max_transactions: 1
-          payment_type: SEPA
-          priority_codes:
-          - NORM
-          psu_type: business
-          reference_number_schemas:
-          - FIRF
-          - INTL
-          reference_number_supported: true
-          regulatory_reporting_code_required: false
-          remittance_information_lines:
-          - max_length: 140
-            min_length: 1
-            pattern: ^.{1,140}$
-          remittance_information_required: true
-          requested_execution_date_max_period: 365
-          requested_execution_date_supported: true
-        psu_types:
-        - business
-        required_psu_headers:
-        - Psu-Ip-Address
+      - value
+      - description
+      title: RegulatoryReportingCode
     AuthMethod:
       properties:
         name:
@@ -349,73 +215,27 @@ components:
       - approach
       - hidden_method
       title: AuthMethod
-    RegulatoryReportingCode:
+    ASPSPGroup:
       properties:
-        value:
+        name:
           type: string
-          title: Value
-          description: Value of the code, i.e. what needs to be passed as a code when filling in regulatory reporting details.
-        description:
-          title: Description
-          description: Regulatory authority to which reporting shall be made
+          title: Name
+          description: Name of the group, which the ASPSP belongs to
+          examples:
+          - Volksbanken Raiffeisenbanken
+        logo:
           type: string
+          minLength: 1
+          format: uri
+          title: Logo
+          description: URL of the logo for the group to which the ASPSP belongs. This URL supports the same transformation postfixes as ASPSP logo URLs.
+          examples:
+          - https://enablebanking.com/brands/DE/Volksbanken%20Raiffeisenbanken/
       type: object
       required:
-      - value
-      - description
-      title: RegulatoryReportingCode
-    ReferenceNumberScheme:
-      type: string
-      enum:
-      - SEBG
-      - NORF
-      - FIRF
-      - INTL
-      - BERF
-      - SDDM
-      title: ReferenceNumberScheme
-      example: SEBG
-      x-enum-descriptions:
-      - Belgian reference number
-      - Finnish reference number
-      - International reference number (starting with RF)
-      - Norwegian KID (OCR)
-      - SEPA Direct Debit Mandate ID
-      - Swedish Bankgiro OCR
-    GetAspspsResponse:
-      properties:
-        aspsps:
-          items:
-            $ref: '#/components/schemas/ASPSPData'
-          type: array
-          title: Aspsps
-          description: List of available ASPSPs and countries
-      type: object
-      required:
-      - aspsps
-      title: GetAspspsResponse
-    SandboxUser:
-      properties:
-        username:
-          title: Username
-          description: Username
-          examples:
-          - MyUsername
-          type: string
-        password:
-          title: Password
-          description: Password
-          examples:
-          - MySecretPassword
-          type: string
-        otp:
-          title: Otp
-          description: One time password
-          examples:
-          - '123456'
-          type: string
-      type: object
-      title: SandboxUser
+      - name
+      - logo
+      title: ASPSPGroup
     PSUType:
       type: string
       enum:
@@ -426,6 +246,170 @@ components:
       x-enum-descriptions:
       - Business/corporate users
       - 'Private/retail users '
+    ErrorCode:
+      type: string
+      enum:
+      - ACCESS_DENIED
+      - ACCOUNT_DOES_NOT_EXIST
+      - ALREADY_AUTHORIZED
+      - ASPSP_ACCOUNT_NOT_ACCESSIBLE
+      - ASPSP_ERROR
+      - ASPSP_TIMEOUT
+      - ASPSP_RATE_LIMIT_EXCEEDED
+      - AUTHORIZATION_NOT_PROVIDED
+      - CLOSED_SESSION
+      - DATE_TO_WITHOUT_DATE_FROM
+      - DATE_FROM_IN_FUTURE
+      - EXPIRED_AUTHORIZATION_CODE
+      - EXPIRED_SESSION
+      - INVALID_ACCOUNT_ID
+      - INVALID_HOST
+      - UNAUTHORIZED_IP
+      - NO_ACCOUNTS_ADDED
+      - PAYMENT_NOT_FOUND
+      - PSU_HEADER_NOT_PROVIDED
+      - PSU_HEADER_INVALID
+      - REDIRECT_URI_NOT_ALLOWED
+      - REVOKED_SESSION
+      - SESSION_DOES_NOT_EXIST
+      - UNAUTHORIZED_ACCESS
+      - UNTRUSTED_PAYMENT_PARTY
+      - WEBHOOK_URI_NOT_ALLOWED
+      - WRONG_ASPSP_PROVIDED
+      - WRONG_AUTHORIZATION_CODE
+      - WRONG_DATE_INTERVAL
+      - WRONG_CREDENTIALS_PROVIDED
+      - WRONG_REQUEST_PARAMETERS
+      - WRONG_SESSION_STATUS
+      - WRONG_TRANSACTIONS_PERIOD
+      - WRONG_CONTINUATION_KEY
+      - TRANSACTION_DOES_NOT_EXIST
+      - PAYMENT_LIMIT_EXCEEDED
+      - ASPSP_PAYMENT_NOT_ACCESSIBLE
+      - INVALID_PAYMENT
+      - ASPSP_PSU_ACTION_REQUIRED
+      - PAYMENT_NOT_FINALIZED
+      title: ErrorCode
+      example: PSU_HEADER_NOT_PROVIDED
+      x-enum-descriptions:
+      - Access to this resource is denied. Check services available for your application.
+      - No account found matching provided id
+      - Session is already authorized
+      - The PSU does not have access to the requested account or it doesn't exist
+      - Error interacting with ASPSP
+      - Payment can not be requested from the ASPSP
+      - PSU action is required to proceed
+      - ASPSP Rate limit exceeded
+      - Timeout interacting with ASPSP
+      - Authorization header is not provided
+      - Session is closed
+      - date_from can not be in the future
+      - date_from must be provided if date_to provided
+      - Authorization code is expired
+      - Session is expired
+      - Either iban or other account identification is required
+      - Invalid host
+      - Invalid or expired payment provided
+      - No allowed accounts added to the application
+      - The amount value or the the number of transactions exceeds the limit
+      - You can not delete a payment that is not finalized or cancelled
+      - Payment not found
+      - Provided PSU header contains invalid value
+      - Required PSU header is not provided
+      - Redirect URI not allowed
+      - Session is revoked
+      - No session found matching provided id
+      - No transaction found matching provided id
+      - Unauthorized access
+      - Used IP address is not authorized to access the resource
+      - Either creditor or debtor account is not trusted
+      - Webhook URI not allowed
+      - Wrong ASPSP name provided
+      - Wrong authorization code provided
+      - Wrong continuation key provided
+      - Wrong credentials provided
+      - date_from should be less than or equal date_to
+      - Wrong request parameters provided
+      - Wrong session status
+      - Wrong transactions period requested
+    SchemeName:
+      type: string
+      enum:
+      - CHID
+      - GS1G
+      - DUNS
+      - BANK
+      - TXID
+      - CUST
+      - EMPL
+      - OTHC
+      - DRLC
+      - CUSI
+      - SOSE
+      - ARNU
+      - CCPT
+      - OTHI
+      - COID
+      - SREN
+      - SRET
+      - NIDN
+      - OAUT
+      - CPAN
+      - BBAN
+      - IBAN
+      - MIBN
+      - BGNR
+      - PGNR
+      title: SchemeName
+      example: CHID
+      x-enum-descriptions:
+      - AlienRegistrationNumber
+      - BankPartyIdentification. Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
+      - Basic Bank Account Number. Represents a country-specific bank account number.
+      - Swedish BankGiro account number. Used in domestic Swedish giro payments
+      - PassportNumber
+      - Clearing Identification Number
+      - CountryIdentificationCode. Country authority given organisation identification (e.g., corporate registration number)
+      - Card PAN (masked or plain)
+      - CustomerIdentificationNumberIndividual. Handelsbanken-specific code
+      - CorporateCustomerNumber
+      - DriversLicenseNumber
+      - Data Universal Numbering System
+      - EmployerIdentificationNumber
+      - GS1GLNIdentifier
+      - International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer.
+      - Masked IBAN
+      - NationalIdentityNumber. Number assigned by an authority to identify the national identity number of a person.
+      - OAUTH2 access token that is owned by the PISP being also an AISP and that can be used in order to identify the PSU
+      - OtherCorporate. Handelsbanken-specific code
+      - OtherIndividual. Handelsbanken-specific code
+      - Swedish PlusGiro account number. Used in domestic Swedish giro payments
+      - SocialSecurityNumber
+      - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
+      - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
+      - TaxIdentificationNumber
+    SandboxInfo:
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/SandboxUser'
+          type: array
+          title: Users
+          description: List of sandbox users which can be used to test sandbox environment
+      type: object
+      title: SandboxInfo
+    PriorityCode:
+      type: string
+      enum:
+      - HIGH
+      - NORM
+      - EXPR
+      title: PriorityCode
+      example: HIGH
+      x-enum-descriptions:
+      - Express priority. Polish-specific priority code
+      - High priority
+      - Normal priority
     PaymentStatus:
       type: string
       enum:
@@ -468,6 +452,88 @@ components:
       - Received. Payment initiation has been received by the receiving agent.
       - RejectedCancellationRequest. Cancellation request is rejected.
       - Rejected. Payment request  has been rejected.
+    Service:
+      type: string
+      enum:
+      - AIS
+      - PIS
+      title: Service
+      example: AIS
+      x-enum-descriptions:
+      - Account Information Service
+      - Payment Initiation Service
+    AuthenticationApproach:
+      type: string
+      enum:
+      - REDIRECT
+      - DECOUPLED
+      - EMBEDDED
+      title: AuthenticationApproach
+      example: REDIRECT
+      x-enum-descriptions:
+      - The TPP identifies the PSU and forwards the identification to the ASPSP which processes the authentication through a decoupled device
+      - The TPP identifies the PSU and forwards the identification to the ASPSP which starts the authentication. The TPP forwards one authentication factor of the PSU (e.g. OTP or response to a challenge)
+      - The PSU is redirected by the TPP to the ASPSP which processes identification and authentication
+    Environment:
+      type: string
+      enum:
+      - SANDBOX
+      - PRODUCTION
+      title: Environment
+      example: SANDBOX
+      x-enum-descriptions:
+      - Live production environment
+      - Simulation environment used for testing purposes
+    GetAspspsResponse:
+      properties:
+        aspsps:
+          items:
+            $ref: '#/components/schemas/ASPSPData'
+          type: array
+          title: Aspsps
+          description: List of available ASPSPs and countries
+      type: object
+      required:
+      - aspsps
+      title: GetAspspsResponse
+    RemittanceInformationLineInfo:
+      properties:
+        min_length:
+          title: Min Length
+          description: Minimum length of remittance information line
+          type: integer
+        max_length:
+          title: Max Length
+          description: Maximum length of remittance information line
+          type: integer
+        pattern:
+          title: Pattern
+          description: Specifies a regexp pattern for the remittance information line
+          type: string
+      type: object
+      title: RemittanceInformationLineInfo
+    SandboxUser:
+      properties:
+        username:
+          title: Username
+          description: Username
+          examples:
+          - MyUsername
+          type: string
+        password:
+          title: Password
+          description: Password
+          examples:
+          - MySecretPassword
+          type: string
+        otp:
+          title: Otp
+          description: One time password
+          examples:
+          - '123456'
+          type: string
+      type: object
+      title: SandboxUser
     ResponsePaymentType:
       properties:
         payment_type:
@@ -656,76 +722,44 @@ components:
         remittance_information_required: false
         requested_execution_date_max_period: 365
         requested_execution_date_supported: true
-    SchemeName:
-      type: string
-      enum:
-      - CHID
-      - GS1G
-      - DUNS
-      - BANK
-      - TXID
-      - CUST
-      - EMPL
-      - OTHC
-      - DRLC
-      - CUSI
-      - SOSE
-      - ARNU
-      - CCPT
-      - OTHI
-      - COID
-      - SREN
-      - SRET
-      - NIDN
-      - OAUT
-      - CPAN
-      - BBAN
-      - IBAN
-      - MIBN
-      - BGNR
-      - PGNR
-      title: SchemeName
-      example: CHID
-      x-enum-descriptions:
-      - AlienRegistrationNumber
-      - BankPartyIdentification. Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
-      - Basic Bank Account Number. Represents a country-specific bank account number.
-      - Swedish BankGiro account number. Used in domestic Swedish giro payments
-      - PassportNumber
-      - Clearing Identification Number
-      - CountryIdentificationCode. Country authority given organisation identification (e.g., corporate registration number)
-      - Card PAN (masked or plain)
-      - CustomerIdentificationNumberIndividual. Handelsbanken-specific code
-      - CorporateCustomerNumber
-      - DriversLicenseNumber
-      - Data Universal Numbering System
-      - EmployerIdentificationNumber
-      - GS1GLNIdentifier
-      - International Bank Account Number (IBAN) - identification used internationally by financial institutions to uniquely identify the account of a customer.
-      - Masked IBAN
-      - NationalIdentityNumber. Number assigned by an authority to identify the national identity number of a person.
-      - OAUTH2 access token that is owned by the PISP being also an AISP and that can be used in order to identify the PSU
-      - OtherCorporate. Handelsbanken-specific code
-      - OtherIndividual. Handelsbanken-specific code
-      - Swedish PlusGiro account number. Used in domestic Swedish giro payments
-      - SocialSecurityNumber
-      - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
-      - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
-      - TaxIdentificationNumber
-    ChargeBearerCode:
-      type: string
-      enum:
-      - SLEV
-      - SHAR
-      - DEBT
-      - CRED
-      title: ChargeBearerCode
-      example: SLEV
-      x-enum-descriptions:
-      - The Payee (recipient of the payment) will incur all of the payment transaction fees
-      - The Payer (sender of the payment) will bear all of the payment transaction fees
-      - Shared. Transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor
-      - Service level. Charges are to be applied following the rules agreed in the service level and/or scheme
+    Credential:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Internal name of the credential. The name is to be used when passing credentials to the "start user authorization" request
+          examples:
+          - userId
+        title:
+          type: string
+          title: Title
+          description: Title for the credential to be displayed to PSU
+          examples:
+          - User ID
+        required:
+          type: boolean
+          title: Required
+          description: Indication whether the credential is required
+          examples:
+          - true
+        description:
+          title: Description
+          description: Description of the credential to be displayed to PSU
+          examples:
+          - Your identifier used for logging in to online banking
+          type: string
+        template:
+          title: Template
+          description: Perl compatible regular expression used for check of the credential format
+          examples:
+          - ^\d{8}$
+          type: string
+      type: object
+      required:
+      - name
+      - title
+      - required
+      title: Credential
     PaymentType:
       type: string
       enum:
@@ -750,38 +784,48 @@ components:
       - Instant SEPA credit transfers (without fallback to SEPA)
       - Transfer made within an ASPSP
       - SEPA credit transfers
-    Environment:
+    ChargeBearerCode:
       type: string
       enum:
-      - SANDBOX
-      - PRODUCTION
-      title: Environment
-      example: SANDBOX
+      - SLEV
+      - SHAR
+      - DEBT
+      - CRED
+      title: ChargeBearerCode
+      example: SLEV
       x-enum-descriptions:
-      - Live production environment
-      - Simulation environment used for testing purposes
-    AuthenticationApproach:
-      type: string
-      enum:
-      - REDIRECT
-      - DECOUPLED
-      - EMBEDDED
-      title: AuthenticationApproach
-      example: REDIRECT
-      x-enum-descriptions:
-      - The TPP identifies the PSU and forwards the identification to the ASPSP which processes the authentication through a decoupled device
-      - The TPP identifies the PSU and forwards the identification to the ASPSP which starts the authentication. The TPP forwards one authentication factor of the PSU (e.g. OTP or response to a challenge)
-      - The PSU is redirected by the TPP to the ASPSP which processes identification and authentication
-    Service:
-      type: string
-      enum:
-      - AIS
-      - PIS
-      title: Service
-      example: AIS
-      x-enum-descriptions:
-      - Account Information Service
-      - Payment Initiation Service
+      - The Payee (recipient of the payment) will incur all of the payment transaction fees
+      - The Payer (sender of the payment) will bear all of the payment transaction fees
+      - Shared. Transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor
+      - Service level. Charges are to be applied following the rules agreed in the service level and/or scheme
+    ErrorResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Error message
+          examples:
+          - Required PSU header is not provided
+        code:
+          title: Code
+          description: Error code, identical to the http response code
+          examples:
+          - 422
+          type: integer
+        error:
+          description: Text error code
+          examples:
+          - PSU_HEADER_NOT_PROVIDED
+          $ref: '#/components/schemas/ErrorCode'
+        detail:
+          title: Detail
+          description: Detailed explanation of an error
+          examples:
+          - PSU header psuIpAddress is not provided
+      type: object
+      required:
+      - message
+      title: ErrorResponse
     GetApplicationResponse:
       properties:
         name:
@@ -834,205 +878,161 @@ components:
       - countries
       - services
       title: GetApplicationResponse
-    ErrorResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Error message
-          examples:
-          - Required PSU header is not provided
-        code:
-          title: Code
-          description: Error code, identical to the http response code
-          examples:
-          - 422
-          type: integer
-        error:
-          description: Text error code
-          examples:
-          - PSU_HEADER_NOT_PROVIDED
-          $ref: '#/components/schemas/ErrorCode'
-        detail:
-          title: Detail
-          description: Detailed explanation of an error
-          examples:
-          - PSU header psuIpAddress is not provided
-      type: object
-      required:
-      - message
-      title: ErrorResponse
-    ASPSPGroup:
+    ASPSPData:
       properties:
         name:
           type: string
           title: Name
-          description: Name of the group, which the ASPSP belongs to
+          description: Name of the ASPSP (i.e. a bank or a similar financial institution)
           examples:
-          - Volksbanken Raiffeisenbanken
+          - Nordea
+        country:
+          type: string
+          title: Country
+          description: Two-letter ISO 3166 code of the country, in which ASPSP operates
+          examples:
+          - FI
         logo:
           type: string
+          maxLength: 2083
           minLength: 1
           format: uri
           title: Logo
-          description: URL of the logo for the group to which the ASPSP belongs. This URL supports the same transformation postfixes as ASPSP logo URLs.
+          description: ASPSP logo URL. It is possible to transform (e.g. resize) the logo by adding special suffixes at the end of the URL. For example, `-/resize/500x/`. For full list of possible transformations, please refer to https://uploadcare.com/docs/transformations/image/
           examples:
-          - https://enablebanking.com/brands/DE/Volksbanken%20Raiffeisenbanken/
-      type: object
-      required:
-      - name
-      - logo
-      title: ASPSPGroup
-    Credential:
-      properties:
-        name:
-          type: string
-          title: Name
-          description: Internal name of the credential. The name is to be used when passing credentials to the "start user authorization" request
-          examples:
-          - userId
-        title:
-          type: string
-          title: Title
-          description: Title for the credential to be displayed to PSU
-          examples:
-          - User ID
-        required:
-          type: boolean
-          title: Required
-          description: Indication whether the credential is required
-          examples:
-          - true
-        description:
-          title: Description
-          description: Description of the credential to be displayed to PSU
-          examples:
-          - Your identifier used for logging in to online banking
-          type: string
-        template:
-          title: Template
-          description: Perl compatible regular expression used for check of the credential format
-          examples:
-          - ^\d{8}$
-          type: string
-      type: object
-      required:
-      - name
-      - title
-      - required
-      title: Credential
-    SandboxInfo:
-      properties:
-        users:
+          - https://enablebanking.com/brands/FI/Nordea/
+        psu_types:
           items:
-            $ref: '#/components/schemas/SandboxUser'
+            $ref: '#/components/schemas/PSUType'
           type: array
-          title: Users
-          description: List of sandbox users which can be used to test sandbox environment
+          title: Psu Types
+          description: List of PSU types supported by ASPSP
+          examples:
+          - - personal
+            - business
+        auth_methods:
+          items:
+            $ref: '#/components/schemas/AuthMethod'
+          type: array
+          title: Auth Methods
+          description: List of available authentication methods. Provided in case multiple methods are available or it is possible to supply authentication credentials while initiating authorization.
+        maximum_consent_validity:
+          type: integer
+          title: Maximum Consent Validity
+          description: Maximum consent validity which bank supports in seconds
+        sandbox:
+          description: Applicable only to sandbox environment. Additional information necessary to use sandbox environment.
+          $ref: '#/components/schemas/SandboxInfo'
+        beta:
+          type: boolean
+          title: Beta
+          description: Flag showing whether implementation is in beta mode
+        bic:
+          title: Bic
+          description: BIC of the ASPSP
+          type: string
+        required_psu_headers:
+          items:
+            type: string
+          type: array
+          title: Required Psu Headers
+          description: List of the headers required to indicate to data retrieval endpoints that PSU is online. Either all required PSU headers or none of PSU headers are to be provided, otherwise PSU_HEADER_NOT_PROVIDED error will be returned.
+        payments:
+          items:
+            $ref: '#/components/schemas/ResponsePaymentType'
+          type: array
+          title: Payments
+          description: Supported payment types by country and their properties
+        group:
+          description: Group, which the ASPSP belongs to
+          $ref: '#/components/schemas/ASPSPGroup'
       type: object
-      title: SandboxInfo
-    ErrorCode:
+      required:
+      - name
+      - country
+      - logo
+      - psu_types
+      - auth_methods
+      - maximum_consent_validity
+      - beta
+      title: ASPSPData
+      example:
+        auth_methods:
+        - approach: REDIRECT
+          credentials:
+          - description: Business identity code (Y-tunnus) in 1234567-8 format
+            name: companyId
+            required: true
+            template: ^\d{7}-\d$
+            title: Company ID
+          hidden_method: false
+          name: MTA
+          psu_type: business
+        beta: false
+        bic: NDEAFIHH
+        country: FI
+        logo: https://enablebanking.com/brands/FI/Nordea/
+        maximum_consent_validity: 15552000
+        name: Nordea
+        payments:
+        - allowed_auth_methods:
+          - MTA
+          charge_bearer_values:
+          - SLEV
+          creditor_account_schemas:
+          - IBAN
+          creditor_agent_bic_fi_required: false
+          creditor_agent_clearing_system_member_id_required: false
+          creditor_country_required: false
+          creditor_name_required: false
+          creditor_postal_address_required: false
+          currencies:
+          - EUR
+          debtor_account_required: true
+          debtor_account_schemas:
+          - IBAN
+          debtor_contact_email_required: false
+          debtor_contact_phone_required: false
+          debtor_currency_required: false
+          max_transactions: 1
+          payment_type: SEPA
+          priority_codes:
+          - NORM
+          psu_type: business
+          reference_number_schemas:
+          - FIRF
+          - INTL
+          reference_number_supported: true
+          regulatory_reporting_code_required: false
+          remittance_information_lines:
+          - max_length: 140
+            min_length: 1
+            pattern: ^.{1,140}$
+          remittance_information_required: true
+          requested_execution_date_max_period: 365
+          requested_execution_date_supported: true
+        psu_types:
+        - business
+        required_psu_headers:
+        - Psu-Ip-Address
+    ReferenceNumberScheme:
       type: string
       enum:
-      - ACCESS_DENIED
-      - ACCOUNT_DOES_NOT_EXIST
-      - ALREADY_AUTHORIZED
-      - ASPSP_ACCOUNT_NOT_ACCESSIBLE
-      - ASPSP_ERROR
-      - ASPSP_TIMEOUT
-      - ASPSP_RATE_LIMIT_EXCEEDED
-      - AUTHORIZATION_NOT_PROVIDED
-      - CLOSED_SESSION
-      - DATE_TO_WITHOUT_DATE_FROM
-      - DATE_FROM_IN_FUTURE
-      - EXPIRED_AUTHORIZATION_CODE
-      - EXPIRED_SESSION
-      - INVALID_ACCOUNT_ID
-      - INVALID_HOST
-      - UNAUTHORIZED_IP
-      - NO_ACCOUNTS_ADDED
-      - PAYMENT_NOT_FOUND
-      - PSU_HEADER_NOT_PROVIDED
-      - PSU_HEADER_INVALID
-      - REDIRECT_URI_NOT_ALLOWED
-      - REVOKED_SESSION
-      - SESSION_DOES_NOT_EXIST
-      - UNAUTHORIZED_ACCESS
-      - UNTRUSTED_PAYMENT_PARTY
-      - WEBHOOK_URI_NOT_ALLOWED
-      - WRONG_ASPSP_PROVIDED
-      - WRONG_AUTHORIZATION_CODE
-      - WRONG_DATE_INTERVAL
-      - WRONG_CREDENTIALS_PROVIDED
-      - WRONG_REQUEST_PARAMETERS
-      - WRONG_SESSION_STATUS
-      - WRONG_TRANSACTIONS_PERIOD
-      - WRONG_CONTINUATION_KEY
-      - TRANSACTION_DOES_NOT_EXIST
-      - PAYMENT_LIMIT_EXCEEDED
-      - ASPSP_PAYMENT_NOT_ACCESSIBLE
-      - INVALID_PAYMENT
-      - ASPSP_PSU_ACTION_REQUIRED
-      - PAYMENT_NOT_FINALIZED
-      title: ErrorCode
-      example: PSU_HEADER_NOT_PROVIDED
+      - SEBG
+      - NORF
+      - FIRF
+      - INTL
+      - BERF
+      - SDDM
+      title: ReferenceNumberScheme
+      example: SEBG
       x-enum-descriptions:
-      - Access to this resource is denied. Check services available for your application.
-      - No account found matching provided id
-      - Session is already authorized
-      - The PSU does not have access to the requested account or it doesn't exist
-      - Error interacting with ASPSP
-      - Payment can not be requested from the ASPSP
-      - PSU action is required to proceed
-      - ASPSP Rate limit exceeded
-      - Timeout interacting with ASPSP
-      - Authorization header is not provided
-      - Session is closed
-      - date_from can not be in the future
-      - date_from must be provided if date_to provided
-      - Authorization code is expired
-      - Session is expired
-      - Either iban or other account identification is required
-      - Invalid host
-      - Invalid or expired payment provided
-      - No allowed accounts added to the application
-      - The amount value or the the number of transactions exceeds the limit
-      - You can not delete a payment that is not finalized or cancelled
-      - Payment not found
-      - Provided PSU header contains invalid value
-      - Required PSU header is not provided
-      - Redirect URI not allowed
-      - Session is revoked
-      - No session found matching provided id
-      - No transaction found matching provided id
-      - Unauthorized access
-      - Used IP address is not authorized to access the resource
-      - Either creditor or debtor account is not trusted
-      - Webhook URI not allowed
-      - Wrong ASPSP name provided
-      - Wrong authorization code provided
-      - Wrong continuation key provided
-      - Wrong credentials provided
-      - date_from should be less than or equal date_to
-      - Wrong request parameters provided
-      - Wrong session status
-      - Wrong transactions period requested
-    RemittanceInformationLineInfo:
-      properties:
-        min_length:
-          title: Min Length
-          description: Minimum length of remittance information line
-          type: integer
-        max_length:
-          title: Max Length
-          description: Maximum length of remittance information line
-          type: integer
-        pattern:
-          title: Pattern
-          description: Specifies a regexp pattern for the remittance information line
-          type: string
-      type: object
-      title: RemittanceInformationLineInfo
+      - Belgian reference number
+      - Finnish reference number
+      - International reference number (starting with RF)
+      - Norwegian KID (OCR)
+      - SEPA Direct Debit Mandate ID
+      - Swedish Bankgiro OCR
   securitySchemes:
     bearerAuth:
       scheme: bearer
