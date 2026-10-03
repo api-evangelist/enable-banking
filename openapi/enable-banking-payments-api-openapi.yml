@@ -302,39 +302,226 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    ASPSP:
+    PaymentIdentification:
       properties:
-        name:
+        instruction_id:
+          title: Instruction Id
+          description: 'Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.
+
+
+            API: Unique identification shared between the PISP and the ASPSP
+
+            '
           type: string
-          title: Name
-          description: Name of the ASPSP (i.e. a bank or a similar financial institution)
-          examples:
-          - Nordea
-        country:
+        end_to_end_id:
+          title: End To End Id
+          description: 'Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
+
+
+            API: Unique identification shared between the merchant and the PSU
+
+            '
           type: string
-          title: Country
-          description: Two-letter ISO 3166 code of the country, in which ASPSP operates
+      type: object
+      title: PaymentIdentification
+    AmountType:
+      properties:
+        currency:
+          type: string
+          title: Currency
+          description: ISO 4217 code of the currency of the amount
           examples:
-          - FI
+          - EUR
+        amount:
+          type: string
+          pattern: ^-?\d+(\.\d+)?$
+          title: Amount
+          description: Numerical value or monetary figure associated with a particular transaction, representing balance on an account, a fee or similar. Represented as a decimal number, using . (dot) as a decimal separator. Allowed precision (number of digits after the decimal separator) varies depending on the currency and is validated differently depending on the context.
+          examples:
+          - '1.23'
       type: object
       required:
-      - name
-      - country
-      title: ASPSP
-    UnstructuredRemittanceInformation:
-      items:
-        type: string
-      type: array
-      title: UnstructuredRemittanceInformation
-      description: 'Payment details. For credit transfers may contain free text, reference number or both at the same time (in case Extended Remittance Information is supported). When it is known that remittance information contains a reference number (either based on ISO 11649 or a local scheme), the reference number is also available via the `referenceNumber` field of the `Transaction` data structure.
-
-        '
-    PaymentInformationId:
+      - currency
+      - amount
+      title: AmountType
+    CategoryPurposeCode:
       type: string
-      title: PaymentInformationId
-      description: 'Reference assigned by a sending party to unambiguously identify the payment information block within the message.
-
-        '
+      enum:
+      - BONU
+      - CASH
+      - CBLK
+      - CCRD
+      - CORT
+      - DCRD
+      - DIVI
+      - DVPM
+      - EPAY
+      - FCOL
+      - GOVT
+      - HEDG
+      - ICCP
+      - IDCP
+      - INTC
+      - INTE
+      - LOAN
+      - MP2B
+      - MP2P
+      - OTHR
+      - PENS
+      - RPRE
+      - RRCT
+      - RVPM
+      - SALA
+      - SECU
+      - SSBE
+      - SUPP
+      - TAXS
+      - TRAD
+      - TREA
+      - VATX
+      - WHLD
+      title: CategoryPurposeCode
+      example: BONU
+      x-enum-descriptions:
+      - 'Bonus Payment: Transaction is the payment of a bonus'
+      - 'Cash Management Transfer: Transaction is a general cash management instruction'
+      - 'Card Bulk Clearing: A Service that is settling money for a bulk of card transactions, while referring to a specific transaction file or other information like terminal ID, card acceptor ID or other transaction details'
+      - 'Credit Card Payment: Transaction is related to a payment of credit card'
+      - 'Trade Settlement Payment: Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction'
+      - 'Debit Card Payment: Transaction is related to a payment of debit card'
+      - 'Dividend: Transaction is the payment of dividends'
+      - 'Deliver Against Payment: Code used to pre-advise the account servicer of a forthcoming deliver against payment instruction'
+      - 'Epayment: Transaction is related to ePayment'
+      - 'Fee Collection: A Service that is settling card transaction related fees between two parties'
+      - 'Government Payment: Transaction is a payment to or from a government department'
+      - 'Hedging: Transaction is related to the payment of a hedging operation'
+      - 'Irrevocable Credit Card Payment: Transaction is reimbursement of credit card payment'
+      - 'Irrevocable Debit Card Payment: Transaction is reimbursement of debit card payment'
+      - 'Intra Company Payment: Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group'
+      - 'Interest: Transaction is the payment of interest'
+      - 'Loan: Transaction is related to the transfer of a loan to a borrower'
+      - Commercial Mobile P2B Payment
+      - Consumer Mobile P2P Payment
+      - 'Other Payment: Other payment purpose'
+      - 'Pension Payment: Transaction is the payment of pension'
+      - 'Represented: Collection used to re-present previously reversed or returned direct debit transactions'
+      - 'Reimbursement Received Credit Transfer: Transaction is related to a reimbursement for commercial reasons of a correctly received credit transfer'
+      - 'Receive Against Payment: Code used to pre-advise the account servicer of a forthcoming receive against payment instruction'
+      - 'Salary Payment: Transaction is the payment of salaries'
+      - 'Securities: Transaction is the payment of securities'
+      - 'Social Security Benefit: Transaction is a social security benefit, ie payment made by a government to support individuals'
+      - 'Supplier Payment: Transaction is related to a payment to a supplier'
+      - 'Tax Payment: Transaction is the payment of taxes'
+      - 'Trade: Transaction is related to the payment of a trade finance transaction'
+      - 'Treasury Payment: Transaction is related to treasury operations.  E.g. financial contract settlement'
+      - 'Value Added Tax Payment: Transaction is the payment of value added tax'
+      - 'With Holding: Transaction is the payment of withholding tax'
+    FrequencyCode:
+      type: string
+      enum:
+      - DAIL
+      - WEEK
+      - TOWK
+      - MNTH
+      - TOMN
+      - QUTR
+      - SEMI
+      - YEAR
+      title: FrequencyCode
+      example: DAIL
+      x-enum-descriptions:
+      - Daily
+      - Monthly
+      - Quarterly
+      - Semi annual
+      - Every two months
+      - Every two weeks
+      - Weekly
+      - Annual
+    GetPaymentTransactionResponse:
+      properties:
+        payment_id:
+          type: string
+          format: uuid
+          title: Payment Id
+          description: Payment ID
+        transaction_details:
+          $ref: '#/components/schemas/CreditTransferTransactionDetails'
+          description: Payment transaction details
+      type: object
+      required:
+      - payment_id
+      - transaction_details
+      title: GetPaymentTransactionResponse
+    PaymentStatus:
+      type: string
+      enum:
+      - ACCC
+      - ACCP
+      - ACSC
+      - ACSP
+      - ACTC
+      - ACWC
+      - ACWP
+      - PART
+      - RCVD
+      - PDNG
+      - RJCT
+      - ACPT
+      - ACCR
+      - RJCR
+      - PACR
+      - PDCR
+      - CNCL
+      - 'NULL'
+      title: PaymentStatus
+      example: ACCC
+      x-enum-descriptions:
+      - AcceptedCreditSettlementCompleted. Settlement on the creditor's account has been completed.
+      - AcceptedCustomerProfile. Preceding check of technical validation was successful. Customer profile check was also successful.
+      - AcceptedCancellationRequest. Cancellation is accepted.
+      - Accepted. Request is accepted.
+      - AcceptedSettlementCompleted. Settlement on the debtor's account has been completed.
+      - AcceptedSettlementInProcess. All preceding checks such as technical validation and customer profile were successful. Dynamic risk assessment is now also successful and therefore the Payment Request has been accepted for execution.
+      - AcceptedTechnicalValidation. Authentication and syntactical and semantical validation are successful.
+      - AcceptedWithChange. Instruction is accepted but a change will be made, such as date or remittance not sent.
+      - AcceptedWithoutPosting. Payment instruction included in the credit transfer is accepted without being posted to the creditor's account.
+      - PaymentCancelled. Payment is cancelled.
+      - NoCancellationProcess. There is no cancellation process ongoing.
+      - PartiallyAcceptedCancellationRequest. Cancellation is partially accepted.
+      - PartiallyAccepted. A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
+      - PendingCancellationRequest. Cancellation request is pending.
+      - Pending. Payment request or individual transaction included in the Payment Request is pending. Further checks and status update will be performed.
+      - Received. Payment initiation has been received by the receiving agent.
+      - RejectedCancellationRequest. Cancellation request is rejected.
+      - Rejected. Payment request  has been rejected.
+    GenericIdentification:
+      properties:
+        identification:
+          type: string
+          title: Identification
+          description: An identifier
+          examples:
+          - '12345678'
+        scheme_name:
+          $ref: '#/components/schemas/SchemeName'
+          description: Name of the identification scheme. Partially based on ISO20022 external code list
+          examples:
+          - BBAN
+        issuer:
+          title: Issuer
+          description: Entity that assigns the identification. This could be a country code or any organisation name or identifier that can be recognized by both parties
+          examples:
+          - FR
+          type: string
+      type: object
+      required:
+      - identification
+      - scheme_name
+      title: GenericIdentification
+      example:
+        identification: '123456'
+        scheme_name: BBAN
     PostalAddress:
       properties:
         address_type:
@@ -403,59 +590,55 @@ components:
           type: array
       type: object
       title: PostalAddress
-    GetPaymentResponse:
-      properties:
-        payment_id:
-          type: string
-          format: uuid
-          title: Payment Id
-          description: Payment ID
-        status:
-          $ref: '#/components/schemas/PaymentStatus'
-          description: Payment status
-        payment_details:
-          $ref: '#/components/schemas/PaymentRequestResourceDetails'
-          description: Payment request
-        payment_type:
-          $ref: '#/components/schemas/PaymentType'
-          description: Specifies the type of payment used
-        aspsp:
-          $ref: '#/components/schemas/ASPSP'
-          description: ASPSP used for the payment
-          examples:
-          - country: FI
-            name: Nordea
-        final_status:
-          type: boolean
-          title: Final Status
-          description: Indicates whether the payment has reached the status expected to be final (i.e. if the value of the field is `true`, the payment status is not expected to change on later requests)
-        status_reason_information:
-          description: Details explaining the payment status, provided when the cause can be determined unambiguously, mainly for rejected payments
-          $ref: '#/components/schemas/StatusReasonInformation'
-        psu_id_hash:
-          type: string
-          title: Psu Id Hash
-          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
-      type: object
-      required:
-      - payment_id
-      - status
-      - payment_details
-      - payment_type
-      - aspsp
-      - final_status
-      - psu_id_hash
-      title: GetPaymentResponse
-    PSUType:
+    PaymentType:
       type: string
       enum:
-      - business
-      - personal
-      title: PSUType
-      example: business
+      - SEPA
+      - INST_SEPA
+      - DOMESTIC
+      - CROSSBORDER
+      - DOMESTIC_SE_GIRO
+      - INTERNAL
+      - BULK_SEPA
+      - BULK_DOMESTIC
+      - BULK_DOMESTIC_SE_GIRO
+      title: PaymentType
+      example: SEPA
       x-enum-descriptions:
-      - Business/corporate users
-      - 'Private/retail users '
+      - Domestic bulk credit transfers
+      - Swedish domestic bulk Giro payments (BankGiro/PlusGiro)
+      - SEPA bulk credit transfers
+      - Crossborder credit transfers
+      - Domestic credit transfers
+      - Swedish domestic Giro payments (BankGiro/PlusGiro)
+      - Instant SEPA credit transfers (without fallback to SEPA)
+      - Transfer made within an ASPSP
+      - SEPA credit transfers
+    Beneficiary:
+      properties:
+        creditor_agent:
+          description: Identification of the financial institution where the account receiving funds is held
+          $ref: '#/components/schemas/FinancialInstitutionIdentification'
+        creditor:
+          description: Identification of the party receiving funds
+          $ref: '#/components/schemas/PartyIdentification'
+        creditor_account:
+          $ref: '#/components/schemas/GenericIdentification'
+          description: Identification of the account receiving funds
+        creditor_currency:
+          title: Creditor Currency
+          description: ISO 4217 currency code, in which the account receiving funds is held
+          type: string
+      type: object
+      required:
+      - creditor_account
+      title: Beneficiary
+      example:
+        creditor:
+          name: Organisation/Person Name
+        creditor_account:
+          identification: FI0455231152453547
+          scheme_name: IBAN
     CreatePaymentRequest:
       properties:
         payment_type:
@@ -574,6 +757,477 @@ components:
       - 'Domestic Cheque Clearing and Settlement: Payment execution following the cheque agreement and traveller cheque agreement of the German Banking Industry Committee (Die Deutsche Kreditwirtschaft - DK) and Deutsche Bundesbank – Scheck Verrechnung Deutschland'
       - 'Urgent Payment: Payment must be executed as an urgent transaction cleared through a real-time gross settlement system, which is typically identified as a wire or high value transaction'
       - 'Urgent Payment Net Settlement: Payment must be executed as an urgent transaction cleared through a real-time net settlement system, which is typically identified as a wire or high value transaction'
+    RegulatoryAuthority:
+      properties:
+        country:
+          type: string
+          title: Country
+          description: Two-letter ISO 3166 code of the country in which the regulatory authority operates
+        name:
+          title: Name
+          description: Name of the regulatory authority
+          type: string
+      type: object
+      required:
+      - country
+      - name
+      title: RegulatoryAuthority
+    CreditTransferTransactionDetails:
+      properties:
+        instructed_amount:
+          $ref: '#/components/schemas/AmountType'
+          description: Structure aiming to embed the amount and the currency to be used
+        beneficiary:
+          $ref: '#/components/schemas/Beneficiary'
+          description: Specification of a beneficiary
+        payment_id:
+          description: Set of elements used to reference a payment instruction
+          $ref: '#/components/schemas/PaymentIdentification'
+        requested_execution_date:
+          $ref: '#/components/schemas/RequestedExecutionDate'
+        reference_number:
+          $ref: '#/components/schemas/ReferenceNumber'
+        end_date:
+          $ref: '#/components/schemas/EndDate'
+        execution_rule:
+          description: Execution date shifting rule for standing orders
+          $ref: '#/components/schemas/ExecutionRule'
+        frequency:
+          description: Frequency rule for standing orders
+          $ref: '#/components/schemas/FrequencyCode'
+        ultimate_debtor:
+          description: Identifies the original party from whom the funds originate in the payment transaction
+          $ref: '#/components/schemas/PartyIdentification'
+        ultimate_creditor:
+          description: Identifies the final party receiving the funds in the payment transaction
+          $ref: '#/components/schemas/PartyIdentification'
+        regulatory_reporting:
+          title: Regulatory Reporting
+          description: List of needed regulatory reporting codes for international payments
+          items:
+            $ref: '#/components/schemas/RegulatoryReporting'
+          type: array
+          maxItems: 10
+          minItems: 1
+        remittance_information:
+          $ref: '#/components/schemas/UnstructuredRemittanceInformation'
+        transaction_id:
+          title: Transaction Id
+          description: Unique identifier of the payment transaction, which can be used for fetching details through the get payment transaction endpoint
+          type: string
+        transaction_status:
+          description: Status of the payment transaction
+          $ref: '#/components/schemas/PaymentStatus'
+      type: object
+      required:
+      - instructed_amount
+      - beneficiary
+      title: CreditTransferTransactionDetails
+      description: Details of the payment instruction executed (to be executed) by the ASPSP
+    FinancialInstitutionIdentification:
+      properties:
+        bic_fi:
+          title: Bic Fi
+          description: Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identification code (BIC)".
+          type: string
+        clearing_system_member_id:
+          description: Information used to identify a member within a clearing system.
+          $ref: '#/components/schemas/ClearingSystemMemberIdentification'
+        name:
+          title: Name
+          description: Name of the financial institution
+          type: string
+      type: object
+      title: FinancialInstitutionIdentification
+    CreditTransferTransaction:
+      properties:
+        instructed_amount:
+          $ref: '#/components/schemas/AmountType'
+          description: Structure aiming to embed the amount and the currency to be used
+        beneficiary:
+          $ref: '#/components/schemas/Beneficiary'
+          description: Specification of a beneficiary
+        payment_id:
+          description: Set of elements used to reference a payment instruction
+          $ref: '#/components/schemas/PaymentIdentification'
+        requested_execution_date:
+          $ref: '#/components/schemas/RequestedExecutionDate'
+        reference_number:
+          $ref: '#/components/schemas/ReferenceNumber'
+        end_date:
+          $ref: '#/components/schemas/EndDate'
+        execution_rule:
+          description: Execution date shifting rule for standing orders
+          $ref: '#/components/schemas/ExecutionRule'
+        frequency:
+          description: Frequency rule for standing orders
+          $ref: '#/components/schemas/FrequencyCode'
+        ultimate_debtor:
+          description: Identifies the original party from whom the funds originate in the payment transaction
+          $ref: '#/components/schemas/PartyIdentification'
+        ultimate_creditor:
+          description: Identifies the final party receiving the funds in the payment transaction
+          $ref: '#/components/schemas/PartyIdentification'
+        regulatory_reporting:
+          title: Regulatory Reporting
+          description: List of needed regulatory reporting codes for international payments
+          items:
+            $ref: '#/components/schemas/RegulatoryReporting'
+          type: array
+          maxItems: 10
+          minItems: 1
+        remittance_information:
+          $ref: '#/components/schemas/UnstructuredRemittanceInformation'
+      type: object
+      required:
+      - instructed_amount
+      - beneficiary
+      title: CreditTransferTransaction
+      description: Payment instruction to be executed by the ASPSP
+    ErrorResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Error message
+          examples:
+          - Required PSU header is not provided
+        code:
+          title: Code
+          description: Error code, identical to the http response code
+          examples:
+          - 422
+          type: integer
+        error:
+          description: Text error code
+          examples:
+          - PSU_HEADER_NOT_PROVIDED
+          $ref: '#/components/schemas/ErrorCode'
+        detail:
+          title: Detail
+          description: Detailed explanation of an error
+          examples:
+          - PSU header psuIpAddress is not provided
+      type: object
+      required:
+      - message
+      title: ErrorResponse
+    GetPaymentResponse:
+      properties:
+        payment_id:
+          type: string
+          format: uuid
+          title: Payment Id
+          description: Payment ID
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
+          description: Payment status
+        payment_details:
+          $ref: '#/components/schemas/PaymentRequestResourceDetails'
+          description: Payment request
+        payment_type:
+          $ref: '#/components/schemas/PaymentType'
+          description: Specifies the type of payment used
+        aspsp:
+          $ref: '#/components/schemas/ASPSP'
+          description: ASPSP used for the payment
+          examples:
+          - country: FI
+            name: Nordea
+        final_status:
+          type: boolean
+          title: Final Status
+          description: Indicates whether the payment has reached the status expected to be final (i.e. if the value of the field is `true`, the payment status is not expected to change on later requests)
+        status_reason_information:
+          description: Details explaining the payment status, provided when the cause can be determined unambiguously, mainly for rejected payments
+          $ref: '#/components/schemas/StatusReasonInformation'
+        psu_id_hash:
+          type: string
+          title: Psu Id Hash
+          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
+      type: object
+      required:
+      - payment_id
+      - status
+      - payment_details
+      - payment_type
+      - aspsp
+      - final_status
+      - psu_id_hash
+      title: GetPaymentResponse
+    RegulatoryReportingDetails:
+      properties:
+        amount:
+          description: Amount of money to be reported. If not provided the total instructed amount of the transaction is assumed.
+          $ref: '#/components/schemas/AmountType'
+        code:
+          title: Code
+          description: A code specifying the nature, purpose, and/or reason for the transaction. Codes to be used depend on the regulatory authority, to which they are being reported.
+          type: string
+        information:
+          title: Information
+          description: Additional details that cater for specific domestic regulatory requirements.
+          type: string
+      type: object
+      required:
+      - information
+      title: RegulatoryReportingDetails
+    EndDate:
+      type: string
+      format: date
+      title: EndDate
+      description: 'The last applicable day of execution for a given standing order.
+
+        If not given, the standing order is considered as endless.
+
+        '
+    ASPSP:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: Name of the ASPSP (i.e. a bank or a similar financial institution)
+          examples:
+          - Nordea
+        country:
+          type: string
+          title: Country
+          description: Two-letter ISO 3166 code of the country, in which ASPSP operates
+          examples:
+          - FI
+      type: object
+      required:
+      - name
+      - country
+      title: ASPSP
+    RequestedExecutionDate:
+      type: string
+      format: date
+      title: RequestedExecutionDate
+      description: 'Date at which the initiating party requests the clearing agent to process the payment.
+
+        API:
+
+        This date can be used in the following cases:
+
+        - the single requested execution date for a payment having several instructions. In this case, this field must be set at the payment level.
+
+        - the requested execution date for a given instruction within a payment. In this case, this field must be set at each instruction level.
+
+        - The first date of execution for a standing order.
+
+        When the payment cannot be processed at this date, the ASPSP is allowed to shift the applied execution date to the next possible execution date for non-standing orders.
+
+        For standing orders, the [executionRule] parameter helps to compute the execution date to be applied.
+
+        '
+    CreatePaymentResponse:
+      properties:
+        payment_id:
+          type: string
+          format: uuid
+          title: Payment Id
+          description: Payment ID
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
+          description: Payment status
+        url:
+          type: string
+          maxLength: 2083
+          minLength: 1
+          format: uri
+          title: Url
+          description: URL to redirect a PSU to
+        psu_id_hash:
+          type: string
+          title: Psu Id Hash
+          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
+      type: object
+      required:
+      - payment_id
+      - status
+      - url
+      - psu_id_hash
+      title: CreatePaymentResponse
+      example:
+        payment_id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+        status: PDNG
+        url: https://tilisy-sandbox.enablebanking.com/pis/start?payment_id=497f6eca-6276-4993-bfeb-53cbbbba6f08
+    UnstructuredRemittanceInformation:
+      items:
+        type: string
+      type: array
+      title: UnstructuredRemittanceInformation
+      description: 'Payment details. For credit transfers may contain free text, reference number or both at the same time (in case Extended Remittance Information is supported). When it is known that remittance information contains a reference number (either based on ISO 11649 or a local scheme), the reference number is also available via the `referenceNumber` field of the `Transaction` data structure.
+
+        '
+    PartyIdentification:
+      properties:
+        name:
+          title: Name
+          description: Name by which a party is known and which is usually used to identify that party.
+          examples:
+          - MyPreferredAisp
+          type: string
+        postal_address:
+          description: Information that locates and identifies a specific address, as defined by postal services
+          $ref: '#/components/schemas/PostalAddress'
+        organisation_id:
+          description: Unique identification of an account, a person or an organisation, as assigned by an issuer
+          $ref: '#/components/schemas/GenericIdentification'
+        private_id:
+          description: Unique identification of an account, a person or an organisation, as assigned by an issuer
+          $ref: '#/components/schemas/GenericIdentification'
+        contact_details:
+          description: Specifies the contact details associated with a person or an organisation
+          $ref: '#/components/schemas/ContactDetails'
+      type: object
+      title: PartyIdentification
+      example:
+        name: MyPreferredAisp
+        postal_address:
+          address_line:
+          - Mr Asko Teirila PO Box 511
+          - 39140 AKDENMAA FINLAND
+          address_type: Business
+          building_number: '4'
+          country: FI
+          country_sub_division: Uusimaa
+          department: Department of resources
+          post_code: '00123'
+          street_name: Vasavagen
+          sub_department: Sub Department of resources
+          town_name: Helsinki
+    RegulatoryReporting:
+      properties:
+        authority:
+          description: Regulatory authority to which reporting shall be made
+          $ref: '#/components/schemas/RegulatoryAuthority'
+        details:
+          $ref: '#/components/schemas/RegulatoryReportingDetails'
+          description: Details to provide on the regulatory reporting information
+      type: object
+      required:
+      - details
+      title: RegulatoryReporting
+    PurposeCode:
+      type: string
+      enum:
+      - ACCT
+      - CASH
+      - COMC
+      - CPKC
+      - TRPT
+      title: PurposeCode
+      example: ACCT
+      x-enum-descriptions:
+      - Funds moved between 2 accounts of same account holder at the same bank
+      - General cash management instruction, may be used for Transfer Initiation
+      - Transaction is related to a payment of commercial credit or debit
+      - General Carpark Charges Transaction is related to carpark charges
+      - Transport RoadPricing Transaction is for the payment to top-up pre-paid card and electronic road pricing for the purpose of transportation
+    PaymentTypeInformation:
+      properties:
+        instruction_priority:
+          description: Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply
+          $ref: '#/components/schemas/PriorityCode'
+        service_level:
+          description: Agreement under which or rules under which the transaction should be processed. Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list
+          $ref: '#/components/schemas/ServiceLevelCode'
+        category_purpose:
+          description: Specifies the high level purpose of the instruction based on a set of pre-defined categories. This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain.
+          $ref: '#/components/schemas/CategoryPurposeCode'
+        local_instrument:
+          title: Local Instrument
+          description: User community specific instrument
+          type: string
+      type: object
+      title: PaymentTypeInformation
+    ClearingSystemMemberIdentification:
+      properties:
+        clearing_system_id:
+          title: Clearing System Id
+          description: Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
+          examples:
+          - NZNCC
+          type: string
+        member_id:
+          title: Member Id
+          description: Identification of a member of a clearing system.
+          examples:
+          - 020368
+          type: string
+      type: object
+      title: ClearingSystemMemberIdentification
+    PaymentInformationId:
+      type: string
+      title: PaymentInformationId
+      description: 'Reference assigned by a sending party to unambiguously identify the payment information block within the message.
+
+        '
+    PSUType:
+      type: string
+      enum:
+      - business
+      - personal
+      title: PSUType
+      example: business
+      x-enum-descriptions:
+      - Business/corporate users
+      - 'Private/retail users '
+    PaymentRequestResource:
+      properties:
+        payment_information_id:
+          description: Reference assigned by a sending party to unambiguously identify the payment information block within the message
+          $ref: '#/components/schemas/PaymentInformationId'
+        payment_type_information:
+          description: Set of elements used to further specify the type of payment
+          $ref: '#/components/schemas/PaymentTypeInformation'
+        debtor:
+          description: Identification of the party sending funds
+          $ref: '#/components/schemas/PartyIdentification'
+        debtor_account:
+          description: Identification of the account from which funds are sent when the payment is executed. When the debtor account is not provided it is to be chosen by the PSU during payment authorisation flow.
+          $ref: '#/components/schemas/GenericIdentification'
+        debtor_agent:
+          description: Identification of the financial institution where the debtor account is held. To be provided only in case the financial institution can not be unambiguously identified the ASPSP name towards which the payment is initiated.
+          $ref: '#/components/schemas/FinancialInstitutionIdentification'
+        debtor_currency:
+          type: string
+          title: Debtor Currency
+          description: ISO 4217 code, in which debtor account is held
+          default: XXX
+        purpose:
+          description: Underlying reason for the payment
+          $ref: '#/components/schemas/PurposeCode'
+        charge_bearer:
+          description: Specifies which party/parties will bear the charges associated with the processing of the payment
+          $ref: '#/components/schemas/ChargeBearerCode'
+        credit_transfer_transaction:
+          items:
+            $ref: '#/components/schemas/CreditTransferTransaction'
+          type: array
+          minItems: 1
+          title: Credit Transfer Transaction
+          description: Payment instructions to be executed towards one or multiple beneficiaries in the payment process. Maximum number of transactions depend on the ASPSP and type of the payment taking into accounts its specificities about payment request handling.
+      type: object
+      required:
+      - credit_transfer_transaction
+      title: PaymentRequestResource
+      example:
+        credit_transfer_transaction:
+        - beneficiary:
+            creditor:
+              name: Organisation/Person Name
+            creditor_account:
+              identification: FI0455231152453547
+              scheme_name: IBAN
+          instructed_amount:
+            amount: '10.33'
+            currency: EUR
+        debtor_account:
+          identification: FI7727551317119265
+          scheme_name: IBAN
     ErrorCode:
       type: string
       enum:
@@ -660,21 +1314,49 @@ components:
       - Wrong request parameters provided
       - Wrong session status
       - Wrong transactions period requested
-    FinancialInstitutionIdentification:
+    ContactDetails:
       properties:
-        bic_fi:
-          title: Bic Fi
-          description: Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identification code (BIC)".
+        email_address:
+          title: Email Address
+          description: Email address of a person
           type: string
-        clearing_system_member_id:
-          description: Information used to identify a member within a clearing system.
-          $ref: '#/components/schemas/ClearingSystemMemberIdentification'
-        name:
-          title: Name
-          description: Name of the financial institution
+        phone_number:
+          title: Phone Number
+          description: Phone number of a person
           type: string
       type: object
-      title: FinancialInstitutionIdentification
+      title: ContactDetails
+    StatusReasonInformation:
+      properties:
+        status_reason_code:
+          type: string
+          title: Status Reason Code
+          description: ISO20022 status reason code
+        status_reason_description:
+          type: string
+          title: Status Reason Description
+          description: Status reason description
+      type: object
+      required:
+      - status_reason_code
+      - status_reason_description
+      title: StatusReasonInformation
+    ReferenceNumber:
+      type: string
+      title: ReferenceNumber
+      description: 'This field specifies the reference assigned by the sender to unambiguously identify the message.
+
+        '
+    ExecutionRule:
+      type: string
+      enum:
+      - FWNG
+      - PREC
+      title: ExecutionRule
+      example: FWNG
+      x-enum-descriptions:
+      - Following
+      - Preceding
     SchemeName:
       type: string
       enum:
@@ -731,18 +1413,6 @@ components:
       - The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.
       - The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity.
       - TaxIdentificationNumber
-    ContactDetails:
-      properties:
-        email_address:
-          title: Email Address
-          description: Email address of a person
-          type: string
-        phone_number:
-          title: Phone Number
-          description: Phone number of a person
-          type: string
-      type: object
-      title: ContactDetails
     PriorityCode:
       type: string
       enum:
@@ -755,12 +1425,29 @@ components:
       - Express priority. Polish-specific priority code
       - High priority
       - Normal priority
-    ReferenceNumber:
+    ChargeBearerCode:
       type: string
-      title: ReferenceNumber
-      description: 'This field specifies the reference assigned by the sender to unambiguously identify the message.
-
-        '
+      enum:
+      - SLEV
+      - SHAR
+      - DEBT
+      - CRED
+      title: ChargeBearerCode
+      example: SLEV
+      x-enum-descriptions:
+      - The Payee (recipient of the payment) will incur all of the payment transaction fees
+      - The Payer (sender of the payment) will bear all of the payment transaction fees
+      - Shared. Transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor
+      - Service level. Charges are to be applied following the rules agreed in the service level and/or scheme
+    SuccessResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+          description: Returns "OK" in case of successful request
+          default: OK
+      type: object
+      title: SuccessResponse
     AddressType:
       type: string
       enum:
@@ -783,470 +1470,6 @@ components:
       - Postal address
       - Residential address
       - Statement address
-    PaymentStatus:
-      type: string
-      enum:
-      - ACCC
-      - ACCP
-      - ACSC
-      - ACSP
-      - ACTC
-      - ACWC
-      - ACWP
-      - PART
-      - RCVD
-      - PDNG
-      - RJCT
-      - ACPT
-      - ACCR
-      - RJCR
-      - PACR
-      - PDCR
-      - CNCL
-      - 'NULL'
-      title: PaymentStatus
-      example: ACCC
-      x-enum-descriptions:
-      - AcceptedCreditSettlementCompleted. Settlement on the creditor's account has been completed.
-      - AcceptedCustomerProfile. Preceding check of technical validation was successful. Customer profile check was also successful.
-      - AcceptedCancellationRequest. Cancellation is accepted.
-      - Accepted. Request is accepted.
-      - AcceptedSettlementCompleted. Settlement on the debtor's account has been completed.
-      - AcceptedSettlementInProcess. All preceding checks such as technical validation and customer profile were successful. Dynamic risk assessment is now also successful and therefore the Payment Request has been accepted for execution.
-      - AcceptedTechnicalValidation. Authentication and syntactical and semantical validation are successful.
-      - AcceptedWithChange. Instruction is accepted but a change will be made, such as date or remittance not sent.
-      - AcceptedWithoutPosting. Payment instruction included in the credit transfer is accepted without being posted to the creditor's account.
-      - PaymentCancelled. Payment is cancelled.
-      - NoCancellationProcess. There is no cancellation process ongoing.
-      - PartiallyAcceptedCancellationRequest. Cancellation is partially accepted.
-      - PartiallyAccepted. A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
-      - PendingCancellationRequest. Cancellation request is pending.
-      - Pending. Payment request or individual transaction included in the Payment Request is pending. Further checks and status update will be performed.
-      - Received. Payment initiation has been received by the receiving agent.
-      - RejectedCancellationRequest. Cancellation request is rejected.
-      - Rejected. Payment request  has been rejected.
-    ClearingSystemMemberIdentification:
-      properties:
-        clearing_system_id:
-          title: Clearing System Id
-          description: Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
-          examples:
-          - NZNCC
-          type: string
-        member_id:
-          title: Member Id
-          description: Identification of a member of a clearing system.
-          examples:
-          - 020368
-          type: string
-      type: object
-      title: ClearingSystemMemberIdentification
-    RequestedExecutionDate:
-      type: string
-      format: date
-      title: RequestedExecutionDate
-      description: 'Date at which the initiating party requests the clearing agent to process the payment.
-
-        API:
-
-        This date can be used in the following cases:
-
-        - the single requested execution date for a payment having several instructions. In this case, this field must be set at the payment level.
-
-        - the requested execution date for a given instruction within a payment. In this case, this field must be set at each instruction level.
-
-        - The first date of execution for a standing order.
-
-        When the payment cannot be processed at this date, the ASPSP is allowed to shift the applied execution date to the next possible execution date for non-standing orders.
-
-        For standing orders, the [executionRule] parameter helps to compute the execution date to be applied.
-
-        '
-    GetPaymentTransactionResponse:
-      properties:
-        payment_id:
-          type: string
-          format: uuid
-          title: Payment Id
-          description: Payment ID
-        transaction_details:
-          $ref: '#/components/schemas/CreditTransferTransactionDetails'
-          description: Payment transaction details
-      type: object
-      required:
-      - payment_id
-      - transaction_details
-      title: GetPaymentTransactionResponse
-    PaymentTypeInformation:
-      properties:
-        instruction_priority:
-          description: Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply
-          $ref: '#/components/schemas/PriorityCode'
-        service_level:
-          description: Agreement under which or rules under which the transaction should be processed. Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list
-          $ref: '#/components/schemas/ServiceLevelCode'
-        category_purpose:
-          description: Specifies the high level purpose of the instruction based on a set of pre-defined categories. This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain.
-          $ref: '#/components/schemas/CategoryPurposeCode'
-        local_instrument:
-          title: Local Instrument
-          description: User community specific instrument
-          type: string
-      type: object
-      title: PaymentTypeInformation
-    FrequencyCode:
-      type: string
-      enum:
-      - DAIL
-      - WEEK
-      - TOWK
-      - MNTH
-      - TOMN
-      - QUTR
-      - SEMI
-      - YEAR
-      title: FrequencyCode
-      example: DAIL
-      x-enum-descriptions:
-      - Daily
-      - Monthly
-      - Quarterly
-      - Semi annual
-      - Every two months
-      - Every two weeks
-      - Weekly
-      - Annual
-    ExecutionRule:
-      type: string
-      enum:
-      - FWNG
-      - PREC
-      title: ExecutionRule
-      example: FWNG
-      x-enum-descriptions:
-      - Following
-      - Preceding
-    EndDate:
-      type: string
-      format: date
-      title: EndDate
-      description: 'The last applicable day of execution for a given standing order.
-
-        If not given, the standing order is considered as endless.
-
-        '
-    RegulatoryReporting:
-      properties:
-        authority:
-          description: Regulatory authority to which reporting shall be made
-          $ref: '#/components/schemas/RegulatoryAuthority'
-        details:
-          $ref: '#/components/schemas/RegulatoryReportingDetails'
-          description: Details to provide on the regulatory reporting information
-      type: object
-      required:
-      - details
-      title: RegulatoryReporting
-    PurposeCode:
-      type: string
-      enum:
-      - ACCT
-      - CASH
-      - COMC
-      - CPKC
-      - TRPT
-      title: PurposeCode
-      example: ACCT
-      x-enum-descriptions:
-      - Funds moved between 2 accounts of same account holder at the same bank
-      - General cash management instruction, may be used for Transfer Initiation
-      - Transaction is related to a payment of commercial credit or debit
-      - General Carpark Charges Transaction is related to carpark charges
-      - Transport RoadPricing Transaction is for the payment to top-up pre-paid card and electronic road pricing for the purpose of transportation
-    CreatePaymentResponse:
-      properties:
-        payment_id:
-          type: string
-          format: uuid
-          title: Payment Id
-          description: Payment ID
-        status:
-          $ref: '#/components/schemas/PaymentStatus'
-          description: Payment status
-        url:
-          type: string
-          maxLength: 2083
-          minLength: 1
-          format: uri
-          title: Url
-          description: URL to redirect a PSU to
-        psu_id_hash:
-          type: string
-          title: Psu Id Hash
-          description: Hashed unique identification of a PSU used by the client application. In case PSU ID is not passed by the client application, the hash is calculated based on a random value. The hash also inherits the application ID, so different hashes will be calculated when using the same PSU ID with different applications.
-      type: object
-      required:
-      - payment_id
-      - status
-      - url
-      - psu_id_hash
-      title: CreatePaymentResponse
-      example:
-        payment_id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
-        status: PDNG
-        url: https://tilisy-sandbox.enablebanking.com/pis/start?payment_id=497f6eca-6276-4993-bfeb-53cbbbba6f08
-    PaymentRequestResource:
-      properties:
-        payment_information_id:
-          description: Reference assigned by a sending party to unambiguously identify the payment information block within the message
-          $ref: '#/components/schemas/PaymentInformationId'
-        payment_type_information:
-          description: Set of elements used to further specify the type of payment
-          $ref: '#/components/schemas/PaymentTypeInformation'
-        debtor:
-          description: Identification of the party sending funds
-          $ref: '#/components/schemas/PartyIdentification'
-        debtor_account:
-          description: Identification of the account from which funds are sent when the payment is executed. When the debtor account is not provided it is to be chosen by the PSU during payment authorisation flow.
-          $ref: '#/components/schemas/GenericIdentification'
-        debtor_agent:
-          description: Identification of the financial institution where the debtor account is held. To be provided only in case the financial institution can not be unambiguously identified the ASPSP name towards which the payment is initiated.
-          $ref: '#/components/schemas/FinancialInstitutionIdentification'
-        debtor_currency:
-          type: string
-          title: Debtor Currency
-          description: ISO 4217 code, in which debtor account is held
-          default: XXX
-        purpose:
-          description: Underlying reason for the payment
-          $ref: '#/components/schemas/PurposeCode'
-        charge_bearer:
-          description: Specifies which party/parties will bear the charges associated with the processing of the payment
-          $ref: '#/components/schemas/ChargeBearerCode'
-        credit_transfer_transaction:
-          items:
-            $ref: '#/components/schemas/CreditTransferTransaction'
-          type: array
-          minItems: 1
-          title: Credit Transfer Transaction
-          description: Payment instructions to be executed towards one or multiple beneficiaries in the payment process. Maximum number of transactions depend on the ASPSP and type of the payment taking into accounts its specificities about payment request handling.
-      type: object
-      required:
-      - credit_transfer_transaction
-      title: PaymentRequestResource
-      example:
-        credit_transfer_transaction:
-        - beneficiary:
-            creditor:
-              name: Organisation/Person Name
-            creditor_account:
-              identification: FI0455231152453547
-              scheme_name: IBAN
-          instructed_amount:
-            amount: '10.33'
-            currency: EUR
-        debtor_account:
-          identification: FI7727551317119265
-          scheme_name: IBAN
-    PaymentIdentification:
-      properties:
-        instruction_id:
-          title: Instruction Id
-          description: 'Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.
-
-
-            API: Unique identification shared between the PISP and the ASPSP
-
-            '
-          type: string
-        end_to_end_id:
-          title: End To End Id
-          description: 'Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
-
-
-            API: Unique identification shared between the merchant and the PSU
-
-            '
-          type: string
-      type: object
-      title: PaymentIdentification
-    Beneficiary:
-      properties:
-        creditor_agent:
-          description: Identification of the financial institution where the account receiving funds is held
-          $ref: '#/components/schemas/FinancialInstitutionIdentification'
-        creditor:
-          description: Identification of the party receiving funds
-          $ref: '#/components/schemas/PartyIdentification'
-        creditor_account:
-          $ref: '#/components/schemas/GenericIdentification'
-          description: Identification of the account receiving funds
-        creditor_currency:
-          title: Creditor Currency
-          description: ISO 4217 currency code, in which the account receiving funds is held
-          type: string
-      type: object
-      required:
-      - creditor_account
-      title: Beneficiary
-      example:
-        creditor:
-          name: Organisation/Person Name
-        creditor_account:
-          identification: FI0455231152453547
-          scheme_name: IBAN
-    CreditTransferTransaction:
-      properties:
-        instructed_amount:
-          $ref: '#/components/schemas/AmountType'
-          description: Structure aiming to embed the amount and the currency to be used
-        beneficiary:
-          $ref: '#/components/schemas/Beneficiary'
-          description: Specification of a beneficiary
-        payment_id:
-          description: Set of elements used to reference a payment instruction
-          $ref: '#/components/schemas/PaymentIdentification'
-        requested_execution_date:
-          $ref: '#/components/schemas/RequestedExecutionDate'
-        reference_number:
-          $ref: '#/components/schemas/ReferenceNumber'
-        end_date:
-          $ref: '#/components/schemas/EndDate'
-        execution_rule:
-          description: Execution date shifting rule for standing orders
-          $ref: '#/components/schemas/ExecutionRule'
-        frequency:
-          description: Frequency rule for standing orders
-          $ref: '#/components/schemas/FrequencyCode'
-        ultimate_debtor:
-          description: Identifies the original party from whom the funds originate in the payment transaction
-          $ref: '#/components/schemas/PartyIdentification'
-        ultimate_creditor:
-          description: Identifies the final party receiving the funds in the payment transaction
-          $ref: '#/components/schemas/PartyIdentification'
-        regulatory_reporting:
-          title: Regulatory Reporting
-          description: List of needed regulatory reporting codes for international payments
-          items:
-            $ref: '#/components/schemas/RegulatoryReporting'
-          type: array
-          maxItems: 10
-          minItems: 1
-        remittance_information:
-          $ref: '#/components/schemas/UnstructuredRemittanceInformation'
-      type: object
-      required:
-      - instructed_amount
-      - beneficiary
-      title: CreditTransferTransaction
-      description: Payment instruction to be executed by the ASPSP
-    CategoryPurposeCode:
-      type: string
-      enum:
-      - BONU
-      - CASH
-      - CBLK
-      - CCRD
-      - CORT
-      - DCRD
-      - DIVI
-      - DVPM
-      - EPAY
-      - FCOL
-      - GOVT
-      - HEDG
-      - ICCP
-      - IDCP
-      - INTC
-      - INTE
-      - LOAN
-      - MP2B
-      - MP2P
-      - OTHR
-      - PENS
-      - RPRE
-      - RRCT
-      - RVPM
-      - SALA
-      - SECU
-      - SSBE
-      - SUPP
-      - TAXS
-      - TRAD
-      - TREA
-      - VATX
-      - WHLD
-      title: CategoryPurposeCode
-      example: BONU
-      x-enum-descriptions:
-      - 'Bonus Payment: Transaction is the payment of a bonus'
-      - 'Cash Management Transfer: Transaction is a general cash management instruction'
-      - 'Card Bulk Clearing: A Service that is settling money for a bulk of card transactions, while referring to a specific transaction file or other information like terminal ID, card acceptor ID or other transaction details'
-      - 'Credit Card Payment: Transaction is related to a payment of credit card'
-      - 'Trade Settlement Payment: Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction'
-      - 'Debit Card Payment: Transaction is related to a payment of debit card'
-      - 'Dividend: Transaction is the payment of dividends'
-      - 'Deliver Against Payment: Code used to pre-advise the account servicer of a forthcoming deliver against payment instruction'
-      - 'Epayment: Transaction is related to ePayment'
-      - 'Fee Collection: A Service that is settling card transaction related fees between two parties'
-      - 'Government Payment: Transaction is a payment to or from a government department'
-      - 'Hedging: Transaction is related to the payment of a hedging operation'
-      - 'Irrevocable Credit Card Payment: Transaction is reimbursement of credit card payment'
-      - 'Irrevocable Debit Card Payment: Transaction is reimbursement of debit card payment'
-      - 'Intra Company Payment: Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group'
-      - 'Interest: Transaction is the payment of interest'
-      - 'Loan: Transaction is related to the transfer of a loan to a borrower'
-      - Commercial Mobile P2B Payment
-      - Consumer Mobile P2P Payment
-      - 'Other Payment: Other payment purpose'
-      - 'Pension Payment: Transaction is the payment of pension'
-      - 'Represented: Collection used to re-present previously reversed or returned direct debit transactions'
-      - 'Reimbursement Received Credit Transfer: Transaction is related to a reimbursement for commercial reasons of a correctly received credit transfer'
-      - 'Receive Against Payment: Code used to pre-advise the account servicer of a forthcoming receive against payment instruction'
-      - 'Salary Payment: Transaction is the payment of salaries'
-      - 'Securities: Transaction is the payment of securities'
-      - 'Social Security Benefit: Transaction is a social security benefit, ie payment made by a government to support individuals'
-      - 'Supplier Payment: Transaction is related to a payment to a supplier'
-      - 'Tax Payment: Transaction is the payment of taxes'
-      - 'Trade: Transaction is related to the payment of a trade finance transaction'
-      - 'Treasury Payment: Transaction is related to treasury operations.  E.g. financial contract settlement'
-      - 'Value Added Tax Payment: Transaction is the payment of value added tax'
-      - 'With Holding: Transaction is the payment of withholding tax'
-    StatusReasonInformation:
-      properties:
-        status_reason_code:
-          type: string
-          title: Status Reason Code
-          description: ISO20022 status reason code
-        status_reason_description:
-          type: string
-          title: Status Reason Description
-          description: Status reason description
-      type: object
-      required:
-      - status_reason_code
-      - status_reason_description
-      title: StatusReasonInformation
-    AmountType:
-      properties:
-        currency:
-          type: string
-          title: Currency
-          description: ISO 4217 code of the currency of the amount
-          examples:
-          - EUR
-        amount:
-          type: string
-          pattern: ^-?\d+(\.\d+)?$
-          title: Amount
-          description: Numerical value or monetary figure associated with a particular transaction, representing balance on an account, a fee or similar. Represented as a decimal number, using . (dot) as a decimal separator. Allowed precision (number of digits after the decimal separator) varies depending on the currency and is validated differently depending on the context.
-          examples:
-          - '1.23'
-      type: object
-      required:
-      - currency
-      - amount
-      title: AmountType
     PaymentRequestResourceDetails:
       properties:
         payment_information_id:
@@ -1296,229 +1519,6 @@ components:
         debtor_account:
           identification: FI7727551317119265
           scheme_name: IBAN
-    PaymentType:
-      type: string
-      enum:
-      - SEPA
-      - INST_SEPA
-      - DOMESTIC
-      - CROSSBORDER
-      - DOMESTIC_SE_GIRO
-      - INTERNAL
-      - BULK_SEPA
-      - BULK_DOMESTIC
-      - BULK_DOMESTIC_SE_GIRO
-      title: PaymentType
-      example: SEPA
-      x-enum-descriptions:
-      - Domestic bulk credit transfers
-      - Swedish domestic bulk Giro payments (BankGiro/PlusGiro)
-      - SEPA bulk credit transfers
-      - Crossborder credit transfers
-      - Domestic credit transfers
-      - Swedish domestic Giro payments (BankGiro/PlusGiro)
-      - Instant SEPA credit transfers (without fallback to SEPA)
-      - Transfer made within an ASPSP
-      - SEPA credit transfers
-    ChargeBearerCode:
-      type: string
-      enum:
-      - SLEV
-      - SHAR
-      - DEBT
-      - CRED
-      title: ChargeBearerCode
-      example: SLEV
-      x-enum-descriptions:
-      - The Payee (recipient of the payment) will incur all of the payment transaction fees
-      - The Payer (sender of the payment) will bear all of the payment transaction fees
-      - Shared. Transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor
-      - Service level. Charges are to be applied following the rules agreed in the service level and/or scheme
-    PartyIdentification:
-      properties:
-        name:
-          title: Name
-          description: Name by which a party is known and which is usually used to identify that party.
-          examples:
-          - MyPreferredAisp
-          type: string
-        postal_address:
-          description: Information that locates and identifies a specific address, as defined by postal services
-          $ref: '#/components/schemas/PostalAddress'
-        organisation_id:
-          description: Unique identification of an account, a person or an organisation, as assigned by an issuer
-          $ref: '#/components/schemas/GenericIdentification'
-        private_id:
-          description: Unique identification of an account, a person or an organisation, as assigned by an issuer
-          $ref: '#/components/schemas/GenericIdentification'
-        contact_details:
-          description: Specifies the contact details associated with a person or an organisation
-          $ref: '#/components/schemas/ContactDetails'
-      type: object
-      title: PartyIdentification
-      example:
-        name: MyPreferredAisp
-        postal_address:
-          address_line:
-          - Mr Asko Teirila PO Box 511
-          - 39140 AKDENMAA FINLAND
-          address_type: Business
-          building_number: '4'
-          country: FI
-          country_sub_division: Uusimaa
-          department: Department of resources
-          post_code: '00123'
-          street_name: Vasavagen
-          sub_department: Sub Department of resources
-          town_name: Helsinki
-    GenericIdentification:
-      properties:
-        identification:
-          type: string
-          title: Identification
-          description: An identifier
-          examples:
-          - '12345678'
-        scheme_name:
-          $ref: '#/components/schemas/SchemeName'
-          description: Name of the identification scheme. Partially based on ISO20022 external code list
-          examples:
-          - BBAN
-        issuer:
-          title: Issuer
-          description: Entity that assigns the identification. This could be a country code or any organisation name or identifier that can be recognized by both parties
-          examples:
-          - FR
-          type: string
-      type: object
-      required:
-      - identification
-      - scheme_name
-      title: GenericIdentification
-      example:
-        identification: '123456'
-        scheme_name: BBAN
-    ErrorResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Error message
-          examples:
-          - Required PSU header is not provided
-        code:
-          title: Code
-          description: Error code, identical to the http response code
-          examples:
-          - 422
-          type: integer
-        error:
-          description: Text error code
-          examples:
-          - PSU_HEADER_NOT_PROVIDED
-          $ref: '#/components/schemas/ErrorCode'
-        detail:
-          title: Detail
-          description: Detailed explanation of an error
-          examples:
-          - PSU header psuIpAddress is not provided
-      type: object
-      required:
-      - message
-      title: ErrorResponse
-    RegulatoryReportingDetails:
-      properties:
-        amount:
-          description: Amount of money to be reported. If not provided the total instructed amount of the transaction is assumed.
-          $ref: '#/components/schemas/AmountType'
-        code:
-          title: Code
-          description: A code specifying the nature, purpose, and/or reason for the transaction. Codes to be used depend on the regulatory authority, to which they are being reported.
-          type: string
-        information:
-          title: Information
-          description: Additional details that cater for specific domestic regulatory requirements.
-          type: string
-      type: object
-      required:
-      - information
-      title: RegulatoryReportingDetails
-    CreditTransferTransactionDetails:
-      properties:
-        instructed_amount:
-          $ref: '#/components/schemas/AmountType'
-          description: Structure aiming to embed the amount and the currency to be used
-        beneficiary:
-          $ref: '#/components/schemas/Beneficiary'
-          description: Specification of a beneficiary
-        payment_id:
-          description: Set of elements used to reference a payment instruction
-          $ref: '#/components/schemas/PaymentIdentification'
-        requested_execution_date:
-          $ref: '#/components/schemas/RequestedExecutionDate'
-        reference_number:
-          $ref: '#/components/schemas/ReferenceNumber'
-        end_date:
-          $ref: '#/components/schemas/EndDate'
-        execution_rule:
-          description: Execution date shifting rule for standing orders
-          $ref: '#/components/schemas/ExecutionRule'
-        frequency:
-          description: Frequency rule for standing orders
-          $ref: '#/components/schemas/FrequencyCode'
-        ultimate_debtor:
-          description: Identifies the original party from whom the funds originate in the payment transaction
-          $ref: '#/components/schemas/PartyIdentification'
-        ultimate_creditor:
-          description: Identifies the final party receiving the funds in the payment transaction
-          $ref: '#/components/schemas/PartyIdentification'
-        regulatory_reporting:
-          title: Regulatory Reporting
-          description: List of needed regulatory reporting codes for international payments
-          items:
-            $ref: '#/components/schemas/RegulatoryReporting'
-          type: array
-          maxItems: 10
-          minItems: 1
-        remittance_information:
-          $ref: '#/components/schemas/UnstructuredRemittanceInformation'
-        transaction_id:
-          title: Transaction Id
-          description: Unique identifier of the payment transaction, which can be used for fetching details through the get payment transaction endpoint
-          type: string
-        transaction_status:
-          description: Status of the payment transaction
-          $ref: '#/components/schemas/PaymentStatus'
-      type: object
-      required:
-      - instructed_amount
-      - beneficiary
-      title: CreditTransferTransactionDetails
-      description: Details of the payment instruction executed (to be executed) by the ASPSP
-    SuccessResponse:
-      properties:
-        message:
-          type: string
-          title: Message
-          description: Returns "OK" in case of successful request
-          default: OK
-      type: object
-      title: SuccessResponse
-    RegulatoryAuthority:
-      properties:
-        country:
-          type: string
-          title: Country
-          description: Two-letter ISO 3166 code of the country in which the regulatory authority operates
-        name:
-          title: Name
-          description: Name of the regulatory authority
-          type: string
-      type: object
-      required:
-      - country
-      - name
-      title: RegulatoryAuthority
   securitySchemes:
     bearerAuth:
       scheme: bearer
