@@ -407,9 +407,9 @@ tags:
   - Finland
   - Compliance
   - eIDAS
-  - SCA
   - DORA
   - GDPR
+  - Strong Customer Authentication
 tags_raw:
   - Open Banking
   - PSD2
@@ -424,8 +424,10 @@ tags_raw:
   - Finland
   - Compliance
   - eIDAS
-  - SCA
   - DORA
   - GDPR
   - Financial-Services
+  - Strong Customer Authentication
 image: https://enablebanking.com/static/og-image.png
+x-tags-removed:
+- SCA
