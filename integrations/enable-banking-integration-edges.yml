@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/enable-banking/integrations
 - https://n8n.io/integrations/enable-banking/
@@ -9,8 +9,26 @@ checked:
 - https://composio.dev/toolkits/enable-banking
 - https://monid.ai/tools/enable-banking
 - https://n8n.io/integrations/enable-banking/
+- https://www.openbanking.org.uk/regulated-providers/enable-banking-oy/
 - https://zapier.com/apps/enable-banking/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: UK Open Banking
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.openbanking.org.uk/regulated-providers/enable-banking-oy/
+  contract_reference:
+    register: UK Open Banking regulated providers (OBL directory)
+    spec_file: null
+    role: Third Party Providers
+    registered_name: Enable Banking Oy
+    register_id: 18086
+    matched_domain: enablebanking.com
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
 templates: []
