@@ -1,4 +1,4 @@
-# Enable Banking (enable-banking)
+# Enable Banking
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,121 +66,172 @@
 
 Enable Banking is a Finland-based Open Banking connectivity engine and licensed PSD2 Account Information Service Provider (AISP) regulated by the Finnish Financial Supervisory Authority (FIN-FSA). Headquartered in Espoo, Enable Banking provides a single harmonized API across 2,700+ banks (ASPSPs) in 30 European countries, exposing Account Information Services (AIS) and Payment Initiation Services (PIS), TPP Infrastructure-as-a-Service for licensed Third Party Providers, and an eIDAS-backed JWT authentication model. The platform processes 25M+ API requests monthly across the EEA and maintains 1,000+ ASPSP integrations, serving accounting and ERP platforms, credit risk and KYC providers, wealth managers, and payment service providers including Qred Bank, Fimento, CapitalBox, and iDenfy. Enable Banking is GDPR and DORA compliant with an active PSD3 / FIDA roadmap.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/enable-banking/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/enable-banking/refs/heads/main/apis.yml)
+**Areas:** Open Banking · PSD2 · AISP · PISP · Banking · Financial Services · Account Aggregation · Payment Initiation · Europe · Nordic · Finland · Compliance
 
-## Scope
+## Enable Banking on APIs.io
 
-- **Position:** Consuming
+Everything profiled for Enable Banking is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/enable-banking/](https://apis.io/providers/enable-banking/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Open Banking
-- PSD2
-- AISP
-- PISP
-- Banking
-- Financial Services
-- Account Aggregation
-- Payment Initiation
-- Europe
-- Nordic
-- Finland
-- Compliance
-- eIDAS
-- SCA
-- DORA
-- GDPR
+- [Enable Banking Accounts data API](https://apis.io/apis/enable-banking/enable-banking-accounts-data-api/) — The Accounts data API from Enable Banking — 4 operation(s) for accounts data.
+- [Enable Banking Misc API](https://apis.io/apis/enable-banking/enable-banking-misc-api/) — The Misc API from Enable Banking — 2 operation(s) for misc.
+- [Enable Banking Payments API](https://apis.io/apis/enable-banking/enable-banking-payments-api/) — The Payments API from Enable Banking — 3 operation(s) for payments.
+- [Enable Banking User sessions API](https://apis.io/apis/enable-banking/enable-banking-user-sessions-api/) — The User sessions API from Enable Banking — 3 operation(s) for user sessions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Enable Banking API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Enable Banking API is a single harmonized PSD2 Open Banking API providing Account Information Services (AIS) and Payment Initiation Services (PIS) across 2,700+ banks (ASPSPs) in 30 European countries. The API normalizes user sessions, consent and SCA flows, account details, balances, transactions, and payment initiation behind one REST surface. Authentication uses application-issued JWTs signed with RS256 against an eIDAS-backed certificate registered via the Enable Banking Control Panel. Endpoint groups cover User sessions (/auth, /sessions), Accounts data (/accounts/{account_id}/details, /balances, /transactions), Payments (/payments and /payments/{payment_id}), and Misc (/aspsps, /application).
+- [Enable Banking Agentic Access](https://apis.io/agentic-access/enable-banking/enable-banking-agentic-access/)
 
-- **Human URL:** [https://enablebanking.com/docs/api/reference/](https://enablebanking.com/docs/api/reference/)
-- **Base URL:** `https://api.enablebanking.com`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Open Banking
-- PSD2
-- AISP
-- PISP
-- Account Information
-- Payment Initiation
-- Banking
-- Aggregation
-- Europe
-- Nordic
+- [Enable Banking Account](https://apis.io/schemas/enable-banking/enable-banking-account/)
+- [Enable Banking Payment](https://apis.io/schemas/enable-banking/enable-banking-payment/)
+- [Enable Banking Transaction](https://apis.io/schemas/enable-banking/enable-banking-transaction/)
 
-#### Properties
+#### JSON Structure (1)
 
+Data models expressed in JSON Structure.
+
+- [Enable Banking Account Structure](https://apis.io/json-structure/enable-banking/enable-banking-account-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Enable Banking Context](https://apis.io/jsonld/enable-banking/enable-banking-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Enable Banking Vocabulary](https://apis.io/vocabularies/enable-banking/enable-banking-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Enable Banking Create Payment Example](https://apis.io/examples/enable-banking/enable-banking-create-payment-example/)
+- [Enable Banking Get Account Transactions Example](https://apis.io/examples/enable-banking/enable-banking-get-account-transactions-example/)
+- [Enable Banking Start Authorization Example](https://apis.io/examples/enable-banking/enable-banking-start-authorization-example/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [API reference Accounts data API](https://apis.io/collections/enable-banking/open-enable-banking-accounts-data-api/)
+- [API reference](https://apis.io/collections/enable-banking/open-enable-banking-api/)
+- [API reference Accounts data Misc API](https://apis.io/collections/enable-banking/open-enable-banking-misc-api/)
+- [API reference Accounts data Payments API](https://apis.io/collections/enable-banking/open-enable-banking-payments-api/)
+- [API reference Accounts data User sessions API](https://apis.io/collections/enable-banking/open-enable-banking-user-sessions-api/)
+- [API reference Accounts data API](https://apis.io/collections/enable-banking/postman-enable-banking-accounts-data-api/)
+- [API reference Accounts data Misc API](https://apis.io/collections/enable-banking/postman-enable-banking-misc-api/)
+- [API reference Accounts data Payments API](https://apis.io/collections/enable-banking/postman-enable-banking-payments-api/)
+- [API reference Accounts data User sessions API](https://apis.io/collections/enable-banking/postman-enable-banking-user-sessions-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Enable Banking — jsonschema rules](https://apis.io/rules/enable-banking/enable-banking-jsonschema-spectral-rules/)
+- [Enable Banking API Rules](https://apis.io/rules/enable-banking/enable-banking-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Enable Banking Authentication](https://apis.io/security/enable-banking/enable-banking-authentication/)
+- [Enable Banking Domain Security](https://apis.io/security/enable-banking/enable-banking-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Enable Banking Plans Pricing](https://apis.io/plans/enable-banking/enable-banking-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Enable Banking Rate Limits](https://apis.io/rate-limits/enable-banking/enable-banking-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Enable Banking Finops](https://apis.io/finops/enable-banking/enable-banking-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.enablebanking.com/)
 - [Documentation](https://enablebanking.com/docs/)
-- [Documentation](https://enablebanking.com/docs/api/reference/)
-- [Getting Started](https://enablebanking.com/docs/api/getting-started/)
-- [OpenAPI](openapi/enable-banking-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/enable-banking-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/enable-banking-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [OpenAPI](https://enablebanking.com/docs/api/reference/enablebanking-api.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/enable-banking-account-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/enable-banking-transaction-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/enable-banking-payment-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/enable-banking-account-structure.json)
-- [JSON-LD](json-ld/enable-banking-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](rules/enable-banking-rules.yml)
-- [Vocabulary](vocabulary/enable-banking-vocabulary.yml)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/python_example)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/js_example)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/go_example)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/cs_example)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/php_example)
-- [SDK](https://github.com/enablebanking/enablebanking-api-samples/tree/master/ruby_example)
-- [Postman](https://github.com/enablebanking/enablebanking-api-samples/tree/master/postman_example) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [C L I](https://github.com/enablebanking/enablebanking-cli)
-- [Tools](https://github.com/enablebanking/open_banking_eidas_broker)
-- [GitHub Organization](https://github.com/enablebanking)
-- [Control Panel](https://enablebanking.com/cp/)
-- [Sandbox](https://tilisy.com)
+- [Getting started](https://enablebanking.com/docs/api/getting-started/)
 - [Pricing](https://enablebanking.com/pricing/)
-- [Blog](https://enablebanking.com/blog/)
 - [Changelog](https://enablebanking.com/changelog/)
-- [Portal](https://enablebanking.com)
-- [Authentication](https://enablebanking.com/docs/api/reference/#authentication)
-- [Plans](plans/enable-banking-plans-pricing.yml)
-- [Rate Limits](rate-limits/enable-banking-rate-limits.yml)
-- [Fin Ops](finops/enable-banking-finops.yml)
-- [Features](undefined)
-
-## Common Properties
-
-- [Portal](https://enablebanking.com)
-- [Documentation](https://enablebanking.com/docs/)
-- [Getting Started](https://enablebanking.com/docs/api/getting-started/)
-- [Documentation](https://enablebanking.com/docs/api/reference/)
 - [Blog](https://enablebanking.com/blog/)
-- [Changelog](https://enablebanking.com/changelog/)
-- [Pricing](https://enablebanking.com/pricing/)
-- [About](https://enablebanking.com/about/)
-- [Contact Form](https://enablebanking.com/contact/)
-- [Console](https://enablebanking.com/cp/)
-- [Demo](https://tilisy.com)
-- [GitHub Organization](https://github.com/enablebanking)
-- [Code Samples](https://github.com/enablebanking/enablebanking-api-samples)
-- [C L I](https://github.com/enablebanking/enablebanking-cli)
-- [Tools](https://github.com/enablebanking/open_banking_eidas_broker)
-- [Tools](https://github.com/enablebanking/psd2-oidc-mock)
-- [LinkedIn](https://www.linkedin.com/company/enable-banking/)
-- [Plans](plans/enable-banking-plans-pricing.yml)
-- [Rate Limits](rate-limits/enable-banking-rate-limits.yml)
-- [Fin Ops](finops/enable-banking-finops.yml)
+- [GitHub](https://github.com/enablebanking)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 39.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 65.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 7.9 |
+
+**Agent readiness 26.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 13.4** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/enable-banking/](https://apis.io/providers/enable-banking/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Enable Banking: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/enable-banking/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
